@@ -1,0 +1,26 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+  font-style: normal;
+}
+body{
+  background:#fff;
+  margin:0;
+  padding:0;
+  font-style: normal;
+}
+h1{
+display: flex;
+position: relative;
+justify-content: center;
+align-content: center;
+top:50%;
+left:50%;
+transform: translate(-50%, -50%);
+}
