@@ -14,3 +14,7 @@ function displayNote() {
     document.getElementById('noteList').innerHTML = element;
   });
 }
+
+function saveToLocalStorage() {
+  localStorage.setItem('notes', JSON.stringify(quill.root.innerHTML));
+}
