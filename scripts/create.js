@@ -1,20 +1,28 @@
-let array = [];
+let notes = [];
 
 let quill = new Quill('#editor', {
   theme: 'snow'
 });
 
-function saveNote() {
-  console.log(quill.root.innerHTML);
-  array.push(quill.root.innerHTML);
+// Saves array to local storage
+function saveNotes() {
+  localStorage.setItem("note", JSON.stringify(notes));
 }
 
-function displayNote() {
-  array.forEach(element => {
-    document.getElementById('noteList').innerHTML = element;
-  });
+// Creates note, pushes to array
+const createNote = () => {
+  let data = quill.getContents();
+  const note  = {
+    note: data,
+    id: Date.now()
+  }
+  notes.push(note);
+  saveNotes();
 }
 
-function saveToLocalStorage() {
-  localStorage.setItem('notes', JSON.stringify(quill.root.innerHTML));
+// Check for unsaved data
+window.onbeforeunload = function () {
+  if (change.length() > 0) {
+    return 'There are unsaved changes. Are you sure you want to leave?';
+  }
 }
