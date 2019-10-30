@@ -1,4 +1,4 @@
-*,
+/* *,
 *::before,
 *::after {
   margin: 0;
@@ -15,7 +15,7 @@ body{
   overflow-x: hidden;
   font-style: normal;
   font-family: 'Roboto', sans-serif;
-}
+} */
 /* h1,h2{
 display: flex;
 font-size: 3rem;
@@ -26,18 +26,16 @@ align-content: center;
 } */
 /*----------About------------*/
 
- /* .container {
+ .container {
  display: flex;
  padding: 3rem;
  flex-wrap: wrap;
  align-content: center;
  margin: 0 auto;
- justify-content:space-around;
  width: 100%;
  min-height: 100vh;
- background-color:#0044ff;
- color: #fff;
-} */
+ color: rgb(0, 0, 0);
+} 
 /* .container-about img{
   width: 31rem;
 
