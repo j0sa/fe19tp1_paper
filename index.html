@@ -1,16 +1,56 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link  rel = "stylesheet" type = "text/css" href = "styles/style.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <title>Quire</title>
 </head>
+
 <body>
-   <h1>Quire</h1> 
+
+    <div class="navbar-fixed">
+        <nav class="nav-wrapper indigo">
+            <div class="container">
+                <a href="#" class="brand-logo">Quire</a>
+                <a href="#" class="sidenav-trigger" data-target="mobile-links">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/create.html">Create Note</a></li>
+                    <li><a href="">Scroll Notes</a></li>
+                    <li><a href="">Search Notes</a></li>
+                    <li><a href="">Statistics</a></li>
+                    <li><a href="" class="btn white indigo-text">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <ul class="sidenav" id="mobile-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/create.html">Create Note</a></li>
+        <li><a href="">Scroll Notes</a></li>
+        <li><a href="">Search Notes</a></li>
+        <li><a href="">Statistics</a></li>
+    </ul>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src = "scripts/about.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+    </script>
 </body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-<script src = "scripts/about.js"></script>
 </html>
