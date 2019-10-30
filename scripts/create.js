@@ -18,6 +18,8 @@ const createNote = () => {
   }
   notes.push(note);
   saveNotes();
+  // Redirects to index
+  window.location.href = '../index.html';
 }
 
 // Check for unsaved data
