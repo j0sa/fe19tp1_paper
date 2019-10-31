@@ -5,19 +5,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+  <link rel="stylesheet" href="styles/style.css" type="text/css">
   <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script src="https://cdn.quilljs.com/1.0.0-beta.6/quill.js"></script>
 
   <title>Create a note</title>
 </head>
 
 <body>
-  <div id="editor"></div>
-  <button onclick="createNote()">Create</button>
-  <div id="noteList"></div>
-  <script src="./scripts/create.js"></script>
+  <div class="quill-wrap">
+    <div id="toolbar">
+      <span class="ql-formats">
+        <select class="ql-header">
+          <option value="1">Heading</option>
+          <option value="2">Heading 2</option>
+          <option value="3">Heading 3</option>
+          <option value="4">Heading 4 </option>
+          <option value="5">Heading 5</option>
+          <option value="6">Heading 6</option>
+
+          <option selected>Normal</option>
+        </select>
+        <select class="ql-font">
+          <option selected>Sans Serif</option>
+          <option value="serif">Serif</option>
+          <option value="monospace">Monospace</option>
+        </select>
+      </span>
+      <span class="ql-formats">
+        <button class="ql-bold"></button>
+        <button class="ql-italic"></button>
+        <button class="ql-underline"></button>
+        <button class="ql-strike"></button>
+      </span>
+      <span class="ql-formats">
+        <select class="ql-color"></select>
+        <select class="ql-background"></select>
+      </span>
+      <span class="ql-formats">
+        <button class="ql-list" value="ordered"></button>
+        <button class="ql-list" value="bullet"></button>
+        <select class="ql-align">
+          <option selected></option>
+          <option value="center"></option>
+          <option value="right"></option>
+          <option value="justify"></option>
+        </select>
+      </span>
+      <span class="ql-formats">
+        <button class="ql-blockquote"></button>
+        <button class="ql-link"></button>
+        <button class="ql-image"></button>
+        <button class="ql-code-block"></button>
+        <button class="ql-video"></button>
+      </span>
+      <span class="ql-formats">
+        <button class="ql-clean"></button>
+      </span>
+    </div>
+    <div id="editor"></div>
+    <button onclick="createNote()" class="waves-effect waves-light btn" id="create">Create</button>
+    <div id="noteList"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./scripts/create.js"></script>
 </body>
 
 </html>

@@ -1,70 +1,63 @@
-/* *,
+*,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   border: 0;
-  font-family: 'Roboto', sans-serif;
-
+  font-family: "Roboto", sans-serif;
 }
-body{
-  background:#fff;
-  margin:0;
-  padding:0;  
+body {
+  background: #fff;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
   font-style: normal;
-  font-family: 'Roboto', sans-serif;
-} */
-/* h1,h2{
-display: flex;
-font-size: 3rem;
-font-weight: 700;
-position: relative;
-justify-content: center;
-align-content: center;
-} */
+  font-family: "Roboto", sans-serif;
+}
+
 /*----------About------------*/
 
- .container {
- display: flex;
- padding: 3rem;
- flex-wrap: wrap;
- align-content: center;
- margin: 0 auto;
- width: 100%;
- min-height: 100vh;
- color: rgb(0, 0, 0);
-} 
-/* .container-about img{
-  width: 31rem;
+.container {
+  display: flex;
+  padding: 3rem;
+  flex-wrap: wrap;
+  align-content: center;
+  margin: 0 auto;
+  width: 100%;
+  min-height: 100vh;
+  color: rgb(0, 0, 0);
+}
+/*----------Create note------------*/
 
+#toolbar {
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  background-color: #fff;
 }
-.description {
-display: flex;
-flex-direction: column;
-flex-wrap: wrap;
-justify-content: space-between;
-width:35rem;
-font-size: 1.4rem;
-font-weight: 700;
-line-height: 1.45;
+#editor {
+  border: 1px solid #000;
+  height: 10rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
 }
-#join {
- display: flex;
- justify-content: center;
- align-content: center;
- text-align: center;
- border-radius: 1rem;
- padding: 1rem;
- width: 12rem;
- background-color: coral;
- color: #fff;
- outline: none;
- text-transform: uppercase;
- font-size: 1.2rem;
- transition: all .2s ease-in-out;
+.quill-wrap {
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 900px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 }
-#join:hover{
-  transform: scale(1.1);
-}  */
+.quill-wrap .ql-active {
+  border: 1px solid #ccc !important;
+  border-radius: 4px;
+}
+.quill-wrap button,
+.quill-wrap .ql-picker {
+  margin-right: 4px;
+}
+#create {
+  margin: 1rem;
+}

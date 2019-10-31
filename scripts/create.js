@@ -2,6 +2,7 @@ let notes = [];
 
 var Delta = Quill.import('delta');
 let quill = new Quill('#editor', {
+  modules: { toolbar: '#toolbar' },
   theme: 'snow'
 });
 
