@@ -14,31 +14,61 @@ body {
   overflow-x: hidden;
   font-style: normal;
   font-family: "Roboto", sans-serif;
+  min-width: 100%;
+  min-height: 100%;
+}
+h1{
+font-size: 3rem;
 }
 
 /*----------About------------*/
-
-.container {
+.container-about {
   display: flex;
-  padding: 3rem;
   flex-wrap: wrap;
+  justify-content: center;
   align-content: center;
-  margin: 0 auto;
-  width: 100%;
   min-height: 100vh;
-  color: rgb(0, 0, 0);
-}
+  background-color:#97e5cb; 
+  color: #080b2e;
+ }
+ .container-about img{
+   width: 25rem;
+ }
+ .description {
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ width: 35rem;
+ height: 25rem;
+ font-size: 1.4rem;
+ font-weight: 700;
+ line-height: 1.45;
+ }
+ #join {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;  
+  width: 11rem;
+  padding: 1rem;
+  background-color:#080b2e;
+  color: #fff;
+  outline: none;
+  text-transform: uppercase;
+  font-size: 1rem;
+  transition: all .2s ease-in-out;
+ }
+ #join:hover{
+   transform: scale(1.1);
+ } 	
 /*----------Create note------------*/
 
 #toolbar {
-  border: 1px solid #000;
-  border-radius: 0.5rem;
   background-color: #fff;
 }
 #editor {
-  border: 1px solid #000;
-  height: 10rem;
-  border-radius: 0.5rem;
+  height:90vh;
   background-color: #fff;
 }
 .quill-wrap {
@@ -59,5 +89,39 @@ body {
   margin-right: 4px;
 }
 #create {
-  margin: 1rem;
+  margin:1%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  padding: 10px 25px;
+  background-color: #97e5cb;
+  color: #fff;
+  outline: none;
+  text-transform: uppercase;
+  font-size: 1rem;
+  transition: all .2s ease-in-out;
+ }
+ #create:hover{
+   transform: scale(1.1);
+ }
+#navbar ul{
+  width: 4rem;
+  min-height: 100vh;
+  list-style-type: none;
+  background-color:#080b2e; 
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#navbar li a{
+  display: block;
+  color: #DAF7A6;
+}
+
+#navbar li a:hover{
+  color: #fff;
 }
