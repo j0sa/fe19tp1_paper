@@ -2,7 +2,7 @@
 //<!-- redirect information page -->
 $(document).ready(function () {
     if (typeof Cookies.get('secondvisit') === 'undefined') {
-        window.location.href = "about.html";
+        window.location.href = "start.html";
     }
 })
 //<!-- Adds second Visit cookie -->

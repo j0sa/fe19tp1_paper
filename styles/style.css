@@ -9,6 +9,7 @@
   overflow-x: hidden;
   font-style: normal;
 }
+html,
 body {
   background: #fff;
   margin: 0;
@@ -36,13 +37,18 @@ html {
 /*----------About------------*/
 .logo {
   position: absolute;
-  padding: 1.5rem;
+  padding: 2rem;
 }
 .logo img {
   width: 7rem;
 }
 h1 {
   font-size: 5rem;
+}
+.start-wrapper {
+  display: flex;
+  justify-content: center;
+  min-width: 100%;
 }
 .container-about {
   min-height: 100vh;
@@ -57,11 +63,12 @@ h1 {
 }
 .description {
   display: flex;
+  white-space: wrap;
   justify-content: space-between;
   flex-direction: column;
-  margin: 2rem;
-  width: 55rem;
-  font-size: 2.2rem;
+  margin: 4rem;
+  width: 60rem;
+  font-size: 2rem;
   font-weight: 600;
   line-height: 1.45;
   overflow: hidden;
@@ -76,6 +83,7 @@ h1 {
   text-transform: uppercase;
   font-size: 1.8rem;
   transition: 1s all ease;
+  cursor: pointer;
 }
 #join:hover {
   background-color: #daf7a6;
@@ -83,15 +91,7 @@ h1 {
   transform: scale(1.1);
 }
 /*----------Create note------------*/
-
-#toolbar {
-  background-color: #fff;
-}
-#editor {
-  height: 90vh;
-  background-color: #fff;
-}
-.quill-wrap {
+.quill-wrap{
   justify-content: center;
   flex-wrap: wrap;
   max-width: 900px;
@@ -100,14 +100,14 @@ h1 {
   margin-right: auto;
   margin-top: 20px;
 }
-.quill-wrap .ql-active {
-  border: 1px solid #ccc !important;
-  border-radius: 4px;
+.ql-toolbar {
+  background-color: rgb(255, 255, 255);
 }
-.quill-wrap button,
-.quill-wrap .ql-picker {
-  margin-right: 4px;
+#editor {
+  height: 90vh;
+  background-color: #fff;
 }
+
 #create {
   margin: 1%;
   display: flex;
@@ -121,10 +121,12 @@ h1 {
   text-transform: uppercase;
   font-size: 1rem;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 #create:hover {
   transform: scale(1.1);
 }
+/*----------Navigation------------*/
 #navbar ul {
   width: 6rem;
   min-height: 100vh;
@@ -144,4 +146,10 @@ h1 {
 
 #navbar li a:hover {
   color: #fff;
+}
+/*----------Responsive Styles------------*/
+@media (max-width: 1060px) {
+  .start-wrapper {
+    margin-top: 15rem;
+  }
 }
