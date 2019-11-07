@@ -35,7 +35,7 @@ const createNote = () => {
   saveNotes();
 
   // Redirects to index
-  window.location.href = "../Display_Hans.html";
+  window.location.href = "../Display.html";
   console.log(notes)
   alert("stoppa här");
 
