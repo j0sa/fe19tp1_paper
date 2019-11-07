@@ -30,14 +30,14 @@ const createNote = () => {
     note: data,
     id: Date.now()
   };
-  notes = oldnotes;
+  //notes = oldnotes;
   notes.push(note);
   saveNotes();
 
-  // Redirects to index
-  window.location.href = "../Display.html";
-  console.log(notes)
-  alert("stoppa här");
+  // Reloads page
+  window.location.href= window.location.href
+ console.log(notes)
+  // alert("stoppa här");
 
 };
 // Check for unsaved data
