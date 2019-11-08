@@ -1,5 +1,6 @@
 let notes = [];
 
+// Set up tool for Quill API
 const toolbar = [
   [{ header: [1, 2, 3, 4, 5, , false] }],
   ["bold", "italic", "underline", "strike"],
@@ -9,43 +10,46 @@ const toolbar = [
   ["clean"]
 ];
 
-var Delta = Quill.import("delta");
+// Set up editor
+let Delta = Quill.import("delta");
 let quill = new Quill("#editor", {
   modules: { toolbar: toolbar },
   theme: "snow"
 });
-//Get items in local storage
-var oldnotes = JSON.parse(localStorage.getItem('note'));
+
+//Get items into local storage
+let oldnotes = localStorage.getItem("note") ? JSON.parse(localStorage.getItem("note")) : [];
+console.log(oldnotes);
 //notes.push(saved);
 
 // Saves array to local storage
-function saveNotes() {
+const saveNotes = () => {
   localStorage.setItem("note", JSON.stringify(notes));
 }
 
 // Creates note, pushes to array
 const createNote = () => {
-  let data = quill.getContents();
   const note = {
-    note: data,
-    id: Date.now()
+    note: quill.getContents(),
+    id: Date.now(),
+    favourite: false
   };
-  //notes = oldnotes;
+  notes = oldnotes;
   notes.push(note);
   saveNotes();
 
   // Reloads page
-  window.location.href= window.location.href
- console.log(notes)
-  // alert("stoppa här");
+  window.location.href = window.location.href
+  console.log(notes)
+  //alert("stoppa här");
+};
 
-};
 // Check for unsaved data
-window.onbeforeunload = function () {
-  if (change.length() > 0) {
-    return "There are unsaved changes. Are you sure you want to leave?";
-  }
-};
+//window.onbeforeunload = function () {
+//  if (change.length() > 0) {
+//    return "There are unsaved changes. Are you sure you want to leave?";
+//  }
+//};
 
 /*
 // Store accumulated changes
