@@ -1,5 +1,4 @@
-// Get localstorage values
-// .map creates a new array.
+// Get localstorage values .map creates a new array.
 let notesList = JSON.parse(localStorage.getItem("note")).map(noteTemplate).join();
 
 /*
