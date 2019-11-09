@@ -1,5 +1,6 @@
 // Get localstorage values
-let notesList = JSON.parse(localStorage.getItem("note")).map(noteTemplate).join("");
+// .map creates a new array.
+let notesList = JSON.parse(localStorage.getItem("note")).map(noteTemplate).join();
 
 /*
 const isFavourite = () => {
@@ -7,28 +8,25 @@ const isFavourite = () => {
 }
 */
 
-// Load note into editor
-const loadNote = (noteID) => {
-  if (!noteID) {
-    console.log("No ID given.")
-  } else {
-    let { note } = notes.find(note => note.id === noteID)
-    quill.setContents(note)
-  }
-}
-
 // Push data into our html in order to display in dom
-document.getElementById("scroll-notes").innerHTML = notes.map(noteTemplate).join("");
+document.getElementById("scroll-notes").innerHTML = notes.map(noteTemplate).join('');
 
 //console.log(notesList);
-// The code that generates a hmtl table from the localstorage data
-function noteTemplate(noted) {
-  notes.push(noted);
+// The code that generates a html table from the localstorage data
+function noteTemplate(myNotes) {
+  notes.push(myNotes);
   return `
-  <table onclick='loadNote(${noted.id})'>
+  <table onclick='loadNote(${myNotes.id})'>
     <tbody>
-      <td>${noted.note.ops[0].insert}</td>
+      <td>${myNotes.text}</td>
     </tbody>
   </table>
   `;
+}
+// Load note into editor
+const loadNote = (noteID) => {
+
+  let { note } = notes.find(note => note.id === noteID)
+    quill.setContents(note)
+
 }

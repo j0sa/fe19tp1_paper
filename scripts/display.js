@@ -5,6 +5,7 @@ console.log(notes);
 
 for (i = 0; i < notes.length; i++) {
     var a = (notes[i].note.ops[0].insert)
+    
 
     //create elements
     const item = document.createElement('span');

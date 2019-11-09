@@ -14,7 +14,8 @@ const toolbar = [
 let Delta = Quill.import("delta");
 let quill = new Quill("#editor", {
   modules: { toolbar: toolbar },
-  theme: "snow"
+  theme: "bubble",
+  placeholder: "Write here..."
 });
 
 //Get items into local storage
@@ -23,15 +24,16 @@ console.log(oldnotes);
 //notes.push(saved);
 
 // Saves array to local storage
-const saveNotes = () => {
+saveNotes = () => {
   localStorage.setItem("note", JSON.stringify(notes));
-}
+};
 
 // Creates note, pushes to array
-const createNote = () => {
+createNote = () => {
   const note = {
     note: quill.getContents(),
     id: Date.now(),
+    text: quill.getText(),
     favourite: false
   };
   notes = oldnotes;
@@ -39,8 +41,8 @@ const createNote = () => {
   saveNotes();
 
   // Reloads page
-  window.location.href = window.location.href
-  console.log(notes)
+  window.location.href = window.location.href;
+  console.log(notes);
   //alert("stoppa här");
 };
 

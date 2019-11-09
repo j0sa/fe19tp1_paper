@@ -1,0 +1,13 @@
+rrorDocument 404 /404.html
+
+# mod_rewrite 
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Check for file in directory with .html extension
+
+RewriteCond %{REQUEST_FILENAME}\.html -f
+
+RewriteRule ^(.*)$ $1.html [NC,L]
