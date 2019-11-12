@@ -76,10 +76,6 @@ setInterval(function () {
 
 */
 
-function editNoteTrue() {
-  quill.enable(true);
-}
-
-function editNoteFalse() {
-  quill.enable(false);
+function editNote(e) {
+  quill.enable(e);
 }

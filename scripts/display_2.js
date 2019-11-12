@@ -17,8 +17,6 @@ function noteTemplate(myNotes) {
   notes.push(myNotes);
   console.log(myNotes);
   return `
- 
-
   <table onclick='loadNote(${myNotes.id})'>
    <tbody>
       <td>${myNotes.title}<td>
@@ -31,7 +29,5 @@ function noteTemplate(myNotes) {
 const loadNote = (noteID) => {
   console.log("loadNotes ran! notes: " + notes + " noteID: " + noteID)
   let { content } = notes.find(note => note.id === noteID)
-
   quill.setContents(content)
-
 }
