@@ -20,7 +20,7 @@ let quill = new Quill("#editor", {
 
 //Get items into local storage
 let oldnotes = localStorage.getItem("note") ? JSON.parse(localStorage.getItem("note")) : [];
-console.log(oldnotes);
+//console.log(oldnotes);
 //notes.push(saved);
 
 // Saves array to local storage
@@ -30,11 +30,14 @@ saveNotes = () => {
 
 // Creates note, pushes to array
 createNote = () => {
+  let currentTime = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
   const note = {
-    note: quill.getContents(),
     id: Date.now(),
-    text: quill.getText(),
-    favourite: false
+    content: quill.getText(0, 20),
+    text: quill.getContents(),
+    created: currentTime,
+    archived: false,
+    deleted: false
   };
   notes = oldnotes;
   notes.push(note);
@@ -42,7 +45,7 @@ createNote = () => {
 
   // Reloads page
   window.location.href = window.location.href;
-  console.log(notes);
+  //console.log(notes);
   //alert("stoppa här");
 };
 
