@@ -22,7 +22,7 @@ function noteTemplate(myNotes) {
   <table onclick='loadNote(${myNotes.id})'>
    <tbody>
       <td>${myNotes.title}<td>
-      <td>${myNotes.text}</td>
+      <td>${myNotes.content}</td>
     </tbody>
   </table>
   `;
@@ -31,7 +31,7 @@ function noteTemplate(myNotes) {
 const loadNote = (noteID) => {
   console.log("loadNotes ran! notes: " + notes + " noteID: " + noteID)
   let { content } = notes.find(note => note.id === noteID)
-  console.log(text)
+
   quill.setContents(content)
 
 }
