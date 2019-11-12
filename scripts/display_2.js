@@ -12,11 +12,16 @@ document.getElementById("scroll-notes").innerHTML = notes.map(noteTemplate).join
 
 //console.log(notesList);
 // The code that generates a html table from the localstorage data
+
 function noteTemplate(myNotes) {
   notes.push(myNotes);
+  console.log(myNotes);
   return `
+ 
+
   <table onclick='loadNote(${myNotes.id})'>
-    <tbody>
+   <tbody>
+      <td>${myNotes.title}<td>
       <td>${myNotes.text}</td>
     </tbody>
   </table>
@@ -24,8 +29,9 @@ function noteTemplate(myNotes) {
 }
 // Load note into editor
 const loadNote = (noteID) => {
-
-  let { note } = notes.find(note => note.id === noteID)
-    quill.setContents(note)
+  console.log("loadNotes ran! notes: " + notes + " noteID: " + noteID)
+  let { content } = notes.find(note => note.id === noteID)
+  console.log(text)
+  quill.setContents(content)
 
 }
