@@ -75,3 +75,11 @@ setInterval(function () {
 }, 5 * 1000);
 
 */
+
+function editNoteTrue() {
+  quill.enable(true);
+}
+
+function editNoteFalse() {
+  quill.enable(false);
+}

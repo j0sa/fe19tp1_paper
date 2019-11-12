@@ -73,7 +73,6 @@ i {
   justify-content: space-around;
   align-items: center;
 }
-
 .uil-favorite:active {
   color: #fff89d;
 }
@@ -168,7 +167,6 @@ h1 {
   color: #ffffff;
 }
 /*----------Container for notes------------*/
-
 h2 {
   text-align: center;
   padding: 1rem;
