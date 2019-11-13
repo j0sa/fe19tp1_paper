@@ -178,6 +178,7 @@ h1 {
 } */
 .container-search{
   padding:1rem;
+  outline: none;
 }
 .bar{
   width: 100%;
@@ -186,14 +187,15 @@ h1 {
   background: transparent;
   border: 0.1rem solid #e1e1e1;
   border-radius: 2rem;
-  outline: none;
   color: #080b2e;
   background:#ffffff;
 }
 .search-bar {
   padding: .7rem .7rem;
   font-size: 1.3rem;
+  border:0;
   outline: none;
+  
 }
 .container-search i {
 color:#080b2e;
@@ -220,6 +222,7 @@ table {
   border-bottom: 1px solid #080b2e23;
   border-right: 1px solid #080b2e23;
   cursor: pointer;
+  
 }
 /* th {
   border-bottom: 1px solid #080b2e23;

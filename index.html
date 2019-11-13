@@ -40,17 +40,16 @@
       </ul>
     </nav>
     <!-- Display html data -->
-    <div class="table">
+
       <div class="table-container">
         <!-- <h2>My notes</h2> -->
         <section class="container-search">
           <div class="bar">
-            <i class='uil uil-search'></i></i><input id="search" class="search-bar" type="text" placeholder="Search..">
+            <i class='uil uil-search'></i></i><input id="search" class="search-bar" data-table="find-note" placeholder="Search.."  autocorrect="off">
           </div>
         </section>
         <section id="scroll-notes"></section>
       </div>
-    </div>
     <div class="quill-container">
       <div id="editor"></div>
 
@@ -67,6 +66,7 @@
   <script src="/scripts/index.js"></script>
   <script src="/scripts/create.js"></script>
   <script src="/scripts/display_2.js"></script>
+  <script src="/scripts/search.js"></script>
 </body>
 
 </html>
