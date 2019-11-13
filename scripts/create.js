@@ -48,23 +48,6 @@ createNote = () => {
   //console.log(notes);
   //alert("stoppa här");
 };
-// function filterNotes(func = () => true) {
-//     let filtered = notes.filter(func) 
-//   return filtered
-
-// }
-// const showDeleted = (note) => note.deleted === true;
-// const showFavorites = (note) => note.favourite === true;
-
-// function showFavorites () {
-//     filerNotes()
-// }
-// Check for unsaved data
-//window.onbeforeunload = function () {
-//  if (change.length() > 0) {
-//    return "There are unsaved changes. Are you sure you want to leave?";
-//  }
-//};
 
 /*
 // Store accumulated changes
