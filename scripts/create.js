@@ -14,7 +14,7 @@ const toolbar = [
 let Delta = Quill.import("delta");
 let quill = new Quill("#editor", {
   modules: { toolbar: toolbar },
-  theme: "bubble",
+  theme: "snow",
   placeholder: "Write here..."
 });
 
@@ -33,10 +33,8 @@ createNote = () => {
   let currentTime = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
   const note = {
     id: Date.now(),
-    title: quill.getText(0, 10),
-    content: quill.getContents(),
-    created: currentTime,
-    archived: false,
+    text: quill.getText(),
+    favourite: false,
     deleted: false
   };
   notes = oldnotes;
@@ -48,7 +46,17 @@ createNote = () => {
   //console.log(notes);
   //alert("stoppa här");
 };
+// function filterNotes(func = () => true) {
+//     let filtered = notes.filter(func) 
+//   return filtered
 
+// }
+// const showDeleted = (note) => note.deleted === true;
+// const showFavorites = (note) => note.favourite === true;
+
+// function showFavorites () {
+//     filerNotes()
+// }
 // Check for unsaved data
 //window.onbeforeunload = function () {
 //  if (change.length() > 0) {
