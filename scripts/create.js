@@ -33,9 +33,11 @@ createNote = () => {
   let currentTime = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
   const note = {
     id: Date.now(),
-    text: quill.getText(),
-    favourite: false,
-    deleted: false
+    title: quill.getText(0, 10),
+    content: quill.getContents(),
+    created: currentTime,
+    archived: false,
+    favourite: false
   };
   notes = oldnotes;
   notes.push(note);
