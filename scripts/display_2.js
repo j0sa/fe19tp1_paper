@@ -9,6 +9,8 @@ document.getElementById("scroll-notes").innerHTML = notes.map(noteTemplate).join
 function noteTemplate(myNotes) {
   notes.push(myNotes);
   console.log(myNotes);
+  let noteString = myNotes.content.ops[0].insert;
+  console.log(noteString);
   return `
   <table cellspacing="0" cellpadding="0" onclick='loadNote(${myNotes.id})'>
    <tbody>
@@ -21,7 +23,7 @@ function noteTemplate(myNotes) {
 
 // Load note into editor
 const loadNote = (noteID) => {
-  console.log("loadNotes ran! notes: " + notes + " noteID: " + noteID)
+  //console.log("loadNotes ran! notes: " + notes + " noteID: " + noteID)
   let { content } = notes.find(note => note.id === noteID)
   quill.setContents(content)
 }
