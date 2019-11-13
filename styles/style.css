@@ -193,6 +193,8 @@ table {
   border-collapse: collapse;
   border: 0;
   scroll-behavior: smooth;
+  border-bottom: 1px solid #080b2e23;
+  cursor: pointer;
 }
 td {
   border-bottom: 1px solid #080b2e23;
@@ -204,6 +206,10 @@ td {
   white-space: nowrap;
   overflow: hidden;
   text-align: left;
+}
+tr {
+  background: #ffffff;
+  font-style: normal;
 }
 /*----------error page------------*/
 .error-container {
