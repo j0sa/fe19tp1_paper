@@ -176,10 +176,10 @@ h1 {
   border: 1px solid #080b2e23;
   
 } */
-.bar {
+.container-search{
   padding:1rem;
 }
-.container-search {
+.bar{
   width: 100%;
   display: inline-flex;
   text-decoration: none;
@@ -195,7 +195,7 @@ h1 {
   font-size: 1.3rem;
   outline: none;
 }
-.bar i {
+.container-search i {
 color:#080b2e;
 font-size: 1.8rem;
 padding: .7rem;

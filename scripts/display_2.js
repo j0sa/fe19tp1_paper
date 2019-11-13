@@ -1,7 +1,6 @@
 // Get localstorage data.
-let notesList = JSON.parse(localStorage.getItem("note"));
-
 // Push data into template in order to display in dom
+let notesList = JSON.parse(localStorage.getItem("note"));
 document.getElementById("scroll-notes").innerHTML = notesList.map(noteTemplate).join("");
 
 //console.log(notesList);
