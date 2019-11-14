@@ -1,7 +1,8 @@
-// Get localstorage data.
+// Get localstorage data, after checking that localstorage isn't empty
 // Push data into template in order to display in dom
 let notesList = JSON.parse(localStorage.getItem("note"));
-document.getElementById("scroll-notes").innerHTML = notesList.map(noteTemplate).join("");
+if (notesList != null) { document.getElementById("scroll-notes").innerHTML = notesList.map(noteTemplate).join("") }
+else { console.log('noteslist är tom'); }
 
 //console.log(notesList);
 // The code that generates a html table from the localstorage data
