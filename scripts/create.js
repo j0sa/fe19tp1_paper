@@ -1,22 +1,6 @@
+import {quill, Delta , toolbar} from './quill.js'
+ 
 let notes = [];
-
-// Set up tool for Quill API
-const toolbar = [
-  [{ header: [1, 2, 3, 4, 5, , false] }],
-  ["bold", "italic", "underline", "strike"],
-  ["blockquote", "code-block"],
-  [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
-  [{ align: [] }],
-  ["clean"]
-];
-
-// Set up editor
-let Delta = Quill.import("delta");
-let quill = new Quill("#editor", {
-  modules: { toolbar: toolbar },
-  theme: "snow",
-  placeholder: "Write here..."
-});
 
 //Get items into local storage
 let oldnotes = localStorage.getItem("note") ? JSON.parse(localStorage.getItem("note")) : [];
@@ -24,12 +8,12 @@ let oldnotes = localStorage.getItem("note") ? JSON.parse(localStorage.getItem("n
 //notes.push(saved);
 
 // Saves array to local storage
-saveNotes = () => {
+const saveNotes = () => {
   localStorage.setItem("note", JSON.stringify(notes));
 };
 
 // Creates note, pushes to array
-createNote = () => {
+const createNote = () => {
   let currentTime = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
   const note = {
     id: Date.now(),
@@ -48,6 +32,7 @@ createNote = () => {
   //console.log(notes);
   //alert("stoppa här");
 };
+document.querySelector("#create-note").addEventListener("click", createNote);
 
 /*
 // Store accumulated changes

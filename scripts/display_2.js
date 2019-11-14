@@ -7,7 +7,7 @@ else { console.log('noteslist är tom'); }
 //console.log(notesList);
 // The code that generates a html table from the localstorage data
 function noteTemplate(myNotes) {
-  notes.push(myNotes);
+  notesList.push(myNotes);
   console.log(myNotes);
   let noteString = myNotes.content.ops[0].insert;
   console.log(noteString);

@@ -34,7 +34,7 @@
 
   document.addEventListener("readystatechange", function() {
     if (document.readyState === "complete") {
-       tableFilter.init();
+      tableFilter.init();
     }
   });
 })(document);
