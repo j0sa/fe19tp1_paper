@@ -1,3 +1,4 @@
+ 
 let notes = [];
 
 // Set up tool for Quill API
@@ -18,18 +19,19 @@ let quill = new Quill("#editor", {
   placeholder: "Write here..."
 });
 
+
 //Get items into local storage
 let oldnotes = localStorage.getItem("note") ? JSON.parse(localStorage.getItem("note")) : [];
 //console.log(oldnotes);
 //notes.push(saved);
 
 // Saves array to local storage
-saveNotes = () => {
+const saveNotes = () => {
   localStorage.setItem("note", JSON.stringify(notes));
 };
 
 // Creates note, pushes to array
-createNote = () => {
+const createNote = () => {
   let currentTime = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
   const note = {
     id: Date.now(),
@@ -48,6 +50,7 @@ createNote = () => {
   //console.log(notes);
   //alert("stoppa här");
 };
+document.querySelector("#create-note").addEventListener("click", createNote);
 
 /*
 // Store accumulated changes

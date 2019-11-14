@@ -118,7 +118,7 @@ h1 {
   line-height: 1.45;
   overflow: hidden;
 }
-.btn {
+.btn-join {
   margin-top: 2.2rem;
   padding: 1.5rem;
   width: 18rem;
@@ -127,10 +127,10 @@ h1 {
   outline: none;
   text-transform: uppercase;
   font-size: 1.8rem;
-  transition: .3s all ease;
+  transition: 0.3s all ease;
   cursor: pointer;
 }
-.btn:hover {
+.btn-join:hover {
   background-color: #a6eef7;
   color: #080b2e;
   transform: scale(1.1);
@@ -147,8 +147,15 @@ h1 {
   height: 80vh;
   background-color: #fff;
 }
-/* button */
-#create {
+.btn {
+  display: inline-flex;
+  outline: none;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.btn--create {
   margin-top: 1%;
   text-align: center;
   padding: 10px 25px;
@@ -157,10 +164,25 @@ h1 {
   outline: none;
   text-transform: uppercase;
   font-size: 1.4rem;
-  transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
-#create:hover {
+.btn--create:hover {
+  transform: scale(1.1);
+  background: #080b2e;
+  color: #ffffff;
+}
+.btn--edit {
+  margin-left: 2%;
+  text-align: center;
+  padding: 10px 25px;
+  border: 1px solid #080b2e;
+  color: #080b2e;
+  outline: none;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.btn--edit:hover {
   transform: scale(1.1);
   background: #080b2e;
   color: #ffffff;
@@ -176,11 +198,11 @@ h1 {
   border: 1px solid #080b2e23;
   
 } */
-.container-search{
-  padding:1rem;
+.container-search {
+  padding: 1rem;
   outline: none;
 }
-.bar{
+.bar {
   width: 100%;
   display: inline-flex;
   text-decoration: none;
@@ -188,28 +210,27 @@ h1 {
   border: 0.1rem solid #e1e1e1;
   border-radius: 2rem;
   color: #080b2e;
-  background:#ffffff;
+  background: #ffffff;
 }
 .search-bar {
-  padding: .7rem .7rem;
+  padding: 0.7rem 0.7rem;
   font-size: 1.3rem;
-  border:0;
+  border: 0;
   outline: none;
-  
 }
 .container-search i {
-color:#080b2e;
-font-size: 1.8rem;
-padding: .7rem;
+  color: #080b2e;
+  font-size: 1.8rem;
+  padding: 0.7rem;
 }
 .table-container {
   width: 25rem;
   background-color: #e2e2e2;
   overflow-y: auto;
   height: 100vh;
-  -webkit-box-shadow: inset -4px 0px 5px -2px rgba(0,0,0,0.11);
-  -moz-box-shadow: inset -4px 0px 5px -2px rgba(0,0,0,0.11);
-  box-shadow: inset -4px 0px 5px -2px rgba(0,0,0,0.11);
+  -webkit-box-shadow: inset -4px 0px 5px -2px rgba(0, 0, 0, 0.11);
+  -moz-box-shadow: inset -4px 0px 5px -2px rgba(0, 0, 0, 0.11);
+  box-shadow: inset -4px 0px 5px -2px rgba(0, 0, 0, 0.11);
 }
 table {
   width: 100%;
@@ -222,7 +243,6 @@ table {
   border-bottom: 1px solid #080b2e23;
   border-right: 1px solid #080b2e23;
   cursor: pointer;
-  
 }
 /* th {
   border-bottom: 1px solid #080b2e23;
@@ -254,7 +274,15 @@ tr {
 .btn--error {
   width: 10rem;
   margin: 0 auto;
-  background-color: #080b2e;
+  padding: 10px 25px;
+  border: 1px solid #080b2e;
+  color: #080b2e;
+  outline: none;
+}
+.btn--error:hover {
+  transform: scale(1.1);
+  background: #080b2e;
+  color: #ffffff;
 }
 .error a {
   color: #080b2e;

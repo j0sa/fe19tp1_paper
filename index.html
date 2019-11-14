@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,7 +19,7 @@
     <nav id="navbar">
       <ul>
         <li>
-          <a href="/"><img src="./assets/img/quire_nav.png" id="nav-logo" alt = "logo"></img></a>
+          <a href="/"><img src="./assets/img/quire_nav.png" id="nav-logo" alt="logo"></img></a>
         </li>
         <!-- Home-->
         <li>
@@ -41,21 +42,22 @@
     </nav>
     <!-- Display html data -->
 
-      <div class="table-container">
-        <!-- <h2>My notes</h2> -->
-        <section class="container-search">
-          <div class="bar">
-            <i class='uil uil-search'></i></i><input id="search" class="search-bar" data-table="find-note" placeholder="Search.."  autocorrect="off">
-          </div>
-        </section>
-        <section id="scroll-notes"></section>
-      </div>
+    <div class="table-container">
+      <!-- <h2>My notes</h2> -->
+      <section class="container-search">
+        <div class="bar">
+          <i class='uil uil-search'></i></i><input id="search" class="search-bar" data-table="find-note"
+            placeholder="Search.." autocorrect="off">
+        </div>
+      </section>
+      <section id="scroll-notes"></section>
+    </div>
     <div class="quill-container">
       <div id="editor"></div>
 
-      <button onclick="createNote()" id="create">Create</button>
-      <button onclick="editNote(true)" id="create">Start Editing</button>
-      <button onclick="editNote(false)" id="create">Stop Editing</button>
+      <button id="create-note" class="btn btn--create">Create</button>
+      <button onclick="editNote(true)" id="edit" class=" btn btn--edit">Start Editing</button>
+      <button onclick="editNote(false)" id="edit" class="btn btn--edit">Stop Editing</button>
     </div>
     <div id="noteList"></div>
 
