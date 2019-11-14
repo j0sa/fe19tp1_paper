@@ -1,4 +1,3 @@
-<<<<<<< HEAD
  
 let notes = [];
 
@@ -21,12 +20,6 @@ let quill = new Quill("#editor", {
 });
 
 
-=======
-import {quill, Delta , toolbar} from './quill.js'
- 
-let notes = [];
-
->>>>>>> 60d899328bd4db12e3bf4b8cc4713f8614b14cb7
 //Get items into local storage
 let oldnotes = localStorage.getItem("note") ? JSON.parse(localStorage.getItem("note")) : [];
 //console.log(oldnotes);
