@@ -15,7 +15,7 @@ function noteTemplate(myNotes) {
     <table class="find-note" cellspacing="0" cellpadding="0" onclick='loadNote(${myNotes.id})'>
       <tbody class="notecell">
         <tr><th>${myNotes.title}</th><th>${myNotes.created}</th></tr>
-        <tr><th colspan="2">${myNotes.content.ops[0].insert.slice(0, 25)}...</th></tr>
+        <tr><td align="center" colspan="2">${myNotes.content.ops[0].insert.slice(0, 30)}\n${myNotes.content.ops[0].insert.slice(30, 60)}</td></tr>
       </tbody>
     </table>
   `;
