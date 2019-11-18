@@ -79,7 +79,7 @@ function getNumberOfKeysInLocalStorage() {
   return numberString;
 }
 
-// Temp DOM writer
+// Temporary DOM writer
 function writeStats() {
   document.write(getLocalStorageQuotaInFormattedSize() + " " + getNumberOfKeysInLocalStorage());
 }
