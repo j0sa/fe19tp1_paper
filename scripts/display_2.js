@@ -26,4 +26,27 @@ const loadNote = noteID => {
   //console.log("loadNotes ran! notes: " + notes + " noteID: " + noteID)
   let { content } = notes.find(note => note.id === noteID);
   quill.setContents(content);
+  window.value = noteID;
 };
+
+function editNote(e) {
+  quill.enable(e);
+
+  console.log("inside editnote")
+  if (e == false) {
+    // loop through all and update the paticular object
+    for (i = 0; i < notesList.length; i++) {
+      if (notesList[i].id === window.value) {
+        notesList[i].title = quill.getText(0, 10)
+        notesList[i].content = quill.getContents()
+        console.log(notesList[i].title, notesList[i].content)
+        localStorage.setItem("note", JSON.stringify(notesList));
+        console.log('saveNotes ran')
+        // Reloads page
+        window.location.href = window.location.href
+        break; //skip further iterations at match
+      };
+    }
+
+  }
+}
