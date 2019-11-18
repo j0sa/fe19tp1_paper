@@ -6,5 +6,5 @@
 *::after {
     font-family: 'Playfair Display', serif;
     -webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	  -moz-osx-font-smoothing: grayscale;
 }
