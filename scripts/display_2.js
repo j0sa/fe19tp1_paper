@@ -4,7 +4,6 @@ let notesList = JSON.parse(localStorage.getItem("note"));
 if (notesList != null) { document.getElementById("scroll-notes").innerHTML = notesList.map(noteTemplate).join("") }
 else { console.log('noteslist är tom'); }
 
-//console.log(notesList);
 // The code that generates a html table from the localstorage data
 function noteTemplate(myNotes) {
   notes.push(myNotes);
@@ -47,6 +46,5 @@ function editNote(e) {
         break; //skip further iterations at match
       };
     }
-
   }
 }
