@@ -1,12 +1,12 @@
 (function(document) {
   "use strict";
 
-  var tableFilter = (function(Arr) {
-    var _input;
+  let tableFilter = (function(Arr) {
+    let _input;
 
     function _onInputEvent(e) {
       _input = e.target;
-      var tables = document.getElementsByClassName(
+      let tables = document.getElementsByClassName(
         _input.getAttribute("data-table")
       );
       Arr.forEach.call(tables, function(table) {
@@ -17,14 +17,14 @@
     }
 
     function _filter(row) {
-      var text = row.textContent.toLowerCase(),
+      let text = row.textContent.toLowerCase(),
         val = _input.value.toLowerCase();
       row.style.display = text.indexOf(val) === -1 ? "none" : "table-row";
     }
 
     return {
       init: function() {
-        var inputs = document.getElementsByClassName("search-bar");
+        let inputs = document.getElementsByClassName("search-bar");
         Arr.forEach.call(inputs, function(input) {
           input.oninput = _onInputEvent;
         });
