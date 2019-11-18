@@ -1,5 +1,4 @@
- 
-let notes = [];
+ let notes = [];
 
 // Set up tool for Quill API
 const toolbar = [
