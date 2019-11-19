@@ -157,7 +157,10 @@ function getStatsOnNotes() {
   let wordCnt = getWordCount(notesString);
   let wordFreq = getWordFrequency(notesString);
   let uniqueWords = wordFreq.length;
-  return 'You have written ' + wordCnt + ' words. ' + uniqueWords + ' of them are unique.';
+  let mostCommonWord = wordFreq[0][0];
+  let leastCommonWord = wordFreq.slice(-2)[0][0];
+  console.log(wordFreq);
+  return 'You have written ' + wordCnt + ' words. ' + uniqueWords + ' of them are unique.' + 'Your most common word is: ' + mostCommonWord + ' and your least common word is ' + leastCommonWord;
 }
 
 
