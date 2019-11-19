@@ -1,5 +1,5 @@
 App colors:
-1. Primary  #080b2e
+1. Primary  #000019
 2. Secondary #a6eef7
 
 Primary font: Open sans

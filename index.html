@@ -18,7 +18,8 @@
   <div class="site-wrapper">
     <nav id="navbar">
       <ul>
-        <li><a href="/index.html"><img src="./assets/img/quire_nav.png" id="nav-logo" alt="logo"></img></a></li> <!-- Home-->
+        <li><a href="/index.html"><img src="./assets/img/quire_nav.png" id="nav-logo" alt="logo"></img></a></li>
+        <!-- Home-->
         <button id="show-fav"><i class='uil uil-favorite'></i></button> <!-- Favorites -->
         <li><a href="/statistics.html"><i class='uil uil-analysis'></i></i></a></li> <!-- Stats -->
         <li><a href="#"><i class='uil uil-cog'></i></i></a></li> <!-- Settings -->
@@ -42,7 +43,7 @@
             </li>
             <!-- Favorites -->
             <li>
-              <a href="#"><i class='uil uil-analysis'></i></i></a>
+              <a href="/statistics.html"><i class='uil uil-analysis'></i></i></a>
             </li> <!-- Stats -->
             <li>
               <a href="#"><i class='uil uil-cog'></i></i></a>
@@ -63,11 +64,15 @@
       </section>
       <section id="scroll-notes"></section>
     </div>
+    <div class="write">
+      <button id="write-btn"><i class='uil uil-pen'></i></button>
+    </div>
     <div class="quill-container">
       <div id="editor"></div>
-      <button onclick = "createNote()" class="btn btn--create">Create</button>
-      <button onclick="editNote(true)" id="edit" class=" btn btn--edit">Edit</button>
-      <button onclick="editNote(false)" id="edit" class="btn btn--edit">Save</button>
+
+      <button onclick="createNote()" class="btn btn--create">Create</button>
+      <button onclick="editNote(false)" id="save" class="btn btn--edit">Save</button>      
+      <button onclick="location.href='/'" type="button" id ="new" class=" btn btn--edit">New Note</button>
     </div>
     <div id="noteList"></div>
 

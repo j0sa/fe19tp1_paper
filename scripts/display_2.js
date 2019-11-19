@@ -45,6 +45,9 @@ const loadNote = noteID => {
   let { content } = notes.find(note => note.id === Number(noteID));
   quill.setContents(content);
   window.value = noteID
+  document.querySelector('.btn--create').style.visibility = 'hidden';
+  document.querySelector('#new').style.visibility = 'visible';
+  document.querySelector('#save').style.visibility = 'visible';
 };
 
 function editNote(e) {
@@ -91,6 +94,7 @@ showFav.addEventListener('click', function () {
       handleToggle(note);
       // console.log(f)
     } else {
-    } 
+
+    }
   })
 });
