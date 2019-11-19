@@ -1,3 +1,6 @@
+document.cookie = 'same-site-cookie=foo; SameSite=Lax';
+document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
+
 /* Redirect code start page  */
 //<!-- redirect information page -->
 $(document).ready(function () {
@@ -6,9 +9,9 @@ $(document).ready(function () {
     }
 })
 //<!-- Adds second Visit cookie -->
-  $(document).ready(function () {
-    // Create cookie so that the user is no longer redirected
-    let a = Cookies.set('secondvisit', 'true', {
-      expires: 7
-    });
+$(document).ready(function () {
+  // Create cookie so that the user is no longer redirected
+  let a = Cookies.set('secondvisit', 'true', {
+    expires: 7
   });
+});

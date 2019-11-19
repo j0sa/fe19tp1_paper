@@ -1,8 +1,9 @@
-let notesList = JSON.parse(localStorage.getItem("note"));
+let notesList = JSON.parse(localStorage.getItem('note'));
+let notesString = JSON.stringify(localStorage.getItem('note'));
 
 function getUnusedSpaceOfLocalStorageInBytes() {
   // Retrieves the unused space (in bytes) that Local Storage supports in current browser
-  let maxByteSize = 10485760; // 10MB
+  let maxByteSize = 10485760;
   let minByteSize = 0;
   let tryByteSize = 0;
   let testQuotaKey = 'testQuota';
@@ -20,15 +21,11 @@ function getUnusedSpaceOfLocalStorageInBytes() {
       maxByteSize = tryByteSize - 1;
     }
   } while ((maxByteSize - minByteSize > 1) && runtime < timeout);
-
   // Removes the test key
   localStorage.removeItem(testQuotaKey);
-
   if (runtime >= timeout) {
-    alert("Timeout");
-    console.log("Unused space calculation may be off due to timeout.");
+    console.log('Unused space calculation may be off due to timeout.');
   }
-
   // Compensate for the byte size of the key that was used, then subtract 1 byte because the last value of the tryByteSize threw the exception
   unusedSpace = tryByteSize + testQuotaKey.length - 1;
   return unusedSpace;
@@ -65,7 +62,7 @@ function getLocalStorageQuotaInBytes() {
   // Collects numbers from getUnusedSpaceOfLocalStorageInBytes() and getUsedSpaceOfLocalStorageInBytes()
   let unused = getUnusedSpaceOfLocalStorageInBytes();
   let used = getUsedSpaceOfLocalStorageInBytes();
-  let quota = "Unused bytes: " + unused + " Used Bytes: " +  used;
+  let quota = 'Unused bytes: ' + unused + ' Used Bytes: ' + used;
   console.log(quota)
   return quota;
 }
@@ -75,65 +72,104 @@ function getLocalStorageQuotaInFormattedSize() {
   //let used = formatBytes(getUsedSpaceOfLocalStorageInBytes(), 0);
   let unused = formatBytesNoDecimals(getUnusedSpaceOfLocalStorageInBytes());
   let used = formatBytesNoDecimals(getUsedSpaceOfLocalStorageInBytes());
-  let quota = "You have used " + used + " of space." + " You have " + unused + " of space left.";
+  let quota = 'You have used ' + used + ' of space.' + ' You have ' + unused + ' of space left.';
   return quota;
 }
 
 function getNumberOfKeysInLocalStorage() {
   let keyNumber = Object.keys('note').length;
-  let numberString = "Number of Notes: " + keyNumber;
+  let numberString = 'Number of Notes: ' + keyNumber;
   return numberString;
 }
-
-/* function getDateOfFirstNote() {
-  return "Your first note was created " + notesList[0].created;
-}
-
-function getDateOfLastNote() {
-  return "Your last note was created " + notesList.slice(-1)[0].created;
-} */
 
 function getDateOfFirstAndLastNote() {
   let firstNote = notesList[0].created;
   let lastNost = notesList.slice(-1)[0].created;
   //let lastNote = notesList.slice(-1).pop.created;
-  let dateString = "You wrote your first note " + firstNote + ". " + "You wrote your last note " + lastNost + ".";
+  let dateString = 'You wrote your first note ' + firstNote + '. ' + 'You wrote your last note ' + lastNost + '.';
   return dateString;
 }
 
-function loopThroughObject() {
-  for (let key in notesList) {
-    if (notesList.hasOwnProperty(key)) {
-      let obj = notesList[key];
-      for (var prop in obj) {
-        if (obj.hasOwnProperty(prop)) {
-          //alert(prop + " = " + obj[prop]);
-          console.log(prop + " = " + obj[prop]);
-        }
-      }
-    }
-  }
+function extractSubstr(str, regexp) {
+  // Clean and match sub-strings in a string.
+  return str.replace(/[^\w\s]|_/g, '').replace(/\s+/g, ' ').toLowerCase().match(regexp) || [];
 }
 
-function lookDeepInObject(object) {
-  let collection = [], index = 0, next, item;
-  for (item in object) {
-    if (object.hasOwnProperty(item)) {
-      next = object[item];
-      if (typeof next == 'object' && next != null) {
-        collection[index++] = item +
-          ':{ ' + lookdeep(next).join(', ') + '}';
-      }
-      else collection[index++] = [item + ':' + String(next)];
-    }
-  }
-  return collection;
+function getWordsByNonWhiteSpace(str) {
+  // Find words by searching for sequences of non-whitespace characters.
+  return extractSubstr(str, /\S+/g);
 }
+
+function getWordsByWordBoundaries(str) {
+  // Find words by searching for valid characters between word-boundaries.
+  return extractSubstr(str, /\b[a-z\d]+\b/g);
+}
+
+function wordMap(str) {
+  // Recieves the modified string and then maps it
+  return getWordsByWordBoundaries(str).reduce(function (map, word) {
+    map[word] = (map[word] || 0) + 1;
+    return map;
+  }, {});
+}
+
+function mapToTuples(map) {
+  // Matches word and freq
+  return Object.keys(map).map(function (key) {
+    return [key, map[key]];
+  });
+}
+
+function mapToSortedTuples(map, sortFn, sortOrder) {
+  // Sorts them
+  return mapToTuples(map).sort(function (a, b) {
+    return sortFn.call(undefined, a, b, sortOrder);
+  });
+}
+
+function getWordFrequency(str) {
+  return mapToSortedTuples(wordMap(str), function (a, b, order) {
+    if (b[1] > a[1]) {
+      return order[1] * -1;
+    } else if (a[1] > b[1]) {
+      return order[1] * 1;
+    } else {
+      return order[0] * (a[0] < b[0] ? -1 : (a[0] > b[0] ? 1 : 0));
+    }
+  }, [1, -1]);
+}
+
+function printTuples(tuples) {
+  return tuples.map(function (tuple) {
+    return padStr(tuple[0], ' ', 12, 1) + ' -> ' + tuple[1];
+  }).join('\n');
+}
+
+function padStr(str, ch, width, dir) {
+  return (width <= str.length ? str : padStr(dir < 0 ? ch + str : str + ch, ch, width, dir)).substr(0, width);
+}
+
+function getWordCount(str) {
+  return getWordsByWordBoundaries(str).length;
+}
+
+function getStatsOnNotes() {
+  let wordCnt = getWordCount(notesString);
+  let wordFreq = getWordFrequency(notesString);
+  let uniqueWords = wordFreq.length;
+  return 'You have written ' + wordCnt + ' words. ' + uniqueWords + ' of them are unique.';
+}
+
+
+
+
+
+
 
 
 // Temporary DOM writer
 function writeStats() {
-  document.write(getLocalStorageQuotaInFormattedSize() + " " + getNumberOfKeysInLocalStorage() + " " + getDateOfFirstAndLastNote());
+  document.write(getLocalStorageQuotaInFormattedSize() + ' ' + getNumberOfKeysInLocalStorage() + ' ' + getDateOfFirstAndLastNote() + ' ' + getStatsOnNotes());
   console.log(getLocalStorageQuotaInFormattedSize());
   console.log(getNumberOfKeysInLocalStorage());
   //console.log(getDateOfFirstNote());
