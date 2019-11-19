@@ -18,7 +18,6 @@ let quill = new Quill("#editor", {
   placeholder: "Write here..."
 });
 
-
 //Get items into local storage
 let oldnotes = localStorage.getItem("note") ? JSON.parse(localStorage.getItem("note")) : [];
 //console.log(oldnotes);
@@ -72,4 +71,3 @@ setInterval(function () {
 function editNote(e) {
   quill.enable(e);
 }
-

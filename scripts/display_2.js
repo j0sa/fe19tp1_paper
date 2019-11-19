@@ -21,6 +21,7 @@ document.querySelector("#scroll-notes").addEventListener('click', function (e) {
     // loadNote(n);
   }
 });
+
 function noteTemplate(myNote) {
   notes.push(myNote);
   console.log(myNote.id, myNote.favourite);
@@ -48,7 +49,6 @@ const loadNote = noteID => {
 
 function editNote(e) {
   quill.enable(e);
-
   console.log("inside editnote")
   if (e == false) {
     // loop through all and update the paticular object
@@ -78,6 +78,7 @@ function addFav() {
   localStorage.setItem("note", JSON.stringify(notes))
   // window.location.href = window.location.href;
 };
+
 showFav.addEventListener('click', addFav);
 const handleToggle = (element) => element.classList.toggle("hidden");
 let f = notes.filter(note => note.favourite)
@@ -86,13 +87,10 @@ showFav.addEventListener('click', function () {
   hideNote.forEach(note => {
     let noteID = note.parentElement.id;
     let currentNote = notes.find(note => note.id === Number(noteID))
-
     if (!currentNote.favourite) {
       handleToggle(note);
       // console.log(f)
     } else {
-
     } 
   })
-
 });
