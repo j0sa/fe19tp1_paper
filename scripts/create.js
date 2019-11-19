@@ -40,17 +40,15 @@ const createNote = () => {
     archived: false,
     favourite: false
   };
+  console.log(notes)
   notes = oldnotes;
   notes.push(note);
   saveNotes();
-
   // Reloads page
   window.location.href = window.location.href;
   //console.log(notes);
   //alert("stoppa här");
 };
-document.querySelector("#create-note").addEventListener("click", createNote);
-
 /*
 // Store accumulated changes
 let change = new Delta();
@@ -74,3 +72,4 @@ setInterval(function () {
 function editNote(e) {
   quill.enable(e);
 }
+
