@@ -118,10 +118,11 @@ h1 {
   line-height: 1.45;
   overflow: hidden;
 }
-.btn-join {
+.btn--join {
   margin-top: 2.2rem;
+  text-align: center;
+  width: 15rem;
   padding: 1.5rem;
-  width: 18rem;
   background-color: #080b2e;
   color: #fff;
   outline: none;
@@ -129,8 +130,9 @@ h1 {
   font-size: 1.8rem;
   transition: 0.3s all ease;
   cursor: pointer;
+  font-weight: 700;
 }
-.btn-join:hover {
+.btn--join:hover {
   background-color: #a6eef7;
   color: #080b2e;
   transform: scale(1.1);
@@ -138,7 +140,8 @@ h1 {
 /*----------Create note------------*/
 .quill-container {
   padding: 1rem;
-  width: 80rem;
+  width: 100rem;
+  text-align: center;
 }
 .ql-editor::before {
   font-size: 1.4rem;
@@ -148,7 +151,6 @@ h1 {
   background-color: #fff;
 }
 .btn {
-  display: inline-flex;
   outline: none;
   text-transform: uppercase;
   font-size: 1.4rem;
@@ -165,13 +167,15 @@ h1 {
   text-transform: uppercase;
   font-size: 1.4rem;
   cursor: pointer;
+  background: #fff;
 }
 .btn--create:hover {
   transform: scale(1.1);
   background: #080b2e;
   color: #ffffff;
 }
-.btn--edit {
+.btn--edit,
+.btn--fav {
   margin-left: 2%;
   text-align: center;
   padding: 10px 25px;
@@ -181,6 +185,7 @@ h1 {
   text-transform: uppercase;
   font-size: 1.4rem;
   cursor: pointer;
+  background: #fff;
 }
 .btn--edit:hover {
   transform: scale(1.1);
@@ -188,19 +193,13 @@ h1 {
   color: #ffffff;
 }
 /*----------Container for notes------------*/
-/* h2 {
-  text-align: center;
-  padding: 1rem;
-  font-size: 2rem;
-  background: #ffffff;
-  color: #080b2e;
-  text-transform: uppercase;
-  border: 1px solid #080b2e23;
-  
-} */
 .container-search {
   padding: 1rem;
   outline: none;
+  border-radius: 2rem;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 .bar {
   width: 100%;
@@ -213,15 +212,16 @@ h1 {
   background: #ffffff;
 }
 .search-bar {
-  padding: 0.7rem 0.7rem;
+  padding: 0.5rem 0.5rem;
   font-size: 1.3rem;
   border: 0;
   outline: none;
+  border-radius: 2rem;
 }
 .container-search i {
   color: #080b2e;
   font-size: 1.8rem;
-  padding: 0.7rem;
+  padding: 0.5rem;
 }
 .table-container {
   width: 25rem;
@@ -243,21 +243,39 @@ table {
   border-bottom: 1px solid #080b2e23;
   border-right: 1px solid #080b2e23;
   cursor: pointer;
+  
 }
-/* th {
-  border-bottom: 1px solid #080b2e23;
+
+tr {
   background: rgb(255, 255, 255);
   color: #000;
-  height: 8rem;
-  padding: 0.5rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  text-align: left;
-} */
-tr {
-  background: #ffffff;
+  height: 2rem;  
+  
 }
+td {
+  padding-left: 1rem;
+
+}
+th {
+  font-size: 1.6rem;
+}
+.title {
+  padding-left: 1rem;
+  text-align: left;
+}
+.date {
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-align: right;
+  padding-right: 1rem;
+
+  
+}
+.fav{
+    font-size: 1.8rem;
+    text-align: right;
+    padding-right: 1rem;
+  }
 /*----------error page------------*/
 .error-container {
   display: flex;
@@ -288,9 +306,101 @@ tr {
   color: #080b2e;
   text-decoration: none;
 }
+/*--------- star button------------*/
+#show-fav {
+  background: none;
+  outline: none;
+}
+#show-fav i :focus {
+  color: rgb(255, 255, 161);
+}
+#show-fav:hover {
+  color: rgb(255, 255, 161);
+}
+.hidden {
+  display: none;
+}
 /*----------Responsive Styles------------*/
-@media (max-width: 1060px) {
+@media (max-width: 750px) {
   .start-wrapper {
     margin-top: 15rem;
+  }
+  #navbar,
+  .quill-container {
+    display: none;
+  }
+  .mobile-wrapper {
+    z-index: 2;
+    width: 8rem;
+    position: relative;
+  }
+  .header {
+    padding: 10px;
+    background-color: #fff;
+  }
+  .line {
+    width: 3.5rem;
+    height: 0.4rem;
+    margin: 6px;
+    background-color: #080b2e;
+  }
+  .menu-toggle:hover {
+    cursor: pointer;
+  }
+
+  .mobile-nav ul {
+    min-height: 100vh;
+    list-style-type: none;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  .mobile-nav {
+    background-color: transparent;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    background-color: #080b2e;
+    text-align: center;
+    transform: translate(-100%);
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+  }
+
+  .mobile-nav {
+    text-align: center;
+  }
+
+  .mobile-nav li a {
+    display: block;
+    padding: 25px 0;
+    color: #fff;
+  }
+
+  .mobile-nav li a:hover {
+    background-color: #a6eef7;
+  }
+  .table-container {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+  }
+  .bar {
+    display: flex;
+    align-content: center;
+    width: 80%;
+  }
+}
+@media (min-width: 750px) {
+  .mobile-wrapper {
+    display: none;
   }
 }
