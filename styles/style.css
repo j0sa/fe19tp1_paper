@@ -50,7 +50,7 @@ html {
   width: 5rem;
 }
 #navbar {
-background-color: #000019;
+  background-color: #000019;
 }
 i {
   color: #fff;
@@ -79,7 +79,7 @@ i {
 /*----------About------------*/
 .logo {
   position: absolute;
-  padding: 2rem;
+  padding: 2.5rem 2.5rem;
 }
 .logo img {
   width: 7rem;
@@ -194,7 +194,7 @@ h1 {
   display: inline-flex;
   text-decoration: none;
   background: transparent;
-  border: 0.1rem solid #ececec;
+  border: .1rem solid #ececec;
   border-radius: 2rem;
   color: #000019;
   background: #ffffff;
@@ -212,7 +212,7 @@ h1 {
   padding: .5rem;
 }
 .table-container {
-  width: 25rem;  
+  width: 25rem;
   height: 100vh;
   background-color: #ececec;
   overflow-y: auto;
@@ -231,17 +231,13 @@ table {
   border-bottom: 1px solid #00001923;
   border-right: 1px solid #00001923;
   cursor: pointer;
-  
 }
-
 tr {
   background: rgb(255, 255, 255);
   color: #000;
-  
 }
 td {
   padding-left: 1rem;
-
 }
 th {
   font-size: 1.6rem;
@@ -256,11 +252,11 @@ th {
   text-align: right;
   padding-right: 1rem;
 }
-.fav{
-    font-size: 1.8rem;
-    text-align: right;
-    padding-right: 1rem;
-  }
+.fav {
+  font-size: 1.8rem;
+  text-align: right;
+  padding-right: 1rem;
+}
 /*----------error page------------*/
 .error-container {
   display: flex;
@@ -296,7 +292,6 @@ th {
 #show-fav:hover {
   color: rgb(255, 255, 161);
   cursor: pointer;
- 
 }
 .hidden {
   display: none;
@@ -304,9 +299,22 @@ th {
 /*----------Responsive Styles------------*/
 @media (max-width: 750px) {
   .start-wrapper {
-    margin-top: 15rem;
+    margin-top: 10vh;
+    justify-content: space-around;
   }
-  #navbar{
+  h1 {
+    font-size: 4rem;
+    padding-bottom: 1.4rem;
+  }
+  .container-about img {
+    width: 90vw;
+  }
+  .description {
+    width: 90vw;
+    font-size: 2rem;
+  }
+
+  #navbar {
     display: none;
   }
   /*----------Mobile nav------------*/
@@ -318,14 +326,14 @@ th {
   .header {
     display: block;
     padding: 10px;
-    background-color:#fff;
-    width:100vw;
+    background-color: #fff;
+    width: 100vw;
   }
   .line {
     width: 3.5rem;
-    border-radius: .2rem;
-    height: .5rem;
-    margin: .7rem;
+    border-radius: 0.2rem;
+    height: 0.5rem;
+    margin: 0.7rem;
     background-color: #000019;
   }
   .menu-toggle:hover {
@@ -337,7 +345,7 @@ th {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center; 
+    align-items: center;
     height: calc(100vh - 5rem);
   }
 
@@ -351,66 +359,131 @@ th {
     transform: translate(-100%);
     position: relative;
     display: inline-block;
-   
   }
 
   .mobile-nav {
     text-align: center;
   }
-
   .mobile-nav li a {
     display: block;
     padding: 25px 0;
     color: #fff;
   }
-
   .mobile-nav li a:hover {
-   color: #a6eef7;
+    color: #a6eef7;
   }
-   /*----------Table------------*/
+  /*----------Table------------*/
   .table-container {
     width: 100%;
     position: relative;
     padding-top: 6rem;
-     min-height: 100vh;
+    min-height: 100vh;
+  }
+  .search-bar {
+  padding: 1rem 1rem;
   }
   .bar {
     display: flex;
     align-content: center;
     width: 80%;
   }
+  .container-search i {
+    padding:1rem;
+  }
   /*----------Create note------------*/
-.quill-container{
-  display: none;
-}
-.write{
-  position: absolute;
+  .quill-container {
+    width: 90vw;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    padding-top: 3rem;
+  }
+  .ql-editor::before {
+    font-size: 1.4rem;
+  }
+  #editor {
+    height: 100vw;
+    background-color: #fff;
+  }
+  .btn {
+    margin-top: 4%;
+  }
+  .modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+  }
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 100vw;
+    height: 70vh;
+  }
+  .close-button {
+    float: right;
+    position: relative;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: .25rem;
+    background-color: #000019;
+    color: #fff;
+    padding:.4rem;
+    font-size: 2rem;
+  }
+  .close-button:hover {
+    background-color: #a6eef7;
+    color: #000019;
+  }
+  .show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+  }
+  .write {
+    position: absolute;
     bottom: 0;
     right: 0;
     outline: none;
-    padding: 5rem 3rem;
-    border: none;
-}
-.write i{
-  font-size: 4rem;
-  padding: 1.5rem;
-    color:#fff;
+    padding: 6rem 3.3rem;
+    border: 0;
+  }
+  .write i {
+    font-size: 3rem;
+    padding: 2.5rem;
+    color: #fff;
+    outline: 0;
+    border: 0;
     background-color: #000019;
     border-radius: 50%;
-    outline: 0;
-}
-.write i:hover{
-  background: #a6eef7;
-  color: #000019;
-}
-.write-btn:focus {
-  outline: none;
-  cursor: pointer;
-
+  }
+  #write-btn:hover {
+    background: #a6eef7;
+    color: #000019;
+  }
+  #write-btn {
+    border: 0;
+  }
+  #write-btn:focus {
+    outline: none;
+    cursor: pointer;
   }
 }
 @media (min-width: 750px) {
-  .mobile-wrapper,.write {
+  .mobile-wrapper,
+  .write, .close-button {
     display: none;
   }
 }
