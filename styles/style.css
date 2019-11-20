@@ -310,6 +310,7 @@ th {
 }
 #show-fav:hover {
   color: rgb(255, 255, 161);
+  cursor: pointer;
 }
 .hidden {
   display: none;

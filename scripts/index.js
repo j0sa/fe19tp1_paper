@@ -29,5 +29,6 @@ $(document).ready(function () {
     }
   });
 });
+
 document.querySelector('#new').style.visibility = 'hidden';
 document.querySelector('#save').style.visibility = 'hidden';
