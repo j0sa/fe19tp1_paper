@@ -8,10 +8,10 @@ else { console.log('noteslist är tom'); }
 //The code that generates a html table from the localstorage data
 document.querySelector("#scroll-notes").addEventListener('click', function (e) {
   // event.target
-  let n = e.target.closest('table').id;
-  console.log(n)
+  let iD = e.target.closest('table').id;
+  console.log(iD)
   if (e.target.classList.contains("fav")) {
-    let currentNote = notes.find(note => note.id === Number(n))
+    let currentNote = notes.find(note => note.id === Number(iD))
     console.table(currentNote)
     currentNote.favourite = !currentNote.favourite;
     localStorage.setItem("note", JSON.stringify(notes))
