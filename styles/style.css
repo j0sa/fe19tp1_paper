@@ -180,6 +180,26 @@ h1 {
   background: #000019;
   color: #ffffff;
 }
+.btn--stats {
+  margin-left: 2%;
+  padding: 10px 25px;
+  border: 1px solid #000019;
+  color: #000019;
+  outline: none;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  background: #fff;
+  height: 100px;
+  width: 200px;
+  position: absolute;
+  left: 100px;
+  top: 150px;
+}
+.btn--stats:hover {
+  transform: scale(1.1);
+  background: #000019;
+  color: #ffffff;
+}
 /*----------Container for notes------------*/
 .container-search {
   padding: 1rem;

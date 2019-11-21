@@ -77,17 +77,25 @@ function getLocalStorageQuotaInFormattedSize() {
 }
 
 function getNumberOfKeysInLocalStorage() {
-  let keyNumber = Object.keys('note').length;
-  let numberString = 'Number of Notes: ' + keyNumber;
-  return numberString;
+  if(notesList !== null){
+    let keyNumber = Object.keys('note').length;
+    let numberString = 'Number of Notes: ' + keyNumber;
+    return numberString;
+  }else{
+    return 'no notes';
+  }
 }
 
 function getDateOfFirstAndLastNote() {
-  let firstNote = notesList[0].created;
-  let lastNost = notesList.slice(-1)[0].created;
-  //let lastNote = notesList.slice(-1).pop.created;
-  let dateString = 'You wrote your first note ' + firstNote + '. ' + 'You wrote your last note ' + lastNost + '.';
-  return dateString;
+  if(notesList !== null) {
+    let firstNote = notesList[0].created;
+    let lastNost = notesList.slice(-1)[0].created;
+    //let lastNote = notesList.slice(-1).pop.created;
+    let dateString = 'You wrote your first note ' + firstNote + '. ' + 'You wrote your last note ' + lastNost + '.';
+    return dateString;
+  }else{
+    return 'no notes';
+  }
 }
 
 function extractSubstr(str, regexp) {
@@ -152,13 +160,17 @@ function getWordCount(str) {
 }
 
 function getStatsOnNotes() {
-  let wordCnt = getWordCount(notesString);
-  let wordFreq = getWordFrequency(notesString);
-  let uniqueWords = wordFreq.length;
-  let mostCommonWord = wordFreq[0][0];
-  let leastCommonWord = wordFreq.slice(-2)[0][0];
-  console.log(wordFreq);
-  return 'You have written ' + wordCnt + ' words. ' + uniqueWords + ' of them are unique.' + ' Your most common word is ' + mostCommonWord + ' and your least common word is ' + leastCommonWord;
+  if(notesList !== null) {
+    let wordCnt = getWordCount(notesString);
+    let wordFreq = getWordFrequency(notesString);
+    let uniqueWords = wordFreq.length;
+    let mostCommonWord = wordFreq[0][0];
+    let leastCommonWord = wordFreq.slice(-2)[0][0];
+    console.log(wordFreq);
+    return 'You have written ' + wordCnt + ' words. ' + uniqueWords + ' of them are unique.' + ' Your most common word is ' + mostCommonWord + ' and your least common word is ' + leastCommonWord;
+  } else {
+    return 'No notes';
+  }
 }
 
 
@@ -172,7 +184,7 @@ function getStatsOnNotes() {
 function writeStats() {
   //ocument.write(getLocalStorageQuotaInFormattedSize() + ' ' + getNumberOfKeysInLocalStorage() + ' ' + getDateOfFirstAndLastNote() + ' ' + getStatsOnNotes());
   let string = getLocalStorageQuotaInFormattedSize() + ' ' + getNumberOfKeysInLocalStorage() + ' ' + getDateOfFirstAndLastNote() + ' ' + getStatsOnNotes();
-  document.querySelector('#stattyboi').innerHTML = string;
+  document.querySelector('#statsp').innerHTML = string;
   console.log(getLocalStorageQuotaInFormattedSize());
   console.log(getNumberOfKeysInLocalStorage());
   //console.log(getDateOfFirstNote());
