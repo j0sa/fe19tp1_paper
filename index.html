@@ -64,15 +64,21 @@
       </section>
       <section id="scroll-notes"></section>
     </div>
-    <div class="write">
-      <button id="write-btn"><i class='uil uil-pen'></i></button>
-    </div>
-    <div class="quill-container">
-      <div id="editor"></div>
 
-      <button onclick="createNote()" class="btn btn--create">Create</button>
-      <button onclick="editNote(false)" id="save" class="btn btn--edit">Save</button>      
-      <button onclick="location.href='/'" type="button" id ="new" class=" btn btn--edit">New Note</button>
+    <div class="write">
+      <button id="write-btn" class="trigger"><i class='uil uil-pen'></i></button></button>
+    </div>
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div class="quill-container">
+          <div id="editor"></div>
+
+          <button onclick="createNote()" class="btn btn--create">Create</button>
+          <button onclick="editNote(false)" id="save" class="btn btn--edit">Save</button>
+          <button onclick="location.href='/'" type="button" id="new" class=" btn btn--edit">New Note</button>
+        </div>
+      </div>
     </div>
     <div id="noteList"></div>
 

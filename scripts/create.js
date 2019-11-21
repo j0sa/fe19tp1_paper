@@ -1,4 +1,4 @@
- let notes = [];
+let notes = [];
 
 // Set up tool for Quill API
 const toolbar = [
@@ -67,6 +67,8 @@ setInterval(function () {
 }, 5 * 1000);
 
 */
+document.querySelector('#new').style.visibility = 'hidden';
+document.querySelector('#save').style.visibility = 'hidden';
 
 function editNote(e) {
   quill.enable(e);

@@ -6,7 +6,6 @@ if (notesList != null) { document.getElementById("scroll-notes").innerHTML = not
 else { console.log('noteslist är tom'); }
 
 //The code that generates a html table from the localstorage data
-console.log(notesList);
 document.querySelector("#scroll-notes").addEventListener('click', function (e) {
   // event.target
   let n = e.target.closest('table').id;
@@ -21,7 +20,6 @@ document.querySelector("#scroll-notes").addEventListener('click', function (e) {
     // loadNote(n);
   }
 });
-
 function noteTemplate(myNote) {
   notes.push(myNote);
   console.log(myNote.id, myNote.favourite);
@@ -98,3 +96,19 @@ showFav.addEventListener('click', function () {
     }
   })
 });
+// Quill Modal View
+let modal = document.querySelector(".modal");
+let trigger = document.querySelector(".trigger");
+let closeButton = document.querySelector('.close-button');
+
+function toggleModal() {
+  modal.classList.toggle("show-modal");
+}
+function windowOnClick(e) {
+  if (event.target === modal) {
+    toggleModal();
+  }
+}
+trigger.addEventListener("click", toggleModal);
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
