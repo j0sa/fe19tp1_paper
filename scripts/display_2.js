@@ -46,6 +46,7 @@ const loadNote = noteID => {
   document.querySelector('.btn--create').style.visibility = 'hidden';
   document.querySelector('#new').style.visibility = 'visible';
   document.querySelector('#save').style.visibility = 'visible';
+  toggleModal()
 };
 document.querySelector("#new").addEventListener('click', function (e) {
   quill.setContents([])

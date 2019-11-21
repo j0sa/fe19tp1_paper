@@ -427,7 +427,7 @@ th {
     font-size: 1.4rem;
   }
   #editor {
-    height: 60vw;
+    height: 80vw;
     background-color: #fff;
   }
   .btn {
@@ -451,9 +451,8 @@ th {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1rem;
     width: 100vw;
-    height: 80vh;
   }
   .close-button {
     float: right;
