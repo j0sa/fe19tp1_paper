@@ -50,6 +50,7 @@ html {
   width: 5rem;
 }
 #navbar {
+  position: absolute;
   background-color: #000019;
 }
 i {
@@ -129,13 +130,12 @@ h1 {
   color: #000019;
   transform: scale(1.1);
 }
-/*----------Create note------------*/
+/*----------Editor------------*/
 .quill-container {
   padding: 1rem;
-  width: 80vw;
+  width: 70vw;
+  margin: 0 auto;
   text-align: center;
-  margin: auto;
-  position: relative;
 }
 .ql-editor::before {
   font-size: 1.4rem;
@@ -202,6 +202,7 @@ h1 {
 }
 /*----------Container for notes------------*/
 .container-search {
+  position: relative;
   padding: 1rem;
   outline: none;
   border-radius: 2rem;
@@ -210,17 +211,17 @@ h1 {
   justify-content: center;
 }
 .bar {
-  width: 100%;
+  width: 100vw;
   display: inline-flex;
   text-decoration: none;
   background: transparent;
-  border: .1rem solid #ececec;
+  border: 0.1rem solid #ececec;
   border-radius: 2rem;
   color: #000019;
   background: #ffffff;
 }
 .search-bar {
-  padding: .5rem .5rem;
+  padding: 0.5rem 0.5rem;
   font-size: 1.3rem;
   border: 0;
   outline: none;
@@ -229,9 +230,11 @@ h1 {
 .container-search i {
   color: #000019;
   font-size: 1.8rem;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 .table-container {
+  margin-left: 6rem;
+  position: relative;
   width: 25rem;
   height: 100vh;
   background-color: #ececec;
@@ -255,6 +258,7 @@ table {
 tr {
   background: rgb(255, 255, 255);
   color: #000;
+  height: 3rem;
 }
 td {
   padding-left: 1rem;
@@ -317,7 +321,7 @@ th {
   display: none;
 }
 /*----------Responsive Styles------------*/
-@media (max-width: 750px) {
+@media only screen and (max-width: 750px) {
   .start-wrapper {
     margin-top: 10vh;
     justify-content: space-around;
@@ -398,9 +402,10 @@ th {
     position: relative;
     padding-top: 6rem;
     min-height: 100vh;
+    margin-left: 0;
   }
   .search-bar {
-  padding: 1rem 1rem;
+    padding: 1rem 1rem;
   }
   .bar {
     display: flex;
@@ -408,9 +413,9 @@ th {
     width: 80%;
   }
   .container-search i {
-    padding:1rem;
+    padding: 1rem;
   }
-  /*----------Create note------------*/
+  /*----------Editor------------*/
   .quill-container {
     width: 90vw;
     text-align: center;
@@ -422,7 +427,7 @@ th {
     font-size: 1.4rem;
   }
   #editor {
-    height: 100vw;
+    height: 60vw;
     background-color: #fff;
   }
   .btn {
@@ -448,7 +453,7 @@ th {
     background-color: white;
     padding: 1rem 1.5rem;
     width: 100vw;
-    height: 70vh;
+    height: 80vh;
   }
   .close-button {
     float: right;
@@ -456,10 +461,10 @@ th {
     line-height: 1.5rem;
     text-align: center;
     cursor: pointer;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     background-color: #000019;
     color: #fff;
-    padding:.4rem;
+    padding: 0.4rem;
     font-size: 2rem;
   }
   .close-button:hover {
@@ -501,9 +506,10 @@ th {
     cursor: pointer;
   }
 }
-@media (min-width: 750px) {
+@media only screen and (min-width: 750px) {
   .mobile-wrapper,
-  .write, .close-button {
+  .write,
+  .close-button {
     display: none;
   }
 }

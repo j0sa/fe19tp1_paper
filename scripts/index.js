@@ -13,7 +13,7 @@ $(document).ready(function () {
 $(document).ready(function () {
   // Create cookie so that the user is no longer redirected
   let a = Cookies.set('secondvisit', 'true', {
-    expires: 7
+    expires: 2147483647
   });
 });
 
