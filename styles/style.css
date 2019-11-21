@@ -486,9 +486,8 @@ th {
 /*----------Dark mode------------*/
 .dark-mode-toggle {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  padding: 0.5rem;
+  top: 1.5rem;
+  right: .3rem;
   background: transparent;
   cursor: pointer;
   font-size: 0.4rem;
