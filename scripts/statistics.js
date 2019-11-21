@@ -172,7 +172,9 @@ function getStatsOnNotes() {
 
 // Temporary DOM writer
 function writeStats() {
-  document.write(getLocalStorageQuotaInFormattedSize() + ' ' + getNumberOfKeysInLocalStorage() + ' ' + getDateOfFirstAndLastNote() + ' ' + getStatsOnNotes());
+  //ocument.write(getLocalStorageQuotaInFormattedSize() + ' ' + getNumberOfKeysInLocalStorage() + ' ' + getDateOfFirstAndLastNote() + ' ' + getStatsOnNotes());
+  let string = getLocalStorageQuotaInFormattedSize() + ' ' + getNumberOfKeysInLocalStorage() + ' ' + getDateOfFirstAndLastNote() + ' ' + getStatsOnNotes();
+  document.querySelector('#stattyboi').innerHTML = string;
   console.log(getLocalStorageQuotaInFormattedSize());
   console.log(getNumberOfKeysInLocalStorage());
   //console.log(getDateOfFirstNote());
