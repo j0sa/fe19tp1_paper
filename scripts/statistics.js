@@ -114,14 +114,12 @@ function wordMap(str) {
 }
 
 function mapToTuples(map) {
-  // Matches word and freq
   return Object.keys(map).map(function (key) {
     return [key, map[key]];
   });
 }
 
 function mapToSortedTuples(map, sortFn, sortOrder) {
-  // Sorts them
   return mapToTuples(map).sort(function (a, b) {
     return sortFn.call(undefined, a, b, sortOrder);
   });
