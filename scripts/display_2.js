@@ -51,6 +51,7 @@ document.querySelector("#new").addEventListener('click', function (e) {
   quill.setContents([])
   document.querySelector('.btn--create').style.visibility = 'visible';
   document.querySelector('#new').style.visibility = 'hidden';
+  document.querySelector('#save').style.visibility = 'hidden';
 })
 function editNote(e) {
   quill.enable(e);
