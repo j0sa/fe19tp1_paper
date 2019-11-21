@@ -30,7 +30,7 @@ function noteTemplate(myNote) {
     <table id="${myNote.id}" class="my-notes" cellspacing="0" cellpadding="0"   onclick='loadNote(${myNote.id})'>
       <tbody class="note-cell"> 
         <tr><th class = "title">${myNote.title}</th><td colspan = "6" class = "date">${myNote.created}</td></tr>
-        <tr><td colspan = "6">${myNote.content.ops[0].insert.slice(0, 30)}\n${myNote.content.ops[0].insert.slice(30, 60)}</td>
+        <td colspan = "6">${myNote.content.ops[0].insert.slice(0, 30)}\n${myNote.content.ops[0].insert.slice(30, 60)}</td>
         <td class ="fav">${favChar}</td>
       </tbody>
     </table>
@@ -47,7 +47,11 @@ const loadNote = noteID => {
   document.querySelector('#new').style.visibility = 'visible';
   document.querySelector('#save').style.visibility = 'visible';
 };
-
+document.querySelector("#new").addEventListener('click', function (e) {
+  quill.setContents([])
+  document.querySelector('.btn--create').style.visibility = 'visible';
+  document.querySelector('#new').style.visibility = 'hidden';
+})
 function editNote(e) {
   quill.enable(e);
   console.log("inside editnote")
