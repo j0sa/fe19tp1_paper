@@ -12,7 +12,7 @@ document.querySelector("#scroll-notes").addEventListener('click', function (e) {
   console.log(iD)
   if (e.target.classList.contains("fav")) {
     let currentNote = notes.find(note => note.id === Number(iD))
-    console.table(currentNote)
+    // console.table(currentNote)
     currentNote.favourite = !currentNote.favourite;
     localStorage.setItem("note", JSON.stringify(notes))
     e.target.innerText = !currentNote.favourite ? "☆" : "★";
@@ -73,17 +73,8 @@ function editNote(e) {
     }
   }
 }
-
 function addFav() {
-  let setFav = notes.find(note => note.id === noteID)
-  // item is not favorite
-  if (setFav.favourite != true) {
-    setFav.favourite = true;
-    console.log(" noteID: " + noteID + 'Is not a fav: ' + setFav.favourite)
-    // item is already favorite
-  }
   localStorage.setItem("note", JSON.stringify(notes))
-  // window.location.href = window.location.href;
 };
 
 showFav.addEventListener('click', addFav);
@@ -118,4 +109,6 @@ function windowOnClick(e) {
 trigger.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
+
+// Settings Modal View
 
