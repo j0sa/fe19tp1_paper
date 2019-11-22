@@ -72,30 +72,31 @@ function getLocalStorageQuotaInFormattedSize() {
   //let used = formatBytes(getUsedSpaceOfLocalStorageInBytes(), 0);
   let unused = formatBytesNoDecimals(getUnusedSpaceOfLocalStorageInBytes());
   let used = formatBytesNoDecimals(getUsedSpaceOfLocalStorageInBytes());
-  let quota = 'You have used ' + used + ' of space.' + ' You have ' + unused + ' of space left.';
-  return quota;
+  if(notesList === null || !notesList) {
+    let quota = 'You have ' + unused + ' of space left';
+    return quota;
+  }else{
+    let quota = 'You have used ' + used + ' of space.' + ' You have ' + unused + ' of space left.';
+    return quota;
+  }
 }
 
 function getNumberOfKeysInLocalStorage() {
-  if(notesList !== null){
-    let keyNumber = Object.keys('note').length;
-    let numberString = 'Number of Notes: ' + keyNumber;
-    return numberString;
-  }else{
-    return 'no notes';
-  }
+  let keyNumber = notesList.length;
+  let numberString = 'Number of Notes: ' + keyNumber;
+  return numberString;
 }
 
 function getDateOfFirstAndLastNote() {
-  if(notesList !== null) {
     let firstNote = notesList[0].created;
     let lastNost = notesList.slice(-1)[0].created;
     //let lastNote = notesList.slice(-1).pop.created;
-    let dateString = 'You wrote your first note ' + firstNote + '. ' + 'You wrote your last note ' + lastNost + '.';
-    return dateString;
-  }else{
-    return 'no notes';
-  }
+    if(notesList.length === 1) {
+      return 'You wrote your note ' + firstNote;
+    }else{
+      let dateString = 'You wrote your first note ' + firstNote + '. ' + 'You wrote your last note ' + lastNost + '.';
+      return dateString;
+    }
 }
 
 function extractSubstr(str, regexp) {
@@ -160,7 +161,6 @@ function getWordCount(str) {
 }
 
 function getStatsOnNotes() {
-  if(notesList !== null) {
     let wordCnt = getWordCount(notesString);
     let wordFreq = getWordFrequency(notesString);
     let uniqueWords = wordFreq.length;
@@ -168,9 +168,6 @@ function getStatsOnNotes() {
     let leastCommonWord = wordFreq.slice(-2)[0][0];
     console.log(wordFreq);
     return 'You have written ' + wordCnt + ' words. ' + uniqueWords + ' of them are unique.' + ' Your most common word is ' + mostCommonWord + ' and your least common word is ' + leastCommonWord;
-  } else {
-    return 'No notes';
-  }
 }
 
 
@@ -182,12 +179,26 @@ function getStatsOnNotes() {
 
 // Temporary DOM writer
 function writeStats() {
-  //ocument.write(getLocalStorageQuotaInFormattedSize() + ' ' + getNumberOfKeysInLocalStorage() + ' ' + getDateOfFirstAndLastNote() + ' ' + getStatsOnNotes());
-  let string = getLocalStorageQuotaInFormattedSize() + ' ' + getNumberOfKeysInLocalStorage() + ' ' + getDateOfFirstAndLastNote() + ' ' + getStatsOnNotes();
-  document.querySelector('#statsp').innerHTML = string;
-  console.log(getLocalStorageQuotaInFormattedSize());
-  console.log(getNumberOfKeysInLocalStorage());
-  //console.log(getDateOfFirstNote());
-  //console.log(getDateOfLastNote());
-  console.log(getDateOfFirstAndLastNote());
+  if(notesList === null || !notesList){
+    document.querySelector('#localstoragequota').innerHTML = getLocalStorageQuotaInFormattedSize();
+    document.querySelector('#keysinlocalstorage').innerHTML = ' You do not have any notes to extract statistics from';
+    console.log(getLocalStorageQuotaInFormattedSize());
+  }else if(JSON.stringify(notesList).length < 500) {
+    document.querySelector('#localstoragequota').innerHTML = getLocalStorageQuotaInFormattedSize();
+    document.querySelector('#keysinlocalstorage').innerHTML = getNumberOfKeysInLocalStorage();
+    document.querySelector('#dateoffirstandlastnote').innerHTML = getDateOfFirstAndLastNote();
+    document.querySelector('#statsonnotes').innerHTML = 'You have not written enough words to extract any statistics';
+  }else{
+    //ocument.write(getLocalStorageQuotaInFormattedSize() + ' ' + getNumberOfKeysInLocalStorage() + ' ' + getDateOfFirstAndLastNote() + ' ' + getStatsOnNotes());
+    //let string = getLocalStorageQuotaInFormattedSize() + ' ' + getNumberOfKeysInLocalStorage() + ' ' + getDateOfFirstAndLastNote() + ' ' + getStatsOnNotes();
+    document.querySelector('#localstoragequota').innerHTML = getLocalStorageQuotaInFormattedSize();
+    document.querySelector('#keysinlocalstorage').innerHTML = getNumberOfKeysInLocalStorage();
+    document.querySelector('#dateoffirstandlastnote').innerHTML = getDateOfFirstAndLastNote();
+    document.querySelector('#statsonnotes').innerHTML = getStatsOnNotes();
+    console.log(getLocalStorageQuotaInFormattedSize());
+    console.log(getNumberOfKeysInLocalStorage());
+    //console.log(getDateOfFirstNote());
+    //console.log(getDateOfLastNote());
+    console.log(getDateOfFirstAndLastNote());
+  }
 }
