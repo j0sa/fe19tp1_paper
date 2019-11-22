@@ -340,7 +340,7 @@ th {
 }
 /*--------- star button------------*/
 #show-fav,
-#settings {
+#btn-settings {
   background: none;
   outline: none;
 }
@@ -425,20 +425,19 @@ th {
     padding: 1rem 1rem;
     width: 100vw;
   }
-  .close-button {
-    float: right;
-    position: relative;
+  #close-button {
+    right:0;
+    position: absolute;
     line-height: 1.5rem;
-    text-align: center;
     cursor: pointer;
     border-radius: 0.25rem;
-    background-color: var(--background);
     color: var(--foreground);
-    padding: 0.4rem;
     font-size: 2rem;
+    outline: none;
+    background: 0;
   }
-  .close-button:hover {
-    background-color: var(--background);
+  #close-button:hover {
+    color: var(--background);
     color: var(--foreground);
   }
   .show-modal {
@@ -480,7 +479,7 @@ th {
 }
 @media only screen and (min-width: 750px) {
   .write,
-  .close-button {
+  #close-button {
     display: none;
   }
 }

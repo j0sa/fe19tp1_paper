@@ -96,7 +96,7 @@ showFav.addEventListener('click', function () {
 // Quill Modal View
 let modal = document.querySelector(".modal");
 let trigger = document.querySelector(".trigger");
-let closeButton = document.querySelector('.close-button');
+let closeButton = document.querySelector('#close-button');
 
 function toggleModal() {
   modal.classList.toggle("show-modal");
