@@ -158,8 +158,6 @@ h1 {
 .quill-container {
   padding: 1rem;
   width: 70vw;
-  margin: 0 auto;
-  text-align: center;
 }
 .ql-editor {
   box-sizing: border-box;
