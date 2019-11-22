@@ -147,7 +147,7 @@ h1 {
   width: 15rem;
   padding: 1.8rem;
   background-color: var(--primary);
-  color: var(--foreground);
+  color: var(--main-bg-light);
   font-size: 1.8rem;
   font-weight: 700;
 }
@@ -180,7 +180,6 @@ h1 {
   font-size: 1.4rem;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
-  border: 1px solid var(--foreground);
 }
 .btn--create {
   margin-top: 1%;
@@ -204,6 +203,7 @@ h1 {
   text-transform: uppercase;
   font-size: 1.4rem;
   background: var(--background);
+  border: 1px solid var(--foreground);
 }
 .btn--edit:hover {
   transform: scale(1.1);
@@ -224,6 +224,7 @@ h1 {
   position: absolute;
   left: 100px;
   top: 150px;
+  border: 1px solid var(--foreground);
 }
 .btn--stats:hover {
   transform: scale(1.1);
