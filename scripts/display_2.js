@@ -13,19 +13,20 @@ document.querySelector("#scroll-notes").addEventListener('click', function (e) {
   if (e.target.classList.contains("fav")) {
     let currentNote = notes.find(note => note.id === Number(iD))
     console.table(currentNote)
-    currentNote.favourite = !currentNote.favourite;
+    currentNote.favorite = !currentNote.favorite;
     localStorage.setItem("note", JSON.stringify(notes))
-    e.target.innerText = !currentNote.favourite ? "☆" : "★";
+    e.target.innerText = !currentNote.favorite ? "☆" : "★";
   } else {
     // loadNote(n);
   }
 });
+
 function noteTemplate(myNote) {
   notes.push(myNote);
-  console.log(myNote.id, myNote.favourite);
+  console.log(myNote.id, myNote.favorite);
   // let noteString = myNote.content.ops[0].insert;
   // console.log(noteString);
-  let favChar = !myNote.favourite ? "☆" : "★";
+  let favChar = !myNote.favorite ? "☆" : "★";
   return `
     <table id="${myNote.id}" class="my-notes" cellspacing="0" cellpadding="0"   onclick='loadNote(${myNote.id})'>
       <tbody class="note-cell"> 
@@ -48,17 +49,19 @@ const loadNote = noteID => {
   document.querySelector('#save').style.visibility = 'visible';
   toggleModal()
 };
+
 document.querySelector("#new").addEventListener('click', function (e) {
   quill.setContents([])
   document.querySelector('.btn--create').style.visibility = 'visible';
   document.querySelector('#new').style.visibility = 'hidden';
   document.querySelector('#save').style.visibility = 'hidden';
 })
+
 function editNote(e) {
   quill.enable(e);
   console.log("inside editnote")
   if (e == false) {
-    // loop through all and update the paticular object
+    // loop through all and update the particular object
     for (i = 0; i < notesList.length; i++) {
       if (notesList[i].id === window.value) {
         notesList[i].title = quill.getText(0, 10)
@@ -77,9 +80,9 @@ function editNote(e) {
 function addFav() {
   let setFav = notes.find(note => note.id === noteID)
   // item is not favorite
-  if (setFav.favourite != true) {
-    setFav.favourite = true;
-    console.log(" noteID: " + noteID + 'Is not a fav: ' + setFav.favourite)
+  if (setFav.favorite != true) {
+    setFav.favorite = true;
+    console.log(" noteID: " + noteID + 'Is not a fav: ' + setFav.favorite)
     // item is already favorite
   }
   localStorage.setItem("note", JSON.stringify(notes))
@@ -88,13 +91,13 @@ function addFav() {
 
 showFav.addEventListener('click', addFav);
 const handleToggle = (element) => element.classList.toggle("hidden");
-let f = notes.filter(note => note.favourite)
+let f = notes.filter(note => note.favorite)
 hideNote = document.querySelectorAll('.note-cell')
 showFav.addEventListener('click', function () {
   hideNote.forEach(note => {
     let noteID = note.parentElement.id;
     let currentNote = notes.find(note => note.id === Number(noteID))
-    if (!currentNote.favourite) {
+    if (!currentNote.favorite) {
       handleToggle(note);
       // console.log(f)
     } else {
@@ -102,6 +105,7 @@ showFav.addEventListener('click', function () {
     }
   })
 });
+
 // Quill Modal View
 let modal = document.querySelector(".modal");
 let trigger = document.querySelector(".trigger");
@@ -110,12 +114,13 @@ let closeButton = document.querySelector('.close-button');
 function toggleModal() {
   modal.classList.toggle("show-modal");
 }
+
 function windowOnClick(e) {
   if (event.target === modal) {
     toggleModal();
   }
 }
+
 trigger.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
-

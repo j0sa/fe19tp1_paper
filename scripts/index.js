@@ -8,6 +8,7 @@ $(document).ready(function () {
     window.location.href = "start.html";
   }
 })
+
 //<!-- Adds second Visit cookie -->
 $(document).ready(function () {
   // Create cookie so that the user is no longer redirected

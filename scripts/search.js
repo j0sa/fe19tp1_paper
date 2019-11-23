@@ -37,4 +37,5 @@
       tableFilter.init();
     }
   });
+  
 })(document);

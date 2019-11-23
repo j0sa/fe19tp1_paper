@@ -37,7 +37,7 @@ const createNote = () => {
     content: quill.getContents(),
     created: currentTime,
     archived: false,
-    favourite: false
+    favorite: false
   };
   console.log(notes)
   notes = oldnotes;
