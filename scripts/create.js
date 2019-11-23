@@ -14,7 +14,7 @@ const toolbar = [
 let Delta = Quill.import("delta");
 let quill = new Quill("#editor", {
   modules: { toolbar: toolbar },
-  theme: "snow",
+  theme: "bubble",
   placeholder: "Write here..."
 });
 

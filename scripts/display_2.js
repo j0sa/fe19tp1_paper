@@ -12,7 +12,7 @@ document.querySelector("#scroll-notes").addEventListener('click', function (e) {
   console.log(iD)
   if (e.target.classList.contains("fav")) {
     let currentNote = notes.find(note => note.id === Number(iD))
-    console.table(currentNote)
+    // console.table(currentNote)
     currentNote.favorite = !currentNote.favorite;
     localStorage.setItem("note", JSON.stringify(notes))
     e.target.innerText = !currentNote.favorite ? "☆" : "★";
@@ -76,17 +76,8 @@ function editNote(e) {
     }
   }
 }
-
 function addFav() {
-  let setFav = notes.find(note => note.id === noteID)
-  // item is not favorite
-  if (setFav.favorite != true) {
-    setFav.favorite = true;
-    console.log(" noteID: " + noteID + 'Is not a fav: ' + setFav.favorite)
-    // item is already favorite
-  }
   localStorage.setItem("note", JSON.stringify(notes))
-  // window.location.href = window.location.href;
 };
 
 showFav.addEventListener('click', addFav);
@@ -109,7 +100,7 @@ showFav.addEventListener('click', function () {
 // Quill Modal View
 let modal = document.querySelector(".modal");
 let trigger = document.querySelector(".trigger");
-let closeButton = document.querySelector('.close-button');
+let closeButton = document.querySelector('#close-button');
 
 function toggleModal() {
   modal.classList.toggle("show-modal");
@@ -124,3 +115,5 @@ function windowOnClick(e) {
 trigger.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
+
+// Settings Modal View
