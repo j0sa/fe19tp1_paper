@@ -220,9 +220,6 @@ h1 {
   background: var(--background);
   height: 100px;
   width: 200px;
-  position: absolute;
-  left: 100px;
-  top: 150px;
   border: 1px solid var(--foreground);
 }
 .btn--stats:hover {
@@ -329,7 +326,6 @@ th {
 }
 .btn--error {
   width: 10rem;
-  margin: 0 auto;
   padding: 10px 25px;
   border: 1px solid var(--primary);
   color: var(--primary);
@@ -496,4 +492,9 @@ th {
 
 .dark-mode-toggle i {
   color: var(--foreground);
+}
+/*----------Statistics------------*/
+.stats-div {
+  display: grid;
+  margin: auto;
 }

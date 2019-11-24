@@ -21,11 +21,13 @@
         <li><a href="#"><i class='uil uil-cog'></i></i></a></li> <!-- Settings -->
       </ul>
     </nav>
-    <button onclick="writeStats()" id="stats" class="btn btn--stats">Run StatGetter</button>
-    <p id="localstoragequota"></p>
-    <p id="keysinlocalstorage"></p>
-    <p id="dateoffirstandlastnote"></p>
-    <p id="statsonnotes"></p>
+    <div class="stats-div">
+      <p id="localstoragequota"></p>
+      <p id="keysinlocalstorage"></p>
+      <p id="dateoffirstandlastnote"></p>
+      <p id="statsonnotes"></p>
+      <button onclick="writeStats()" class="btn btn--stats">Run StatGetter</button>
+    </div>
   </div>
 
   <!-- Compiled and minified JavaScript -->
