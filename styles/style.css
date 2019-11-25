@@ -302,7 +302,7 @@ h1 {
 }
 .container-search i {
   color: var(--foreground);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   padding: 0.5rem;
 }
 .table-container {
@@ -402,6 +402,20 @@ th {
   color: var(--foreground);
   font-size: 2rem;
 }
+/*----------Dark mode------------*/
+.dark-mode-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.4rem;
+  outline: none;
+}
+
+.dark-mode-toggle i {
+  color: var(--foreground);
+}
 /*----------Responsive Styles------------*/
 @media only screen and (max-width: 750px) {
   .start-wrapper {
@@ -458,6 +472,7 @@ th {
   }
   .container-search i {
     padding: 0.5rem;
+    font-size:2.2rem;
   }
   /*----------Editor------------*/
   .quill-container {
@@ -466,6 +481,7 @@ th {
     margin: auto;
     position: relative;
     height: 90vh;
+    padding-top:2.2rem;
   }
   #editor {
     width: 100%;
@@ -510,7 +526,8 @@ th {
     top: 0;
   }
   #close-button {
-    right: 0;
+    top: 1rem;
+    right: .3rem;
     z-index: 5;
     position: absolute;
     line-height: 1.5rem;
@@ -535,15 +552,15 @@ th {
   }
   .write {
     position: absolute;
-    bottom: 5rem;
+    bottom: 6rem;
     right: 0;
     outline: none;
-    padding: 6rem 3rem;
+    padding: 6rem 2.4rem;
     border: 0;
   }
   .write i {
     font-size: 3rem;
-    padding: 2rem;
+    padding: 2.2rem;
     color: var(--main-bg-light);
     outline: 0;
     border: 0;
@@ -563,6 +580,9 @@ th {
     outline: none;
     cursor: pointer;
   }
+  .dark-mode-toggle {
+    top: 2rem;
+  }
 }
 @media only screen and (min-width: 750px) {
   .write,
@@ -570,22 +590,9 @@ th {
     display: none;
   }
 }
-/*----------Dark mode------------*/
-.dark-mode-toggle {
-  position: absolute;
-  top: 1.5rem;
-  right: 1rem;
-  background: transparent;
-  cursor: pointer;
-  font-size: 0.4rem;
-  outline: none;
-}
-
-.dark-mode-toggle i {
-  color: var(--foreground);
-}
 /*----------Statistics------------*/
 .stats-div {
   display: grid;
   margin: auto;
+  color: var(--foreground);
 }
