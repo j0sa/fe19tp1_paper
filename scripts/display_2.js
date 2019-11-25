@@ -80,6 +80,7 @@ function editNote(e) {
     }
   }
 }
+
 function addFav() {
   localStorage.setItem("note", JSON.stringify(notes))
 };
