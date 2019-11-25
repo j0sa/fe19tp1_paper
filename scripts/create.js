@@ -13,7 +13,7 @@ const toolbar = [
 // Set up editor
 let Delta = Quill.import("delta");
 let quill = new Quill("#editor", {
-  modules: { toolbar: toolbar },
+  modules: { toolbar: true },
   theme: "bubble",
   placeholder: "Write your note here. Highlight to format the text."
 });
@@ -73,3 +73,11 @@ document.querySelector('#save').style.visibility = 'hidden';
 function editNote(e) {
   quill.enable(e);
 }
+
+function printMode() {
+  //quill.getModule('toolbar').container.hidden = true;
+  document.getElementsByClassName('ql-tooltip').hidden = true;
+  console.log('print')
+}
+
+document.getElementById('print').addEventListener('click', printMode())

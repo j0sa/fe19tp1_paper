@@ -351,6 +351,16 @@ th {
 .hidden {
   display: none;
 }
+.btn--print i {
+  cursor: pointer;
+  outline: none;
+  font-size: 1.8rem;
+  text-align: right;
+}
+.btn--print i {
+color:var(--foreground);
+font-size:2rem;
+}
 /*----------Responsive Styles------------*/
 @media only screen and (max-width: 750px) {
   .start-wrapper {
@@ -427,13 +437,15 @@ th {
     line-height: 1.5rem;
     cursor: pointer;
     border-radius: 0.25rem;
-    color: var(--foreground);
     font-size: 2rem;
     outline: none;
     background: 0;
   }
-  #close-button:hover {
+  #close-button i :hover {
     color: var(--background);
+    color: var(--foreground);
+  }
+  #close-button i {
     color: var(--foreground);
   }
   .show-modal {
