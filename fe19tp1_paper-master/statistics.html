@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="icon" href="./favicon-dark.ico" type="image/x-icon"/>
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.0.1/css/unicons.css">
+  <link rel="stylesheet" href="/styles/style.css" />
+  <title>Stats</title>
+</head>
+
+<body>  
+  <div class="site-wrapper">
+    <nav id="navbar">
+      <ul>
+        <li><a href="/index.html"><img src="./assets/img/quire-light.svg" id="nav-logo" alt="logo"></img></a></li>
+        <button id="show-fav"><i class='uil uil-favorite'></i></button> <!-- Favorites -->
+        <li><a href="/statistics.html"><i class='uil uil-analysis'></i></i></a></li> <!-- Stats -->
+        <li><a href="#"><i class='uil uil-cog'></i></i></a></li> <!-- Settings -->
+      </ul>
+    </nav>
+    <div class="stats-div">
+      <p id="localstoragequota"></p>
+      <p id="keysinlocalstorage"></p>
+      <p id="dateoffirstandlastnote"></p>
+      <p id="statsonnotes"></p>
+      <button onclick="writeStats()" class="btn btn--stats">Run StatGetter</button>
+    </div>
+  </div>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+  <script src="/scripts/index.js"></script>
+  <script src="/scripts/statistics.js"></script>
+</body>
+
+</html>
