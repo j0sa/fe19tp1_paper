@@ -42,11 +42,19 @@ body {
   color: var(--foreground);
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
   font-family: "Open Sans", sans-serif;
   font-style: normal;
+  overflow-x: hidden;
+}
+html {
+  height: 100vh;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+body {
+  min-height: 100vh;
 }
 html {
   font-size: 62.5%;
@@ -66,31 +74,40 @@ html {
     font-size: 75%;
   }
 }
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  display: none;
+}
 .site-wrapper {
   display: flex;
   min-height: 100vh;
   width: 100%;
+  position: relative;
 }
 /*----------Navigation------------*/
 #nav-logo {
   width: 5rem;
 }
+#nav-logo:hover {
+  transform: scale(1.1);
+}
 #navbar {
-  position: absolute;
+  padding-top: 2%;
   background-color: var(--primary);
+  height: 100vh;
 }
 i {
   color: var(--main-bg-light);
   font-size: 3rem;
 }
 #navbar ul {
-  min-height: 100vh;
+  min-height: 90vh;
   width: 6rem;
   list-style-type: none;
   color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .uil-analysis:hover {
@@ -131,7 +148,7 @@ h1 {
 .description {
   display: flex;
   white-space: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: column;
   margin: 4rem;
   width: 60rem;
@@ -155,9 +172,15 @@ h1 {
   transform: scale(1.1);
 }
 /*----------Editor------------*/
+.modal {
+  margin: 0 auto;
+}
 .quill-container {
-  padding: 1rem;
-  width: 70vw;
+  width: 100vh;
+  background-color: var(--background);
+  color: var(--foreground);
+  text-align: center;
+  height: 100vh;
 }
 .ql-editor {
   box-sizing: border-box;
@@ -168,11 +191,6 @@ h1 {
   content: attr(data-placeholder);
   color: var(--foreground);
 }
-#editor {
-  height: 80vh;
-  background-color: var(--background);
-  color: var(--foreground);
-}
 .btn {
   outline: none;
   text-transform: uppercase;
@@ -181,8 +199,10 @@ h1 {
   cursor: pointer;
 }
 .btn--create {
-  margin-top: 1%;
-  padding: 10px 25px;
+  position: absolute;
+  bottom: 10rem;
+  right: 3rem;
+  padding: 1rem 2.5rem;
   color: var(--foreground);
   outline: none;
   text-transform: uppercase;
@@ -194,9 +214,23 @@ h1 {
   background: var(--primary);
   color: var(--background);
 }
+.btn--new {
+  position: absolute;
+  bottom: 10rem;
+  right: 3rem;
+  padding: 1rem 2.5rem;
+  color: var(--foreground);
+  outline: none;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  background: var(--background);
+  border: 1px solid var(--foreground);
+}
 .btn--edit {
-  margin-left: 2%;
-  padding: 10px 25px;
+  position: absolute;
+  bottom: 15rem;
+  right: 3rem;
+  padding: 1rem 2.5rem;
   color: var(--foreground);
   outline: none;
   text-transform: uppercase;
@@ -209,9 +243,19 @@ h1 {
   background: var(--primary);
   color: var(--main-bg-light);
 }
+.btn--print {
+  position: absolute;
+  top: 2rem;
+  right: 6rem;
+  outline: none;
+}
+.btn--print i {
+  background: var(--background);
+  font-size: 1.5rem;
+}
 .btn--stats {
   margin-left: 2%;
-  padding: 10px 25px;
+  padding: 1rem 2.5rem;
   border: 1px solid;
   color: var(--primary);
   outline: none;
@@ -262,10 +306,7 @@ h1 {
   padding: 0.5rem;
 }
 .table-container {
-  margin-left: 6rem;
-  position: relative;
   width: 25rem;
-  height: 100vh;
   background-color: var(--accent-second);
   overflow-y: auto;
   -webkit-box-shadow: inset -4px 0px 5px -2px rgba(0, 0, 0, 0.486);
@@ -358,14 +399,37 @@ th {
   text-align: right;
 }
 .btn--print i {
-color:var(--foreground);
-font-size:2rem;
+  color: var(--foreground);
+  font-size: 2rem;
 }
 /*----------Responsive Styles------------*/
 @media only screen and (max-width: 750px) {
   .start-wrapper {
     margin-top: 10vh;
     justify-content: space-around;
+  }
+  #navbar {
+    display: flex;
+    padding-top: 0;
+    position: absolute;
+    z-index: 1;
+    height: 6.9rem;
+    bottom: 0;
+    width: 100%;
+  }
+  #navbar ul {
+    margin: 0 auto;
+    width: 90vw;
+    flex-direction: row;
+    min-height: 3.8rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #nav-logo {
+    width: 4rem;
+  }
+  #nav-logo:hover {
+    background: var(--background);
   }
   h1 {
     font-size: 4rem;
@@ -380,7 +444,7 @@ font-size:2rem;
   }
   /*----------Table------------*/
   .table-container {
-    width: 94vw;
+    width: 100vw;
     position: relative;
     padding-top: 1rem;
   }
@@ -397,14 +461,14 @@ font-size:2rem;
   }
   /*----------Editor------------*/
   .quill-container {
-    width: 90vw;
+    width: 95vw;
     text-align: center;
     margin: auto;
     position: relative;
-    padding-top: 3rem;
+    height: 90vh;
   }
   #editor {
-    height: 80vw;
+    width: 100%;
     background-color: var(--background);
   }
   .btn {
@@ -412,6 +476,7 @@ font-size:2rem;
   }
   .modal {
     position: fixed;
+    z-index: 6;
     left: 0;
     top: 0;
     width: 100%;
@@ -421,18 +486,32 @@ font-size:2rem;
     visibility: hidden;
     transform: scale(1.1);
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    scrollbar-width: none;
+  }
+  .btn--print i {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1rem;
+    font-size: 2.5rem;
+  }
+  .btn--new,
+  .btn--edit,
+  .btn--print {
+    position: relative;
+    bottom: 0;
+    left: 1rem;
   }
   .modal-content {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    z-index: 6;
     background-color: var(--background);
-    padding: 1rem 1rem;
     width: 100vw;
+    height: 100vh;
+    top: 0;
   }
   #close-button {
-    right:0;
+    right: 0;
+    z-index: 5;
     position: absolute;
     line-height: 1.5rem;
     cursor: pointer;
@@ -456,7 +535,7 @@ font-size:2rem;
   }
   .write {
     position: absolute;
-    bottom: 0;
+    bottom: 5rem;
     right: 0;
     outline: none;
     padding: 6rem 3rem;

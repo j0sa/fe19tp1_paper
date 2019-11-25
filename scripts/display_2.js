@@ -32,11 +32,8 @@ function noteTemplate(myNote) {
       <tbody class="note-cell"> 
         <tr><th class = "title">${myNote.title}</th><td colspan = "6" class = "date">${myNote.created}</td></tr>
         <td colspan = "6">${myNote.content.ops[0].insert.slice(0, 30)}\n${myNote.content.ops[0].insert.slice(30, 60)}</td>
-        <td <button type="button" class="btn--print" id="print" onclick="printMode(); printJS({
-          printable: 'editor',
-          type: 'html'
-        })"><i class='uil uil-print'></i></button></td>
         <td class ="fav">${favChar}</td>
+        
       </tbody>
     </table>
   `;

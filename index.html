@@ -45,10 +45,14 @@
         <button id="close-button"><i class='uil uil-times'></i></button>
         <div class="quill-container">
           <div id="editor"></div>
-          <button onclick="createNote()" class="btn btn--create">Create</button>
-          <button onclick="editNote(false)" id="save" class="btn btn--edit">Save</button>
-          <button type="button" id="new" class=" btn btn--edit">New Note</button>
         </div>
+        <button onclick="createNote()" class="btn btn--create">Create</button>
+        <button onclick="editNote(false)" id="save" class="btn btn--edit">Save</button>
+        <button type="button" id="new" class=" btn btn--new">New Note</button>
+        <button type="button" class="btn--print" id="print" onclick="printMode(); printJS({
+      printable: 'editor',
+      type: 'html'
+    })"><i class='uil uil-print'></i></button>
       </div>
     </div>
     <button id="dark-mode-toggle" class="dark-mode-toggle"><i class='uil uil-moon'></i></button>
