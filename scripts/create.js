@@ -7,13 +7,14 @@ const toolbar = [
   ["blockquote", "code-block"],
   [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
   [{ align: [] }],
+  [ 'link', 'image', 'video', 'formula' ],  
   ["clean"]
 ];
 
 // Set up editor
 let Delta = Quill.import("delta");
 let quill = new Quill("#editor", {
-  modules: { toolbar: true },
+  modules: { toolbar: toolbar },
   theme: "bubble",
   placeholder: "Write your note here. Highlight to format the text."
 });
@@ -74,10 +75,10 @@ function editNote(e) {
   quill.enable(e);
 }
 
-function printMode() {
-  //quill.getModule('toolbar').container.hidden = true;
-  document.getElementsByClassName('ql-tooltip').hidden = true;
-  console.log('print')
-}
+// function printMode() {
+//   //quill.getModule('toolbar').container.hidden = true;
+//   document.getElementsByClassName('ql-tooltip').hidden = true;
+//   console.log('print')
+// }
 
-document.getElementById('print').addEventListener('click', printMode())
+// document.getElementById('print').addEventListener('click', printMode())

@@ -3,13 +3,13 @@
 const showFav = document.getElementById('show-fav');
 let notesList = JSON.parse(localStorage.getItem("note"));
 if (notesList != null) { document.getElementById("scroll-notes").innerHTML = notesList.map(noteTemplate).join("") }
-else { console.log('noteslist är tom'); }
+else { console.log('No notes!'); }
 
 //The code that generates a html table from the localstorage data
 document.querySelector("#scroll-notes").addEventListener('click', function (e) {
   // event.target
   let iD = e.target.closest('table').id;
-  console.log(iD)
+  // console.log(iD)
   if (e.target.classList.contains("fav")) {
     let currentNote = notes.find(note => note.id === Number(iD))
     // console.table(currentNote)
@@ -23,7 +23,6 @@ document.querySelector("#scroll-notes").addEventListener('click', function (e) {
 
 function noteTemplate(myNote) {
   notes.push(myNote);
-  console.log(myNote.id, myNote.favorite);
   // let noteString = myNote.content.ops[0].insert;
   // console.log(noteString);
   let favChar = !myNote.favorite ? "☆" : "★";
@@ -41,7 +40,6 @@ function noteTemplate(myNote) {
 
 // Load note into editor
 const loadNote = noteID => {
-  console.log("loadNotes ran! notes: " + notes + " noteID: " + noteID)
   let { content } = notes.find(note => note.id === Number(noteID));
   quill.setContents(content);
   window.value = noteID
