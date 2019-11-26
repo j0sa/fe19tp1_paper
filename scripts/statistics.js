@@ -68,14 +68,14 @@ function getLocalStorageQuotaInBytes() {
 }
 
 function getLocalStorageQuotaInFormattedSize() {
-  //let unused = formatBytes(getUnusedSpaceOfLocalStorageInBytes(), 0);
-  //let used = formatBytes(getUsedSpaceOfLocalStorageInBytes(), 0);
+  //let unused = formatBytes(getUnusedSpaceOfLocalStorageInBytes(), 0); <--IF WITH DECIMALS
+  //let used = formatBytes(getUsedSpaceOfLocalStorageInBytes(), 0); <--IF WITH DECIAMALS
   let unused = formatBytesNoDecimals(getUnusedSpaceOfLocalStorageInBytes());
   let used = formatBytesNoDecimals(getUsedSpaceOfLocalStorageInBytes());
-  if(notesList === null || !notesList) {
+  if (notesList === null || !notesList) {
     let quota = 'You have ' + unused + ' of space left';
     return quota;
-  }else{
+  } else {
     let quota = 'You have used ' + used + ' of space.' + ' You have ' + unused + ' of space left.';
     return quota;
   }
@@ -88,15 +88,15 @@ function getNumberOfKeysInLocalStorage() {
 }
 
 function getDateOfFirstAndLastNote() {
-    let firstNote = notesList[0].created;
-    let lastNost = notesList.slice(-1)[0].created;
-    //let lastNote = notesList.slice(-1).pop.created;
-    if(notesList.length === 1) {
-      return 'You wrote your note ' + firstNote;
-    }else{
-      let dateString = 'You wrote your first note ' + firstNote + '. ' + 'You wrote your last note ' + lastNost + '.';
-      return dateString;
-    }
+  let firstNote = notesList[0].created;
+  let lastNost = notesList.slice(-1)[0].created;
+  //let lastNote = notesList.slice(-1).pop.created;
+  if (notesList.length === 1) {
+    return 'You wrote your note ' + firstNote;
+  } else {
+    let dateString = 'You wrote your first note ' + firstNote + '. ' + 'You wrote your last note ' + lastNost + '.';
+    return dateString;
+  }
 }
 
 function extractSubstr(str, regexp) {
@@ -161,46 +161,70 @@ function getWordCount(str) {
 }
 
 function getStatsOnNotes() {
-    let wordCnt = getWordCount(notesString);
-    let wordFreq = getWordFrequency(notesString);
-    let uniqueWords = wordFreq.length;
-    let mostCommonWord = wordFreq[0][0];
-    let leastCommonWord = wordFreq.slice(-2)[0][0];
-    console.log(wordFreq);
-    return 'You have written ' + wordCnt + ' words. ' + uniqueWords + ' of them are unique.' + ' Your most common word is: ' + mostCommonWord + '.' +  ' Your least common word is: ' + leastCommonWord + '.';
+  let wordCnt = getWordCount(notesString);
+  let wordFreq = getWordFrequency(notesString);
+  let uniqueWords = wordFreq.length;
+  let mostCommonWord = wordFreq[0][0];
+  let leastCommonWord = wordFreq.slice(-2)[0][0];
+  let wordCntSentence = 'You have written ' + wordCnt + ' words.';
+  let uniqueWordsSentence = uniqueWords + ' of them are unique.';
+  let mostCommonWordSentence = ' Your most common word is: ' + mostCommonWord + '.';
+  let leastCommonWordSentence = ' Your least common word is: ' + leastCommonWord + '.';
+  return wordCntSentence + uniqueWordsSentence + mostCommonWordSentence + leastCommonWordSentence;
 }
-
-
-
-
-
-
-
 
 // Temporary DOM writer
 function writeStats() {
-  if(notesList === null || !notesList){
+  if (notesList === null || !notesList) {
     document.querySelector('#localstoragequota').innerHTML = getLocalStorageQuotaInFormattedSize();
-    document.querySelector('#keysinlocalstorage').innerHTML = ' You do not have any notes to extract statistics from';
+    document.querySelector('#keysinlocalstorage').innerHTML = ' You do not have any notes to extract statistics from.';
     console.log(getLocalStorageQuotaInFormattedSize());
-  }else if(JSON.stringify(notesList).length < 500) {
+  } else if (JSON.stringify(notesList).length < 500) {
     document.querySelector('#localstoragequota').innerHTML = getLocalStorageQuotaInFormattedSize();
     document.querySelector('#keysinlocalstorage').innerHTML = getNumberOfKeysInLocalStorage();
     document.querySelector('#dateoffirstandlastnote').innerHTML = getDateOfFirstAndLastNote();
     document.querySelector('#statsonnotes').innerHTML = 'You have not written enough words to extract any statistics';
-  }else{
-    //ocument.write(getLocalStorageQuotaInFormattedSize() + ' ' + getNumberOfKeysInLocalStorage() + ' ' + getDateOfFirstAndLastNote() + ' ' + getStatsOnNotes());
-    //let string = getLocalStorageQuotaInFormattedSize() + ' ' + getNumberOfKeysInLocalStorage() + ' ' + getDateOfFirstAndLastNote() + ' ' + getStatsOnNotes();
+  } else {
     document.querySelector('#localstoragequota').innerHTML = getLocalStorageQuotaInFormattedSize();
     document.querySelector('#keysinlocalstorage').innerHTML = getNumberOfKeysInLocalStorage();
     document.querySelector('#dateoffirstandlastnote').innerHTML = getDateOfFirstAndLastNote();
     document.querySelector('#statsonnotes').innerHTML = getStatsOnNotes();
     console.log(getLocalStorageQuotaInFormattedSize());
     console.log(getNumberOfKeysInLocalStorage());
-    //console.log(getDateOfFirstNote());
-    //console.log(getDateOfLastNote());
     console.log(getDateOfFirstAndLastNote());
   }
 }
 
-window.onload = writeStats();
+if (window.attachEvent) {
+  window.attachEvent('onload', writeStats());
+} else {
+  if (window.onload) {
+    var curronload = window.onload;
+    var newonload = function (evt) {
+      curronload(evt);
+      writeStats(evt);
+    };
+    window.onload = newonload;
+  } else {
+    window.onload = writeStats();
+  }
+}
+
+function onReady(callback) {
+  var intervalID = window.setInterval(checkReady, 1000);
+  function checkReady() {
+    if (document.getElementsByTagName('body')[0] !== undefined) {
+      window.clearInterval(intervalID);
+      callback.call(this);
+    }
+  }
+}
+
+function show(id, value) {
+  document.getElementById(id).style.display = value ? 'block' : 'none';
+}
+
+onReady(function () {
+  show('page', true);
+  show('loading', false);
+});
