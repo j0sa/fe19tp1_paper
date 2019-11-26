@@ -156,14 +156,19 @@ h1 {
   font-weight: 600;
   line-height: 1.45;
 }
-.btn--join {
+.btn--join,
+.btn--error {
+  outline: none;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
   margin-top: 2.2rem;
   text-align: center;
   width: 15rem;
   padding: 1.8rem;
   background-color: var(--primary);
   color: var(--main-bg-light);
-  font-size: 1.8rem;
   font-weight: 700;
 }
 .btn--join:hover {
@@ -192,84 +197,63 @@ h1 {
   color: var(--foreground);
 }
 .btn {
+  height: 6rem;
+  width: 6rem;
+  color: var(--main-bg-light);
+  outline: 0;
+  border: 0;
+  background-color: var(--primary);
+  border-radius: 50%;
   outline: none;
   text-transform: uppercase;
-  font-size: 1.4rem;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
+  right: 3rem;
+}
+.btn:hover {
+  background-color: var(--accent);
+  color: var(--main-text-color);
+  transform: scale(1.1);
 }
 .btn--create {
   position: absolute;
   bottom: 10rem;
-  right: 3rem;
-  padding: 1rem 2.5rem;
-  color: var(--foreground);
-  outline: none;
-  text-transform: uppercase;
-  background: var(--background);
-  border: 1px solid var(--foreground);
 }
-.btn--create:hover {
-  transform: scale(1.1);
-  background: var(--primary);
-  color: var(--background);
+.btn--create i {
+  font-size: 2rem;
+  background: transparent;
+}
+.btn--delete {
+  position: absolute;
+  bottom: 17rem;
+}
+.btn--delete i {
+  font-size: 2rem;
+  background: transparent;
 }
 .btn--new {
   position: absolute;
   bottom: 10rem;
-  right: 3rem;
-  padding: 1rem 2.5rem;
-  color: var(--foreground);
-  outline: none;
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  background: var(--background);
-  border: 1px solid var(--foreground);
+}
+.btn--new i {
+  font-size: 2rem;
+  background: transparent;
 }
 .btn--edit {
   position: absolute;
-  bottom: 15rem;
-  right: 3rem;
-  padding: 1rem 2.5rem;
-  color: var(--foreground);
-  outline: none;
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  background: var(--background);
-  border: 1px solid var(--foreground);
+  bottom: 24rem;
 }
-.btn--edit:hover {
-  transform: scale(1.1);
-  background: var(--primary);
-  color: var(--main-bg-light);
+.btn--edit i {
+  font-size: 2rem;
+  background: transparent;
 }
+
 .btn--print {
   position: absolute;
-  top: 2rem;
-  right: 6rem;
-  outline: none;
+  bottom: 3rem;
 }
 .btn--print i {
-  background: var(--background);
-  font-size: 1.5rem;
-}
-.btn--stats {
-  margin-left: 2%;
-  padding: 1rem 2.5rem;
-  border: 1px solid;
-  color: var(--primary);
-  outline: none;
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  background: var(--background);
-  height: 100px;
-  width: 200px;
-  border: 1px solid var(--foreground);
-}
-.btn--stats:hover {
-  transform: scale(1.1);
-  background: var(--primary);
-  color: var(--secondary-text-color);
+  font-size: 2rem;
 }
 /*----------Container for notes------------*/
 .container-search {
@@ -356,7 +340,7 @@ th {
 .error-container {
   position: absolute;
   top: 50%;
-  left:50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 .error {
@@ -365,13 +349,6 @@ th {
 }
 .error img {
   width: 90rem;
-}
-.btn--error {
-  width: 10rem;
-  padding: 10px 25px;
-  border: 1px solid var(--primary);
-  color: var(--primary);
-  background: var(--secondary-text-color);
 }
 .error a {
   color: var(--primary);
@@ -393,16 +370,6 @@ th {
 }
 .hidden {
   display: none;
-}
-.btn--print i {
-  cursor: pointer;
-  outline: none;
-  font-size: 1.8rem;
-  text-align: right;
-}
-.btn--print i {
-  color: var(--foreground);
-  font-size: 2rem;
 }
 /*----------Dark mode------------*/
 .dark-mode-toggle {
@@ -437,12 +404,15 @@ th {
     margin: 0 auto;
     width: 90vw;
     flex-direction: row;
-    min-height: 3.8rem;
+    min-height: 4rem;
     justify-content: space-between;
     align-items: center;
   }
+  #navbar:hover {
+    color: var(--accent);
+  }
   #nav-logo {
-    width: 4rem;
+    width: 3.2rem;
   }
   #nav-logo:hover {
     background: var(--background);
@@ -474,7 +444,7 @@ th {
   }
   .container-search i {
     padding: 0.5rem;
-    font-size:2.2rem;
+    font-size: 2.2rem;
   }
   /*----------Editor------------*/
   .quill-container {
@@ -483,7 +453,7 @@ th {
     margin: auto;
     position: relative;
     height: 90vh;
-    padding-top:2.2rem;
+    padding-top: 2.2rem;
   }
   #editor {
     width: 100%;
@@ -499,25 +469,26 @@ th {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     visibility: hidden;
     transform: scale(1.1);
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-    scrollbar-width: none;
-  }
-  .btn--print i {
-    position: absolute;
-    bottom: 1.5rem;
-    left: 1rem;
-    font-size: 2.5rem;
   }
   .btn--new,
   .btn--edit,
-  .btn--print {
+  .btn--print,
+  .btn--create,
+  .btn--delete {
     position: relative;
     bottom: 0;
     left: 1rem;
+  }
+  .btn--new,
+  .btn--edit,
+  .btn--print,
+  .btn--create,
+  .btn--delete {
+    margin-left: 1%;
   }
   .modal-content {
     position: absolute;
@@ -529,7 +500,7 @@ th {
   }
   #close-button {
     top: 1rem;
-    right: .3rem;
+    right: 0.3rem;
     z-index: 5;
     position: absolute;
     line-height: 1.5rem;
@@ -540,8 +511,7 @@ th {
     background: 0;
   }
   #close-button i :hover {
-    color: var(--background);
-    color: var(--foreground);
+    color: var(--accent);
   }
   #close-button i {
     color: var(--foreground);
@@ -570,8 +540,8 @@ th {
     border-radius: 50%;
   }
   #write-btn:hover {
-    background: transparent;
-    color: var(--accent);
+    background: var(--accent-second);
+    color: var(--main-text-color);
     transition: all 0.3s ease-in-out;
   }
   #write-btn {
@@ -606,18 +576,18 @@ th {
   color: var(--foreground);
 }
 #page {
-    display: none;
+  display: none;
 }
 #loading {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(192, 192, 192, 0.5);
-    background-image: url("http://i.stack.imgur.com/MnyxU.gif");
-    background-repeat: no-repeat;
-    background-position: center;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(192, 192, 192, 0.5);
+  background-image: url("http://i.stack.imgur.com/MnyxU.gif");
+  background-repeat: no-repeat;
+  background-position: center;
 }

@@ -46,6 +46,8 @@ const loadNote = noteID => {
   document.querySelector('.btn--create').style.visibility = 'hidden';
   document.querySelector('#new').style.visibility = 'visible';
   document.querySelector('#save').style.visibility = 'visible';
+  document.querySelector('#print').style.visibility = 'visible';
+  document.querySelector('#delete').style.visibility = 'visible';
   toggleModal()
 };
 
@@ -54,6 +56,8 @@ document.querySelector("#new").addEventListener('click', function (e) {
   document.querySelector('.btn--create').style.visibility = 'visible';
   document.querySelector('#new').style.visibility = 'hidden';
   document.querySelector('#save').style.visibility = 'hidden';
+  document.querySelector('#delete').style.visibility = 'hidden';
+  document.querySelector('#print').style.visibility = 'hidden';
 })
 
 function editNote(e) {

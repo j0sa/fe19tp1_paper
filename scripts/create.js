@@ -70,15 +70,17 @@ setInterval(function () {
 */
 document.querySelector('#new').style.visibility = 'hidden';
 document.querySelector('#save').style.visibility = 'hidden';
+document.querySelector('#delete').style.visibility = 'hidden';
+document.querySelector('#print').style.visibility = 'hidden';
 
 function editNote(e) {
   quill.enable(e);
 }
 
-// function printMode() {
-//   //quill.getModule('toolbar').container.hidden = true;
-//   document.getElementsByClassName('ql-tooltip').hidden = true;
-//   console.log('print')
-// }
+function printMode() {
+  // quill.getModule('toolbar').container.hidden = true;
+  document.getElementsByClassName('ql-tooltip').hidden = true;
+  console.log('print')
+}
 
-// document.getElementById('print').addEventListener('click', printMode())
+document.getElementById('print').addEventListener('click', printMode())
