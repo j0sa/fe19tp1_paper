@@ -5,7 +5,7 @@ let notesList = JSON.parse(localStorage.getItem("note"));
 if (notesList != null) { document.getElementById("scroll-notes").innerHTML = notesList.map(noteTemplate).join("") }
 else { console.log('No notes!'); }
 
-//The code that generates a html table from the localstorage data
+
 document.querySelector("#scroll-notes").addEventListener('click', function (e) {
   // event.target
   let iD = e.target.closest('table').id;
@@ -16,10 +16,14 @@ document.querySelector("#scroll-notes").addEventListener('click', function (e) {
     currentNote.favorite = !currentNote.favorite;
     localStorage.setItem("note", JSON.stringify(notes))
     e.target.innerText = !currentNote.favorite ? "☆" : "★";
-  } else {
-    // loadNote(n);
   }
 });
+// Remove a note
+function removeNote() {
+
+  notes.splice();
+  alert('You are about to remove this note.')
+};
 
 function noteTemplate(myNote) {
   notes.push(myNote);
@@ -37,28 +41,28 @@ function noteTemplate(myNote) {
     </table>
   `;
 }
-
 // Load note into editor
 const loadNote = noteID => {
   let { content } = notes.find(note => note.id === Number(noteID));
   quill.setContents(content);
   window.value = noteID
-  document.querySelector('.btn--create').style.visibility = 'hidden';
-  document.querySelector('#new').style.visibility = 'visible';
-  document.querySelector('#save').style.visibility = 'visible';
-  document.querySelector('#print').style.visibility = 'visible';
-  document.querySelector('#delete').style.visibility = 'visible';
+  document.querySelector('.btn--create').style.display = "none";
+  document.querySelector('#new').style.display = "block";
+  document.querySelector('#save').style.display = "block";
+  document.querySelector('#print').style.display = "block";
+  document.querySelector('#delete').style.display = "block";
   toggleModal()
 };
 
 document.querySelector("#new").addEventListener('click', function (e) {
   quill.setContents([])
-  document.querySelector('.btn--create').style.visibility = 'visible';
-  document.querySelector('#new').style.visibility = 'hidden';
-  document.querySelector('#save').style.visibility = 'hidden';
-  document.querySelector('#delete').style.visibility = 'hidden';
-  document.querySelector('#print').style.visibility = 'hidden';
-})
+  document.querySelector('.btn--create').style.display = "block";
+  document.querySelector('#new').style.display = "none";
+  document.querySelector('#save').style.display = "none";
+  document.querySelector('#delete').style.display = "none";
+  document.querySelector('#print').style.display = "none";
+
+});
 
 function editNote(e) {
   quill.enable(e);
@@ -119,5 +123,6 @@ function windowOnClick(e) {
 trigger.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
+
 
 // Settings Modal View

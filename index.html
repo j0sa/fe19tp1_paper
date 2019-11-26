@@ -51,7 +51,7 @@
         <button class="btn btn--create" onclick="createNote()"><i class='uil uil-plus'></i></i></button>
         <button onclick="editNote(false)" id="save" class="btn btn--edit"><i class="fas fa-save"></i></button>
         <button class=" btn btn--new" id="new"><i class="far fa-sticky-note"></i></button>
-        <button  class=" btn btn--delete" id="delete"><i class='uil uil-trash'></i></button>
+        <button  class=" btn btn--delete" id="delete" onclick="removeNote()"><i class='uil uil-trash'></i></button>
         <button class="btn btn--print" id="print" onclick="printMode(); printJS({
       printable: 'editor',
       type: 'html'

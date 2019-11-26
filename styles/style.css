@@ -181,7 +181,7 @@ h1 {
   margin: 0 auto;
 }
 .quill-container {
-  width: 100vh;
+width: 50vw;
   background-color: var(--background);
   color: var(--foreground);
   text-align: center;
@@ -591,3 +591,6 @@ th {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+/* print */
+@page { size: auto;  margin: 0mm; }
