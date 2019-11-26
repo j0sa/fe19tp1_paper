@@ -20,12 +20,14 @@ $(document).ready(function () {
 let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 handleDarkmode(darkModeMediaQuery);
 function handleDarkmode(e) {
-	let darkModeOn = e.matches; // true if dark mode is enabled
+	let darkModeOn = e.matches;
 	let favicon = document.querySelector('link[rel="icon"]');
-	if (!favicon) {
-		return;
-	}
-	darkModeOn = favicon.href = './favicon-light.ico';
-}
+	if (darkModeOn) {
 
+		favicon.href = './favicon-light.ico';
+	} else {
+		favicon.href = '/favicon-dark.ico';
+	}
+
+}
 darkModeMediaQuery.addListener(handleDarkmode);
