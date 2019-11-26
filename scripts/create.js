@@ -7,7 +7,7 @@ const toolbar = [
   ["blockquote", "code-block"],
   [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
   [{ align: [] }],
-  [ 'link', 'image', 'video', 'formula' ],  
+  ['link', 'image', 'video', 'formula'],
   ["clean"]
 ];
 
@@ -40,14 +40,11 @@ const createNote = () => {
     archived: false,
     favorite: false
   };
-  console.log(notes)
   notes = oldnotes;
   notes.push(note);
   saveNotes();
   // Reloads page
   window.location.href = window.location.href;
-  //console.log(notes);
-  //alert("stoppa här");
 };
 /*
 // Store accumulated changes
@@ -77,8 +74,9 @@ function editNote(e) {
   quill.enable(e);
 }
 
-function printMode() {
-   quill.getModule('toolbar').container.hidden = true;
-  // document.getElementsByClassName('ql-tooltip').hidden = true;
-  console.log('Print')
+/* Printer function */
+
+function printNote() {
+  quill.getModule('toolbar').container.hidden = true;
+  document.querySelector('.ql-tooltip').hidden = true
 }

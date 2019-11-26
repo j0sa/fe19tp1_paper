@@ -9,10 +9,8 @@ else { console.log('No notes!'); }
 document.querySelector("#scroll-notes").addEventListener('click', function (e) {
   // event.target
   let iD = e.target.closest('table').id;
-  // console.log(iD)
   if (e.target.classList.contains("fav")) {
     let currentNote = notes.find(note => note.id === Number(iD))
-    // console.table(currentNote)
     currentNote.favorite = !currentNote.favorite;
     localStorage.setItem("note", JSON.stringify(notes))
     e.target.innerText = !currentNote.favorite ? "☆" : "★";
@@ -27,8 +25,6 @@ function removeNote() {
 
 function noteTemplate(myNote) {
   notes.push(myNote);
-  // let noteString = myNote.content.ops[0].insert;
-  // console.log(noteString);
   let favChar = !myNote.favorite ? "☆" : "★";
   return `
     <table id="${myNote.id}" class="my-notes" cellspacing="0" cellpadding="0"   onclick='loadNote(${myNote.id})'>
@@ -98,7 +94,6 @@ showFav.addEventListener('click', function () {
     let currentNote = notes.find(note => note.id === Number(noteID))
     if (!currentNote.favorite) {
       handleToggle(note);
-      // console.log(f)
     } else {
 
     }
