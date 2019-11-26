@@ -354,22 +354,24 @@ th {
 }
 /*----------error page------------*/
 .error-container {
-  display: flex;
-  justify-content: center;
-  align-content: center;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
 }
 .error {
   display: flex;
   flex-direction: column;
 }
 .error img {
-  width: 80rem;
+  width: 90rem;
 }
 .btn--error {
   width: 10rem;
   padding: 10px 25px;
   border: 1px solid var(--primary);
   color: var(--primary);
+  background: var(--secondary-text-color);
 }
 .error a {
   color: var(--primary);
@@ -582,6 +584,13 @@ th {
   }
   .dark-mode-toggle {
     top: 2rem;
+  }
+  .error {
+    display: flex;
+    flex-direction: column;
+  }
+  .error img {
+    width: 100vw;
   }
 }
 @media only screen and (min-width: 750px) {
