@@ -50,7 +50,7 @@ const loadNote = noteID => {
   toggleModal()
 };
 
-document.querySelector("#new").addEventListener('click', function (e) {
+document.querySelector("#new").addEventListener('click', function () {
   quill.setContents([])
   document.querySelector('.btn--create').style.display = "block";
   document.querySelector('#new').style.display = "none";

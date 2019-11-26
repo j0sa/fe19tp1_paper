@@ -5,10 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel= "icon" href="./favicon-dark.ico" type="image/x-icon" />
+  <link rel="icon" href="./favicon-dark.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.0.1/css/unicons.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-  
+
   <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet" />
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
   <link rel="stylesheet" href="/styles/style.css" />
@@ -39,24 +39,27 @@
       </section>
       <section id="scroll-notes"></section>
     </div>
-    <div class="write">
-      <button id="write-btn" class="trigger"><i class='uil uil-pen'></i></button></button>
-    </div>
     <div class="modal">
       <div class="modal-content">
         <button id="close-button"><i class='uil uil-times-circle'></i></button>
         <div class="quill-container">
           <div id="editor"></div>
         </div>
+
         <button class="btn btn--create" onclick="createNote()"><i class='uil uil-plus'></i></i></button>
-        <button onclick="editNote(false)" id="save" class="btn btn--edit"><i class="fas fa-save"></i></button>
-        <button class=" btn btn--new" id="new"><i class="far fa-sticky-note"></i></button>
-        <button  class=" btn btn--delete" id="delete" onclick="removeNote()"><i class='uil uil-trash'></i></button>
-        <button class="btn btn--print" id="print" onclick="printNote(); printJS({
+        <section class="btns">
+          <button onclick="editNote(false)" id="save" class="btn btn--edit"><i class="fas fa-save"></i></button>
+          <button class=" btn btn--new" id="new"><i class="far fa-sticky-note"></i></button>
+          <button class=" btn btn--delete" id="delete" onclick="removeNote()"><i class='uil uil-trash'></i></button>
+          <button class="btn btn--print" id="print" onclick="printNote(); printJS({
       printable: 'editor',
       type: 'html'
     })"><i class='uil uil-print'></i></button>
+        </section>
       </div>
+    </div>
+    <div class="write">
+      <button id="write-btn" class="trigger"><i class='uil uil-pen'></i></button></button>
     </div>
     <button id="dark-mode-toggle" class="dark-mode-toggle"><i class='uil uil-moon'></i></button>
     <div class="settings-modal">
