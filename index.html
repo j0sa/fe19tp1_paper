@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="icon" href="./favicon-dark.ico" type="image/x-icon" />
+  <link rel= "icon" href="./favicon-dark.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.0.1/css/unicons.css">
   <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet" />
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
@@ -48,8 +48,9 @@
         </div>
         <button onclick="createNote()" class="btn btn--create">Create</button>
         <button onclick="editNote(false)" id="save" class="btn btn--edit">Save</button>
-        <button type="button" id="new" class=" btn btn--new">New Note</button>
-        <button type="button" class="btn--print" id="print" onclick="printMode(); printJS({
+        <button id="new" class=" btn btn--new">New Note</button>
+        <button id="delete" class=" btn btn--delete">Delete</button>
+        <button class="btn--print" id="print" onclick="printMode(); printJS({
       printable: 'editor',
       type: 'html'
     })"><i class='uil uil-print'></i></button>
