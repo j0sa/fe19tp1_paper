@@ -5,7 +5,6 @@ let notesList = JSON.parse(localStorage.getItem("note"));
 if (notesList != null) { document.getElementById("scroll-notes").innerHTML = notesList.map(noteTemplate).join("") }
 else { console.log('No notes!'); }
 
-
 document.querySelector("#scroll-notes").addEventListener('click', function (e) {
   // event.target
   let iD = e.target.closest('table').id;
@@ -16,9 +15,9 @@ document.querySelector("#scroll-notes").addEventListener('click', function (e) {
     e.target.innerText = !currentNote.favorite ? "☆" : "★";
   }
 });
+
 // Remove a note
 function removeNote() {
-
   notes.splice();
   alert('You are about to remove this note.')
 };
@@ -37,6 +36,7 @@ function noteTemplate(myNote) {
     </table>
   `;
 }
+
 // Load note into editor
 const loadNote = noteID => {
   let { content } = notes.find(note => note.id === Number(noteID));
@@ -118,6 +118,5 @@ function windowOnClick(e) {
 trigger.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
-
 
 // Settings Modal View

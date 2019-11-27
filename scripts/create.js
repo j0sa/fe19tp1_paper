@@ -46,6 +46,7 @@ const createNote = () => {
   // Reloads page
   window.location.href = window.location.href;
 };
+
 /*
 // Store accumulated changes
 let change = new Delta();
@@ -78,6 +79,5 @@ function editNote(e) {
 
 function printNote() {
   quill.getModule('toolbar').container.hidden = true;
-  document.querySelector('.ql-tooltip').hidden = true
+  document.querySelector('.ql-tooltip').hidden = true;
 }
-

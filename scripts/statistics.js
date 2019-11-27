@@ -166,11 +166,66 @@ function getStatsOnNotes() {
   let uniqueWords = wordFreq.length;
   let mostCommonWord = wordFreq[0][0];
   let leastCommonWord = wordFreq.slice(-2)[0][0];
-  let wordCntSentence = 'You have written ' + wordCnt + ' words.';
+  let wordCntSentence = 'You have written ' + wordCnt + ' words. ';
   let uniqueWordsSentence = uniqueWords + ' of them are unique.';
   let mostCommonWordSentence = ' Your most common word is: ' + mostCommonWord + '.';
   let leastCommonWordSentence = ' Your least common word is: ' + leastCommonWord + '.';
   return wordCntSentence + uniqueWordsSentence + mostCommonWordSentence + leastCommonWordSentence;
+}
+
+function getWordFrequencyList() {
+  let wordFreq = getWordFrequency(notesString);
+  return wordFreq;
+}
+
+function toTable(data, headers) {
+  return $('<table>').append($('<thead>').append($('<tr>').append(headers.map(function (header) {
+    return $('<th>').html(header);
+  })))).append($('<tbody>').append(data.map(function (row) {
+    return $('<tr>').append(row.map(function (cell) {
+      return $('<td>').html(cell);
+    }));
+  })));
+}
+
+function addRowsBefore(table, data) {
+  table.find('tbody').prepend(data.map(function (row) {
+    return $('<tr>').append(row.map(function (cell) {
+      return $('<td>').html(cell);
+    }));
+  }));
+  return table;
+}
+
+
+$(function () {
+  $('#countWordsBtn').on('click', function (e) {
+    let str = notesString;
+    let wordFreq = getWordFrequency(str);
+    let wordCount = getWordCount(str);
+    let uniqueWords = wordFreq.length;
+    let summaryData = [
+      ['TOTAL', wordCount],
+      ['UNIQUE', uniqueWords]
+    ];
+    let table = toTable(wordFreq, ['Word', 'Frequency']);
+    addRowsBefore(table, summaryData);
+    $('#wordFreq').html(table);
+  });
+});
+
+function writeTable() {
+  let str = notesString;
+  let wordFreq = getWordFrequency(str);
+  let wordCount = getWordCount(str);
+  let uniqueWords = wordFreq.length;
+  let summaryData = [
+    ['TOTAL', wordCount],
+    ['UNIQUE', uniqueWords]
+  ];
+  let table = toTable(wordFreq, ['Word', 'Frequency']);
+  addRowsBefore(table, summaryData);
+  $('#wordFreq').html(table);
 }
 
 // Temporary DOM writer
