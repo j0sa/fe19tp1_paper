@@ -68,6 +68,18 @@ function editNote(e) {
   }
 }
 
+function deleteNote() {
+  // id på vald note ligger i value (?)
+  // 
+  if (value) {
+    notes = notes.filter(note => note.id !== value);
+    saveNotes();
+    document.getElementById(value).remove();
+    quill.setText("")
+    //location.reload()
+    value = 0;
+  }
+}
 const showFav = document.getElementById('show-fav');
 function addFav() {
   localStorage.setItem("note", JSON.stringify(notes))

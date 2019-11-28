@@ -228,7 +228,6 @@ h1 {
   position: absolute;
   right: 3.5rem;
   bottom: 5rem;
-  
 }
 .btn--create i {
   font-size: 2rem;
@@ -579,7 +578,8 @@ th {
   background-repeat: no-repeat;
   background-position: center;
 }
-#localstoragechart,#localstoragechart2 {
+#localstoragechart,
+#localstoragechart2 {
   width: 100px;
 }
 
@@ -588,3 +588,13 @@ th {
   size: auto;
   margin: 0mm;
 }
+/* 
+@media print {
+  #navbar, .table-container, .write, #dark-mode-toggle, #close-button, .btn--create {
+    display: none;
+  }
+  .quill-container {
+    width: 100%
+  }
+}
+ */
