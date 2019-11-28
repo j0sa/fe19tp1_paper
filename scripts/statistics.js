@@ -197,8 +197,7 @@ function addRowsBefore(table, data) {
   return table;
 }
 
-
-$(function () {
+/* $(function () {
   $('#countWordsBtn').on('click', function (e) {
     let str = notesString;
     let wordFreq = getWordFrequency(str);
@@ -212,7 +211,7 @@ $(function () {
     addRowsBefore(table, summaryData);
     $('#wordFreq').html(table);
   });
-});
+}); */
 
 function writeTable() {
   let str = notesString;
@@ -282,4 +281,58 @@ function show(id, value) {
 onReady(function () {
   show('page', true);
   show('loading', false);
+});
+
+// Charts
+// let ctx = document.getElementById('localstoragechart').getContext('2d');
+
+// let localstoragechart = new Chart(ctx, {
+//   type: 'pie',
+//   data: {
+//     labels: ['Used', 'Unused'],
+//     datasets: [{
+//       label: 'Memory in Local Storage',
+//       data: [getLocalStorageQuotaInFormattedSize(notesString)]
+//     }]
+//   },
+//   options: options
+// });
+
+
+new Chart(document.getElementById("localstoragechart"), {
+  type: 'pie',
+  data: {
+    labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+    datasets: [{
+      label: "Population (millions)",
+      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      data: [2478, 5267, 734, 784, 433]
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Predicted world population (millions) in 2050'
+    },
+    responsive: true
+  }
+});
+
+new Chart(document.getElementById("localstoragechart2"), {
+  type: 'pie',
+  data: {
+    labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+    datasets: [{
+      label: "Population (millions)",
+      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      data: [2478, 5267, 734, 784, 433]
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Predicted world population (millions) in 2050'
+    },
+    responsive: true
+  }
 });
