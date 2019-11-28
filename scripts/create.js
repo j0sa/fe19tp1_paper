@@ -81,3 +81,4 @@ function printNote() {
   quill.getModule('toolbar').container.hidden = true;
   document.querySelector('.ql-tooltip').hidden = true;
 }
+ //location.reload()

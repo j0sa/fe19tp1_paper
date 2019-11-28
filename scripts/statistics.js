@@ -26,7 +26,8 @@ function getUnusedSpaceOfLocalStorageInBytes() {
   if (runtime >= timeout) {
     console.log('Unused space calculation may be off due to timeout.');
   }
-  // Compensate for the byte size of the key that was used, then subtract 1 byte because the last value of the tryByteSize threw the exception
+  // Compensate for the byte size of the key that was used
+  // then subtract 1 byte because the last value of the tryByteSize threw the exception
   unusedSpace = tryByteSize + testQuotaKey.length - 1;
   return unusedSpace;
 }
@@ -284,55 +285,44 @@ onReady(function () {
 });
 
 // Charts
-// let ctx = document.getElementById('localstoragechart').getContext('2d');
+let ctx = document.getElementById('localstoragechart').getContext('2d');
 
-// let localstoragechart = new Chart(ctx, {
+let usedStat = getUsedSpaceOfLocalStorageInBytes();
+let unusedStat = getUnusedSpaceOfLocalStorageInBytes();
+
+let localstoragechart = new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels: ['Used', 'Unused'],
+    datasets: [{
+      label: 'Memory in Local Storage',
+      backgroundColor: ["#3e95cd", "#8e5ea2"],
+      data: [usedStat, unusedStat]
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Memory in Local Storage'
+    },},
+});
+
+
+// new Chart(document.getElementById("localstoragechart"), {
 //   type: 'pie',
 //   data: {
-//     labels: ['Used', 'Unused'],
+//     labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
 //     datasets: [{
-//       label: 'Memory in Local Storage',
-//       data: [getLocalStorageQuotaInFormattedSize(notesString)]
+//       label: "Population (millions)",
+//       backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+//       data: [2478, 5267, 734, 784, 433]
 //     }]
 //   },
-//   options: options
+//   options: {
+//     title: {
+//       display: true,
+//       text: 'Predicted world population (millions) in 2050'
+//     },
+//     responsive: true
+//   }
 // });
-
-
-new Chart(document.getElementById("localstoragechart"), {
-  type: 'pie',
-  data: {
-    labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
-    datasets: [{
-      label: "Population (millions)",
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-      data: [2478, 5267, 734, 784, 433]
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Predicted world population (millions) in 2050'
-    },
-    responsive: true
-  }
-});
-
-new Chart(document.getElementById("localstoragechart2"), {
-  type: 'pie',
-  data: {
-    labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
-    datasets: [{
-      label: "Population (millions)",
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-      data: [2478, 5267, 734, 784, 433]
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Predicted world population (millions) in 2050'
-    },
-    responsive: true
-  }
-});

@@ -76,6 +76,7 @@ function deleteNote() {
     saveNotes();
     document.getElementById(value).remove();
     quill.setText("")
+    //alert
     //location.reload()
     value = 0;
   }
