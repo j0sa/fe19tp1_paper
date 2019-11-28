@@ -50,17 +50,20 @@
         <section class="btns">
           <button onclick="editNote(false)" id="save" class="btn btn--edit"><i class="fas fa-save"></i></button>
           <button class=" btn btn--new" id="new"><i class="far fa-sticky-note"></i></button>
-          <button class=" btn btn--delete" id="delete" onclick="removeNote()"><i class='uil uil-trash'></i></button>
+          <button class=" btn btn--delete" id="delete" onclick="deleteNote()"><i class='uil uil-trash'></i></button>
           <button class="btn btn--print" id="print" onclick="printNote(); printJS({
-            printable: 'editor',
-            type: 'html'
-          })"><i class='uil uil-print'></i></button>
+      printable: 'editor',
+      type: 'html'
+    })"><i class='uil uil-print'></i></button>
         </section>
       </div>
     </div>
-    <div class="write"><button id="write-btn" class="trigger"><i class='uil uil-pen'></i></button></button></div>
+    <div class="write">
+      <button id="write-btn" class="trigger"><i class='uil uil-pen'></i></button></button>
+    </div>
     <button id="dark-mode-toggle" class="dark-mode-toggle"><i class='uil uil-moon'></i></button>
-    <div class="settings-modal"></div>
+    <div class="settings-modal">
+    </div>
     <div id="noteList"></div>
   </div>
   <!-- Compiled and minified JavaScript -->

@@ -1,12 +1,8 @@
-// Get localstorage data, after checking that localstorage isn't empty
-// Push data into template in order to display in dom
-const showFav = document.getElementById('show-fav');
 let notesList = JSON.parse(localStorage.getItem("note"));
 if (notesList != null) { document.getElementById("scroll-notes").innerHTML = notesList.map(noteTemplate).join("") }
 else { console.log('No notes!'); }
 
 document.querySelector("#scroll-notes").addEventListener('click', function (e) {
-  // event.target
   let iD = e.target.closest('table').id;
   if (e.target.classList.contains("fav")) {
     let currentNote = notes.find(note => note.id === Number(iD))
@@ -15,13 +11,6 @@ document.querySelector("#scroll-notes").addEventListener('click', function (e) {
     e.target.innerText = !currentNote.favorite ? "☆" : "★";
   }
 });
-
-// Remove a note
-function removeNote() {
-  notes.splice();
-  alert('You are about to remove this note.')
-};
-
 function noteTemplate(myNote) {
   notes.push(myNote);
   let favChar = !myNote.favorite ? "☆" : "★";
@@ -42,14 +31,15 @@ const loadNote = noteID => {
   let { content } = notes.find(note => note.id === Number(noteID));
   quill.setContents(content);
   window.value = noteID
+  thisNote = noteID
   document.querySelector('.btn--create').style.display = "none";
   document.querySelector('#new').style.display = "block";
   document.querySelector('#save').style.display = "block";
   document.querySelector('#print').style.display = "block";
   document.querySelector('#delete').style.display = "block";
-  toggleModal()
+  toggleModal();
 };
-
+/*  New note clear editor */
 document.querySelector("#new").addEventListener('click', function () {
   quill.setContents([])
   document.querySelector('.btn--create').style.display = "block";
@@ -57,7 +47,15 @@ document.querySelector("#new").addEventListener('click', function () {
   document.querySelector('#save').style.display = "none";
   document.querySelector('#delete').style.display = "none";
   document.querySelector('#print').style.display = "none";
+});
 
+// Remove a note
+
+document.getElementById('delete').addEventListener('click', function () {
+  notes.forEach(elemen)
+  console.log(thisNote)
+notes.splice(thisNote)
+ localStorage.setItem("note", JSON.stringify(notes))
 });
 
 function editNote(e) {
@@ -80,13 +78,13 @@ function editNote(e) {
   }
 }
 
+const showFav = document.getElementById('show-fav');
 function addFav() {
   localStorage.setItem("note", JSON.stringify(notes))
 };
 
 showFav.addEventListener('click', addFav);
 const handleToggle = (element) => element.classList.toggle("hidden");
-let f = notes.filter(note => note.favorite)
 hideNote = document.querySelectorAll('.note-cell')
 showFav.addEventListener('click', function () {
   hideNote.forEach(note => {
@@ -110,7 +108,7 @@ function toggleModal() {
 }
 
 function windowOnClick(e) {
-  if (event.target === modal) {
+  if (e.target === modal) {
     toggleModal();
   }
 }
