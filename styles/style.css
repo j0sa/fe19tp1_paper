@@ -672,12 +672,12 @@ th {
   flex-direction: column;
   height: 100vh;
 }
-.page-row {
+/* .page-row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-}
+} */
 .pie-chart-container {
   display: flex;
   flex-direction: column;
@@ -716,9 +716,8 @@ th {
   white-space: pre-wrap;
   letter-spacing: 0.09rem;
 }
-.bar-chart-container {
-  
-}
+/* .bar-chart-container {
+} */
 /* print */
 @page {
   size: auto;
