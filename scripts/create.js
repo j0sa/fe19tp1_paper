@@ -16,7 +16,7 @@ let Delta = Quill.import("delta");
 let quill = new Quill("#editor", {
   modules: { toolbar: toolbar },
   theme: "bubble",
-  placeholder: "Write your note here. Highlight to format the text."
+  placeholder: "Highlight to format the text."
 });
 
 //Get items into local storage

@@ -229,6 +229,8 @@ h1 {
   position: absolute;
   right: 3.5rem;
   bottom: 5rem;
+  height: 6rem;
+  width: 6rem;
 }
 .btn--create i {
   font-size: 2rem;
@@ -498,6 +500,7 @@ th {
   line-height: 2.2rem;
   letter-spacing: 0.01rem;
   white-space: pre-wrap;
+  width: 40vw;
 }
 .bar-chart-container {
   display: flex;
@@ -702,12 +705,10 @@ th {
   }
   .write i {
     font-size: 3rem;
-    padding: 2.2rem;
     color: var(--main-bg-light);
     outline: 0;
     border: 0;
     background-color: var(--primary);
-    border-radius: 50%;
   }
   #write-btn:hover {
     background: var(--accent-second);
@@ -715,8 +716,17 @@ th {
     transition: all 0.3s ease-in-out;
   }
   #write-btn {
+    height: 7.5rem;
+    width: 7.5rem;
+    color: var(--main-bg-light);
+    outline: 0;
     border: 0;
-    background: transparent;
+    background-color: var(--primary);
+    border-radius: 50%;
+    outline: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
   }
   #write-btn:focus {
     outline: none;
