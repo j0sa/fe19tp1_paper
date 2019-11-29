@@ -447,7 +447,6 @@ th {
   width: 100vw;
   height: 100vh;
   justify-content: center;
-  margin: -3%;
 }
 .pie-chart-container {
   display: flex;
