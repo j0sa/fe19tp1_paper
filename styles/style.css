@@ -88,8 +88,13 @@ html {
 #nav-logo {
   width: 5rem;
 }
+#nav-logo:active,
+#nav-logo:focus {
+  border-bottom: 1px var(--accent) solid;
+}
 #nav-logo:hover {
   transform: scale(1.1);
+  border-bottom: 1px var(--accent) solid;
 }
 #navbar {
   padding-top: 1.5%;
@@ -659,7 +664,7 @@ th {
     position: absolute;
     right: 0;
     height: 10vh;
-    bottom: 0;
+    bottom: 2rem;
     flex-direction: row;
     width: 100%;
     justify-content: space-around;
@@ -753,10 +758,9 @@ th {
     flex-flow: wrap;
     position: relative;
     justify-content: space-between;
+    margin: 0 auto;
   }
-  .pie-chart-container {
-    height: 50vh;
-  }
+
   .stats-notes {
     width: 40vh;
   }
