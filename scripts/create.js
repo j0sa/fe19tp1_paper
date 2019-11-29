@@ -1,15 +1,42 @@
 let notes = [];
-
+// specify the fonts you would 
+var fonts = ['Arial', 'Courier', 'Garamond', 'Tahoma', 'Times New Roman', 'Verdana'];
+// generate code friendly names
+function getFontName(font) {
+  return font.toLowerCase().replace(/\s/g, "-");
+}
+var fontNames = fonts.map(font => getFontName(font));
+// add fonts to style
+var fontStyles = "";
+fonts.forEach(function (font) {
+  var fontName = getFontName(font);
+  fontStyles += ".ql-bubble .ql-picker.ql-font .ql-picker-label[data-value=" + fontName + "]::before, .ql-bubble .ql-picker.ql-font .ql-picker-item[data-value=" + fontName + "]::before {" +
+    "content: '" + font + "';" +
+    "font-family: '" + font + "', sans-serif;" +
+    "}" +
+    ".ql-font-" + fontName + "{" +
+    " font-family: '" + font + "', sans-serif;" +
+    "}";
+});
+var node = document.createElement('style');
+node.innerHTML = fontStyles;
+document.body.appendChild(node);
 // Set up tool for Quill API
 const toolbar = [
   [{ header: [1, 2, 3, 4, 5, , false] }],
   ["bold", "italic", "underline", "strike"],
+  [{ 'font': fontNames }],
   ["blockquote", "code-block"],
   [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
   [{ align: [] }],
   ['link', 'image', 'video', 'formula'],
   ["clean"]
 ];
+// Add fonts to whitelist
+var Font = Quill.import('formats/font');
+Font.whitelist = fontNames;
+Quill.register(Font, true);
+
 
 // Set up editor
 let Delta = Quill.import("delta");
@@ -18,7 +45,7 @@ let quill = new Quill("#editor", {
   theme: "bubble",
   placeholder: "Highlight to format the text."
 });
-  quill.focus()
+quill.focus()
 //Get items into local storage
 let oldnotes = localStorage.getItem("note") ? JSON.parse(localStorage.getItem("note")) : [];
 //console.log(oldnotes);

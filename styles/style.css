@@ -93,7 +93,6 @@ html {
   border-bottom: 1px var(--accent) solid;
 }
 #nav-logo:hover {
-  transform: scale(1.1);
   border-bottom: 1px var(--accent) solid;
 }
 #navbar {
@@ -760,19 +759,24 @@ th {
     justify-content: space-between;
     margin: 0 auto;
   }
-
-  .stats-notes {
-    width: 40vh;
+  .pie-chart-container {
+    height: 50vh;
   }
   .bar-chart-container {
-    margin: 0 auto;
-    width: 70vw;
+    margin: auto;
+    width: 60vw;
     height: 50vh;
     justify-content: center;
     color: var(--foreground);
     white-space: pre-wrap;
     text-align: center;
     padding-bottom: 7rem;
+  }
+  #statsonnotes {
+    margin: 0 auto;
+    padding-top: 2rem;
+    width: 60vw;
+    text-align: center;
   }
 }
 @media only screen and (min-width: 860px) {
