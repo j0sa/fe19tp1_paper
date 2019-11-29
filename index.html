@@ -43,7 +43,7 @@
       <div class="modal-content">
         <button id="close-button"><i class='uil uil-times-circle'></i></button>
         <div class="quill-container">
-          <div id="editor"></div>
+          <div id="editor" onkeyup="success()"></div>
         </div>
 
         <button class="btn btn--create" onclick="createNote()"><i class='uil uil-plus'></i></i></button>
@@ -59,7 +59,7 @@
       </div>
     </div>
     <div class="write">
-      <button id="write-btn" class="trigger"><i class='uil uil-pen'></i></button></button>
+      <button id="write-btn" class="trigger" onclick="clearEditor()"><i class='uil uil-pen'></i></button></button>
     </div>
     <button id="dark-mode-toggle" class="dark-mode-toggle"><i class='uil uil-moon'></i></button>
     <div class="settings-modal">

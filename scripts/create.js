@@ -18,7 +18,7 @@ let quill = new Quill("#editor", {
   theme: "bubble",
   placeholder: "Highlight to format the text."
 });
-
+  quill.focus()
 //Get items into local storage
 let oldnotes = localStorage.getItem("note") ? JSON.parse(localStorage.getItem("note")) : [];
 //console.log(oldnotes);
@@ -46,7 +46,13 @@ const createNote = () => {
   // Reloads page
   window.location.href = window.location.href;
 };
-
+function success() {
+  if (document.querySelector("#editor").value === "") {
+    document.querySelector('.btn--create').disabled = true;
+  } else {
+    document.querySelector('.btn--create').disabled = false;
+  }
+}
 /*
 // Store accumulated changes
 let change = new Delta();

@@ -1,7 +1,7 @@
 let notesList = JSON.parse(localStorage.getItem("note"));
 if (notesList != null) { document.getElementById("scroll-notes").innerHTML = notesList.map(noteTemplate).join("") }
 else { console.log('No notes!'); }
-
+if (notesList === null) { document.querySelector(".table-container").style.display = "none" }
 document.querySelector("#scroll-notes").addEventListener('click', function (e) {
   let iD = e.target.closest('table').id;
   if (e.target.classList.contains("fav")) {
@@ -85,9 +85,6 @@ function deleteNote() {
       // do nothing
     }
 
-
-
-
   }
 }
 const showFav = document.getElementById('show-fav');
@@ -109,7 +106,15 @@ showFav.addEventListener('click', function () {
     }
   })
 });
-
+//clear editor 
+function clearEditor() {
+  quill.setContents([])
+  document.querySelector('.btn--create').style.display = "block";
+  document.querySelector('#new').style.display = "none";
+  document.querySelector('#save').style.display = "none";
+  document.querySelector('#delete').style.display = "none";
+  document.querySelector('#print').style.display = "none";
+}
 // Quill Modal View
 let modal = document.querySelector(".modal");
 let trigger = document.querySelector(".trigger");
@@ -128,5 +133,6 @@ function windowOnClick(e) {
 trigger.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
+
 
 // Settings Modal View
