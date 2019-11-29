@@ -11,6 +11,9 @@
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
 }
+:focus {
+  outline: none;
+}
 :root {
   --main-bg-light: #ffffff;
   --main-bg-dark: #1a1a1a;
@@ -74,7 +77,6 @@ html {
     font-size: 75%;
   }
 }
-/* Optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
   display: none;
 }
@@ -89,11 +91,9 @@ html {
   width: 5rem;
 }
 #nav-logo:active,
+#nav-logo:hover,
 #nav-logo:focus {
-  border-bottom: 1px var(--accent) solid;
-}
-#nav-logo:hover {
-  border-bottom: 1px var(--accent) solid;
+  transform: scale(1.1);
 }
 #navbar {
   padding-top: 1.5%;
@@ -115,15 +115,27 @@ i {
   justify-content: space-between;
   align-items: center;
 }
-.uil-analysis:hover {
+#stats:hover,
+#btn-settings:hover {
   color: var(--accent);
   transform: scale(1.1);
 }
-.uil-favorite:hover {
+#stats i:hover,
+#btn-settings:hover {
+  color: var(--accent);
+}
+/*--------- Star and Cog button------------*/
+#show-fav,
+#btn-settings {
+  background: none;
+}
+#show-fav:hover,
+#show-fav:focus {
   color: var(--star);
+  cursor: pointer;
   transform: scale(1.1);
 }
-/*----------About------------*/
+/*---------- Welcome page------------*/
 .logo {
   position: absolute;
   padding: 2.5rem 2.5rem;
@@ -163,7 +175,6 @@ h1 {
 }
 .btn--join,
 .btn--error {
-  outline: none;
   text-transform: uppercase;
   font-size: 1.4rem;
   transition: all 0.3s ease-in-out;
@@ -176,7 +187,8 @@ h1 {
   color: var(--main-bg-light);
   font-weight: 700;
 }
-.btn--join:hover {
+.btn--join:hover,
+.btn--join:focus {
   background-color: var(--accent);
   color: var(--main-text-color);
   transform: scale(1.1);
@@ -201,6 +213,7 @@ h1 {
   content: attr(data-placeholder);
   color: var(--foreground);
 }
+/*----------Buttons------------*/
 .btns {
   display: flex;
   position: absolute;
@@ -214,17 +227,16 @@ h1 {
   height: 5rem;
   width: 5rem;
   color: var(--main-bg-light);
-  outline: 0;
   border: 0;
   background-color: var(--primary);
   border-radius: 50%;
-  outline: none;
   text-transform: uppercase;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   right: 3rem;
 }
-.btn:hover {
+.btn:hover,
+.btn:focus {
   background-color: var(--accent);
   color: var(--main-text-color);
   transform: scale(1.1);
@@ -259,7 +271,6 @@ h1 {
 .container-search {
   position: relative;
   padding: 1rem;
-  outline: none;
   border-radius: 2rem;
   display: flex;
   align-content: center;
@@ -279,7 +290,6 @@ h1 {
   padding: 0.5rem 0.5rem;
   font-size: 1.3rem;
   border: 0;
-  outline: none;
   border-radius: 2rem;
   background: var(--background);
   color: var(--foreground);
@@ -289,6 +299,7 @@ h1 {
   font-size: 1.6rem;
   padding: 0.5rem;
 }
+/*----------Table view------------*/
 .table-container {
   width: 25rem;
   height: 100vh;
@@ -304,7 +315,6 @@ table {
   border-spacing: 0;
   font-size: 1.4rem;
   border-collapse: collapse;
-  border: 0;
   scroll-behavior: smooth;
   border-bottom: 1px solid var(--accent-second);
   border-right: 1px solid var(--accent-second);
@@ -341,7 +351,7 @@ th {
   text-align: right;
   padding-right: 1rem;
 }
-/*----------Loader------------*/
+/*----------Loader for stats ------------*/
 #loading {
   position: absolute;
   width: 96vw;
@@ -516,7 +526,7 @@ th {
   white-space: pre-wrap;
   text-align: center;
 }
-/*----------error page------------*/
+/*----------Error page------------*/
 .error-container {
   position: absolute;
   top: 50%;
@@ -534,20 +544,6 @@ th {
   color: var(--primary);
   text-decoration: none;
 }
-/*--------- star button------------*/
-#show-fav,
-#btn-settings {
-  background: none;
-  outline: none;
-}
-#show-fav i:focus {
-  color: var(--star);
-}
-#show-fav:hover {
-  color: var(--star);
-  cursor: pointer;
-  transform: scale(1.1);
-}
 .hidden {
   display: none;
 }
@@ -559,10 +555,12 @@ th {
   background: transparent;
   cursor: pointer;
   font-size: 0.4rem;
-  outline: none;
 }
 .dark-mode-toggle i {
   color: var(--foreground);
+}
+.dark-mode-toggle:focus {
+  color: var(--accent);
 }
 /*----------Responsive Styles------------*/
 @media only screen and (max-width: 860px) {
@@ -685,15 +683,18 @@ th {
     cursor: pointer;
     border-radius: 0.25rem;
     font-size: 2rem;
-    outline: none;
     background: 0;
   }
-  #close-button i :hover {
+  #close-button:focus {
     color: var(--accent);
   }
   #close-button i {
     color: var(--foreground);
   }
+  #close-button i :hover {
+    color: var(--accent);
+  }
+
   .show-modal {
     opacity: 1;
     visibility: visible;
@@ -704,38 +705,27 @@ th {
     position: absolute;
     bottom: 6rem;
     right: 0;
-    outline: none;
     padding: 6rem 2.4rem;
-    border: 0;
   }
   .write i {
     font-size: 3rem;
     color: var(--main-bg-light);
-    outline: 0;
-    border: 0;
     background-color: var(--primary);
-  }
-  #write-btn:hover {
-    background: var(--accent-second);
-    color: var(--main-text-color);
-    transition: all 0.3s ease-in-out;
   }
   #write-btn {
     height: 7.5rem;
     width: 7.5rem;
     color: var(--main-bg-light);
-    outline: 0;
-    border: 0;
     background-color: var(--primary);
     border-radius: 50%;
-    outline: none;
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
   }
-  #write-btn:focus {
-    outline: none;
-    cursor: pointer;
+  #write-btn:hover #write-btn:focus {
+    background: var(--accent-second);
+    color: var(--main-text-color);
+    transition: all 0.3s ease-in-out;
   }
   .dark-mode-toggle {
     top: 2rem;
@@ -786,17 +776,16 @@ th {
   }
 }
 /* print */
-@page {
-  size: auto;
-  margin: 0mm;
-}
-/* 
 @media print {
-  #navbar, .table-container, .write, #dark-mode-toggle, #close-button, .btn--create {
+  #navbar,
+  .table-container,
+  .write,
+  #dark-mode-toggle,
+  #close-button,
+  .btns {
     display: none;
   }
-  .quill-container {
-    width: 100%
+  #editor {
+    width: 100%;
   }
 }
- */
