@@ -375,7 +375,6 @@ th {
   font-size: 0.4rem;
   outline: none;
 }
-
 .dark-mode-toggle i {
   color: var(--foreground);
 }
@@ -468,7 +467,6 @@ th {
     transform: scale(1.1);
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
   }
-
   .btns {
     position: absolute;
     right: 0;
@@ -576,13 +574,11 @@ th {
   right: 0;
   margin: auto;
 }
-
 .item {
   width: 30px;
   height: 30px;
   position: absolute;
 }
-
 .item-1 {
   background-color: #fa5667;
   top: 0;
@@ -590,14 +586,12 @@ th {
   z-index: 1;
   animation: item-1_move 1.8s cubic-bezier(0.6, 0.01, 0.4, 1) infinite;
 }
-
 .item-2 {
   background-color: #7a45e5;
   top: 0;
   right: 0;
   animation: item-2_move 1.8s cubic-bezier(0.6, 0.01, 0.4, 1) infinite;
 }
-
 .item-3 {
   background-color: #1b91f7;
   bottom: 0;
@@ -605,14 +599,12 @@ th {
   z-index: 1;
   animation: item-3_move 1.8s cubic-bezier(0.6, 0.01, 0.4, 1) infinite;
 }
-
 .item-4 {
   background-color: #fac24c;
   bottom: 0;
   left: 0;
   animation: item-4_move 1.8s cubic-bezier(0.6, 0.01, 0.4, 1) infinite;
 }
-
 @keyframes item-1_move {
   0%,
   100% {
@@ -628,7 +620,6 @@ th {
     transform: translate(30px, 0);
   }
 }
-
 @keyframes item-2_move {
   0%,
   100% {
@@ -644,7 +635,6 @@ th {
     transform: translate(0, 30px);
   }
 }
-
 @keyframes item-3_move {
   0%,
   100% {
@@ -660,7 +650,6 @@ th {
     transform: translate(-30px, 0);
   }
 }
-
 @keyframes item-4_move {
   0%,
   100% {
@@ -683,7 +672,13 @@ th {
   flex-direction: column;
   height: 100vh;
 }
-.chart-container {
+.page-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.pie-chart-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -721,7 +716,9 @@ th {
   white-space: pre-wrap;
   letter-spacing: 0.09rem;
 }
-
+.bar-chart-container {
+  
+}
 /* print */
 @page {
   size: auto;

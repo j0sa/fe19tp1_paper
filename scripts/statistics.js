@@ -285,12 +285,13 @@ onReady(function () {
 });
 
 // Charts
-let ctx = document.getElementById('localstoragechart').getContext('2d');
-
 let usedStat = getUsedSpaceOfLocalStorageInBytes();
 let unusedStat = getUnusedSpaceOfLocalStorageInBytes();
+let wordfreqlist = getWordFrequencyList();
+
 Chart.defaults.global.defaultFontColor = '#000019';
-let localstoragechart = new Chart(ctx, {
+
+let localstoragechart = {
   type: 'pie',
   data: {
     labels: ['Used', 'Unused'],
@@ -303,26 +304,77 @@ let localstoragechart = new Chart(ctx, {
   options: {
     title: {
       display: true,
-      text: 'Memory in Local Storage'
-    },
-  },
-});
+      text: 'Memory in Local Storage:'
+    }
+  }
+}
 
-// new Chart(document.getElementById("localstoragechart"), {
-//   type: 'pie',
-//   data: {
-//     labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
-//     datasets: [{
-//       label: "Population (millions)",
-//       backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-//       data: [2478, 5267, 734, 784, 433]
-//     }]
-//   },
-//   options: {
-//     title: {
-//       display: true,
-//       text: 'Predicted world population (millions) in 2050'
-//     },
-//     responsive: true
-//   }
-// });
+let barchart = {
+  type: 'bar',
+  data: {
+    labels: [
+      wordfreqlist[0],
+      wordfreqlist[1],
+      wordfreqlist[2],
+      wordfreqlist[3],
+      wordfreqlist[4],
+      wordfreqlist[5],
+      wordfreqlist[6],
+      wordfreqlist[7],
+      wordfreqlist[8],
+      wordfreqlist[9]
+    ],
+    datasets: [{
+      label: 'Word Frequency (per number of instance)',
+      data: [
+        wordfreqlist[0][1],
+        wordfreqlist[1][1],
+        wordfreqlist[2][1],
+        wordfreqlist[3][1],
+        wordfreqlist[4][1],
+        wordfreqlist[5][1],
+        wordfreqlist[6][1],
+        wordfreqlist[7][1],
+        wordfreqlist[8][1],
+        wordfreqlist[9][1],
+      ],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        ticks: {
+          display: true
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  }
+}
+
+let ctxOne = document.getElementById('localstoragechart').getContext('2d');
+new Chart(ctxOne, localstoragechart);
+
+let ctxTwo = document.getElementById('barchart').getContext('2d');
+new Chart(ctxTwo, barchart);
