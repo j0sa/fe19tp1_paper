@@ -100,7 +100,7 @@ function getDateOfFirstAndLastNote() {
     let firstNote = notesList[0].created;
     let lastNote = notesList.slice(-1)[0].created;
     //let lastNote = notesList.slice(-1).pop.created;
-    let dateString = 'You wrote your first note ' + firstNote + '. '+ '\n' + 'You wrote your last note ' + lastNote + '.';
+    let dateString = 'You wrote your first note ' + firstNote + '. ' + '\n' + 'You wrote your last note ' + lastNote + '.';
     return dateString;
   }
 }
@@ -180,8 +180,24 @@ function getStatsOnNotes() {
 }
 
 function getWordFrequencyList() {
-  let wordFreq = getWordFrequency(notesString);
-  return wordFreq;
+  if (notesList.length < 100) {
+    let wordFreq = [
+      [0, 0],
+      [0, 0],
+      [0, 0],
+      [0, 0],
+      [0, 0],
+      [0, 0],
+      [0, 0],
+      [0, 0],
+      [0, 0],
+      [0, 0]
+    ]
+    return wordFreq;
+  } else {
+    let wordFreq = getWordFrequency(notesString);
+    return wordFreq;
+  }
 }
 
 function toTable(data, headers) {
@@ -293,6 +309,25 @@ onReady(function () {
 let usedStat = getUsedSpaceOfLocalStorageInBytes();
 let unusedStat = getUnusedSpaceOfLocalStorageInBytes();
 let wordfreqlist = getWordFrequencyList();
+
+/* let wordfreqlist = function() {
+  if(notesList.length === 0) {
+    return [
+      [0, 0],
+      [0, 0],
+      [0, 0],
+      [0, 0],
+      [0, 0],
+      [0, 0],
+      [0, 0],
+      [0, 0],
+      [0, 0],
+      [0, 0]
+    ]
+  }else{
+    return getWordFrequencyList();
+  }
+} */
 
 Chart.defaults.global.defaultFontColor = '#000019';
 
