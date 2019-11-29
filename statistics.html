@@ -15,30 +15,30 @@
   <div class="site-wrapper">
     <nav id="navbar">
       <ul>
-        <li><a href="/index.html"><img src="./assets/img/quire-light.svg" id="nav-logo" alt="logo"></img></a></li> <!-- Home -->
+        <li><a href="/index.html"><img src="./assets/img/quire-light.svg" id="nav-logo" alt="logo"></img></a></li>
+        <!-- Home -->
         <button id="show-fav"><i class='uil uil-favorite'></i></button> <!-- Favorites -->
         <li><a href="/statistics.html"><i class='uil uil-analysis'></i></i></a></li> <!-- Stats -->
         <li><a href="#"><i class='uil uil-cog'></i></i></a></li> <!-- Settings -->
       </ul>
     </nav>
     <div id="page">
-      <div class='page-row'>
+      <div class="container-stats">
         <div class="pie-chart-container">
-          <canvas id="localstoragechart"></canvas>
+          <canvas style="position: relative; width:30vw" id="localstoragechart"></canvas>
           <p id="localstoragequota"></p>
         </div>
         <div class="stats-notes">
           <p id="keysinlocalstorage"></p>
           <p id="dateoffirstandlastnote"></p>
-          <p id="statsonnotes"></p>
         </div>
         <div class="bar-chart-container">
-        <canvas id="barchart"></canvas>
+          <canvas id="barchart"></canvas>
+          <p id="statsonnotes"></p>
         </div>
+        <!-- <div id="wordFreq"></div> -->
       </div>
     </div>
-    <div id="wordFreq"></div>
-
     <div id="loading">
       <div class="contaniner-loading">
         <div class="item item-1"></div>

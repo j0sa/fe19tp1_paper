@@ -173,9 +173,9 @@ function getStatsOnNotes() {
   let mostCommonWord = wordFreq[0][0];
   let leastCommonWord = wordFreq.slice(-2)[0][0];
   let wordCntSentence = 'You have written ' + wordCnt + ' words. ';
-  let uniqueWordsSentence = uniqueWords + ' of them are unique.';
-  let mostCommonWordSentence = ' Your most common word is: ' + mostCommonWord + '.';
-  let leastCommonWordSentence = ' Your least common word is: ' + leastCommonWord + '.';
+  let uniqueWordsSentence = uniqueWords + ' of them are unique.' + '\n';
+  let mostCommonWordSentence = ' Your most common word is:' + mostCommonWord + '.' ;
+  let leastCommonWordSentence = ' Your least common word is: '+ leastCommonWord + '.';
   return wordCntSentence + uniqueWordsSentence + mostCommonWordSentence + leastCommonWordSentence;
 }
 
