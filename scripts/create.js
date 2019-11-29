@@ -1,13 +1,12 @@
 let notes = [];
 // specify the fonts you would 
-var fonts = ['Arial', 'Courier', 'Garamond', 'Tahoma', 'Times New Roman', 'Verdana'];
-// generate code friendly names
+let fonts = ['Arial', 'Courier', 'Garamond', 'Tahoma', 'Times New Roman', 'Verdana'];
 function getFontName(font) {
   return font.toLowerCase().replace(/\s/g, "-");
 }
-var fontNames = fonts.map(font => getFontName(font));
+let fontNames = fonts.map(font => getFontName(font));
 // add fonts to style
-var fontStyles = "";
+let fontStyles = "";
 fonts.forEach(function (font) {
   var fontName = getFontName(font);
   fontStyles += ".ql-bubble .ql-picker.ql-font .ql-picker-label[data-value=" + fontName + "]::before, .ql-bubble .ql-picker.ql-font .ql-picker-item[data-value=" + fontName + "]::before {" +
@@ -18,14 +17,15 @@ fonts.forEach(function (font) {
     " font-family: '" + font + "', sans-serif;" +
     "}";
 });
-var node = document.createElement('style');
+
+let node = document.createElement('style');
 node.innerHTML = fontStyles;
 document.body.appendChild(node);
 // Set up tool for Quill API
 const toolbar = [
+  [{ 'font': fontNames }],
   [{ header: [1, 2, 3, 4, 5, , false] }],
   ["bold", "italic", "underline", "strike"],
-  [{ 'font': fontNames }],
   ["blockquote", "code-block"],
   [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
   [{ align: [] }],
