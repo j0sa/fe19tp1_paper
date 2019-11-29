@@ -73,12 +73,17 @@ function deleteNote() {
   // 
   if (value) {
     notes = notes.filter(note => note.id !== value);
-    saveNotes();
     document.getElementById(value).remove();
-    quill.setText("")
-    //alert
-    //location.reload()
-    value = 0;
+    saveNotes();
+    alert('You are about to delete this note.')
+
+    location.reload();
+    document.querySelector('.btn--create').style.display = "block";
+    document.querySelector('#new').style.display = "none";
+    document.querySelector('#save').style.display = "none";
+    document.querySelector('#delete').style.display = "none";
+    document.querySelector('#print').style.display = "none";
+
   }
 }
 const showFav = document.getElementById('show-fav');

@@ -21,16 +21,28 @@
         <li><a href="#"><i class='uil uil-cog'></i></i></a></li> <!-- Settings -->
       </ul>
     </nav>
-    <div class="stats-div" id="page">
-      <p id="localstoragequota"></p>
-      <p id="keysinlocalstorage"></p>
-      <p id="dateoffirstandlastnote"></p>
-      <p id="statsonnotes"></p>
+    <div id="page">
+      <div class="chart-container">
+        <canvas id="localstoragechart"></canvas>
+        <p id="localstoragequota"></p>
+      </div>
+      <div class="stats-notes">
+        <p id="keysinlocalstorage"></p>
+        <p id="dateoffirstandlastnote"></p>
+        <p id="statsonnotes"></p>
+      </div>
+
     </div>
-    <canvas id="localstoragechart"></canvas>
-    <canvas id="localstoragechart2"></canvas>
     <div id="wordFreq"></div>
-    <div id="loading"></div>
+
+    <div id="loading">
+      <div class="contaniner-loading">
+        <div class="item item-1"></div>
+        <div class="item item-2"></div>
+        <div class="item item-3"></div>
+        <div class="item item-4"></div>
+      </div>
+    </div>
     <button id="dark-mode-toggle" class="dark-mode-toggle"><i class='uil uil-moon'></i></button>
   </div>
 

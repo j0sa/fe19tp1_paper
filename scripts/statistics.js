@@ -77,7 +77,7 @@ function getLocalStorageQuotaInFormattedSize() {
     let quota = 'You have ' + unused + ' of space left';
     return quota;
   } else {
-    let quota = 'You have used ' + used + ' of space.' + ' You have ' + unused + ' of space left.';
+    let quota = 'You have used ' + used + ' of space.' + '\n' + ' You have ' + unused + ' of space left.';
     return quota;
   }
 }
@@ -95,7 +95,7 @@ function getDateOfFirstAndLastNote() {
   if (notesList.length === 1) {
     return 'You wrote your note ' + firstNote;
   } else {
-    let dateString = 'You wrote your first note ' + firstNote + '. ' + 'You wrote your last note ' + lastNost + '.';
+    let dateString = 'You wrote your first note ' + firstNote + '. '+ '\n' + 'You wrote your last note ' + lastNost + '.';
     return dateString;
   }
 }
@@ -289,14 +289,14 @@ let ctx = document.getElementById('localstoragechart').getContext('2d');
 
 let usedStat = getUsedSpaceOfLocalStorageInBytes();
 let unusedStat = getUnusedSpaceOfLocalStorageInBytes();
-
+Chart.defaults.global.defaultFontColor = '#000019';
 let localstoragechart = new Chart(ctx, {
   type: 'pie',
   data: {
     labels: ['Used', 'Unused'],
     datasets: [{
       label: 'Memory in Local Storage',
-      backgroundColor: ["#3e95cd", "#8e5ea2"],
+      backgroundColor: ["#FB538A", "#FFD700"],
       data: [usedStat, unusedStat]
     }]
   },
@@ -304,9 +304,9 @@ let localstoragechart = new Chart(ctx, {
     title: {
       display: true,
       text: 'Memory in Local Storage'
-    },},
+    },
+  },
 });
-
 
 // new Chart(document.getElementById("localstoragechart"), {
 //   type: 'pie',
