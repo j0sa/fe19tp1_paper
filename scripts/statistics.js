@@ -89,13 +89,18 @@ function getNumberOfKeysInLocalStorage() {
 }
 
 function getDateOfFirstAndLastNote() {
-  let firstNote = notesList[0].created;
-  let lastNost = notesList.slice(-1)[0].created;
-  //let lastNote = notesList.slice(-1).pop.created;
-  if (notesList.length === 1) {
-    return 'You wrote your note ' + firstNote;
+  if (notesList.length === 0) {
+    let dateString = 'You do not have any notes';
+    return dateString;
+  } else if (notesList.length === 1) {
+    let firstNote = notesList[0].created;
+    let dateString = 'You wrote your note ' + firstNote;
+    return dateString;
   } else {
-    let dateString = 'You wrote your first note ' + firstNote + '. '+ '\n' + 'You wrote your last note ' + lastNost + '.';
+    let firstNote = notesList[0].created;
+    let lastNote = notesList.slice(-1)[0].created;
+    //let lastNote = notesList.slice(-1).pop.created;
+    let dateString = 'You wrote your first note ' + firstNote + '. '+ '\n' + 'You wrote your last note ' + lastNote + '.';
     return dateString;
   }
 }
@@ -232,7 +237,7 @@ function writeTable() {
 function writeStats() {
   if (notesList === null || !notesList) {
     document.querySelector('#localstoragequota').innerHTML = getLocalStorageQuotaInFormattedSize();
-    document.querySelector('#keysinlocalstorage').innerHTML = ' You do not have any notes to extract statistics from.';
+    document.querySelector('#keysinlocalstorage').innerHTML = getDateOfFirstAndLastNote();
     console.log(getLocalStorageQuotaInFormattedSize());
   } else if (JSON.stringify(notesList).length < 500) {
     document.querySelector('#localstoragequota').innerHTML = getLocalStorageQuotaInFormattedSize();
@@ -372,6 +377,7 @@ let barchart = {
     }
   }
 }
+
 
 let ctxOne = document.getElementById('localstoragechart').getContext('2d');
 new Chart(ctxOne, localstoragechart);
