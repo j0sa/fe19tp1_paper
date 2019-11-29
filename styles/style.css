@@ -207,8 +207,8 @@ h1 {
   justify-content: space-between;
 }
 .btn {
-  height: 6rem;
-  width: 6rem;
+  height: 5rem;
+  width: 5rem;
   color: var(--main-bg-light);
   outline: 0;
   border: 0;
@@ -304,6 +304,10 @@ table {
   cursor: pointer;
   background: var(--background);
   color: var(--foreground);
+}
+table:active,
+table:hover {
+  background: var(--accent);
 }
 tr {
   height: 3rem;

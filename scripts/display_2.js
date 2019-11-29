@@ -70,19 +70,23 @@ function editNote(e) {
 
 function deleteNote() {
   // id på vald note ligger i value (?)
-  // 
-  if (value) {
-    notes = notes.filter(note => note.id !== value);
-    document.getElementById(value).remove();
-    saveNotes();
-    alert('You are about to delete this note.')
+  if (confirm('Are you sure you want to delete this note?')) {
+    if (value) {
+      notes = notes.filter(note => note.id !== value);
+      document.getElementById(value).remove();
+      saveNotes();
+      location.reload();
+      document.querySelector('.btn--create').style.display = "block";
+      document.querySelector('#new').style.display = "none";
+      document.querySelector('#save').style.display = "none";
+      document.querySelector('#delete').style.display = "none";
+      document.querySelector('#print').style.display = "none";
+    } else {
+      // do nothing
+    }
 
-    location.reload();
-    document.querySelector('.btn--create').style.display = "block";
-    document.querySelector('#new').style.display = "none";
-    document.querySelector('#save').style.display = "none";
-    document.querySelector('#delete').style.display = "none";
-    document.querySelector('#print').style.display = "none";
+
+
 
   }
 }
@@ -126,48 +130,3 @@ closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
 
 // Settings Modal View
-
-/* function deleteItem() {
-  let noteID = notes.parentElement.id;
-  localStorage.removeItem(noteID);
-  for (let i = 0; i < notes.length; i++) {
-    if (notes[i].id == noteID) {
-      notes.splice(i, 1);
-      break;
-    }
-  }
- saveNotes();
-}
-
-const deleteItem2 = itemId => {
-  let noteID = notes.parentElement.id;
-  for (i = 0; i < notes.length; i++) {
-    if (notes[i].dateCreated === Number(noteID)) {
-      console.log(i);
-      notes.splice(i, 1);
-      console.log(`deleted item ${noteID}`);
-      break;
-    }
-    if (i >= notes.length) {
-      console.log(`itemId ${noteID} not found`);
-    }
-  }
-  saveNotes();
-} */
-
-
-/* // Remove a note
-document.getElementById('delete').addEventListener('click', function () {
-  notes.forEach(note => {
-    let noteID = note.parentElement.id;
-    let currentNote = notes.find(note => note.id === Number(noteID))
-    if (!currentNote.id) {
-      console.log(currentNote.id)
-    }
-  })
-  delete notesList[0]
-  console.log()
-
-  localStorage.setItem("note", JSON.stringify(notes))
-  saveNotes();
-}); */
