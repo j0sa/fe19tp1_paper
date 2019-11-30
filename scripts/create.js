@@ -74,7 +74,7 @@ const createNote = () => {
   window.location.href = window.location.href;
 };
 function success() {
-  if (document.querySelector("#editor").value === "") {
+  if (document.getElementById("editor").value === "") {
     document.querySelector('.btn--create').disabled = true;
   } else {
     document.querySelector('.btn--create').disabled = false;
@@ -109,9 +109,8 @@ function editNote(e) {
 }
 
 /* Printer function */
-
 function printNote() {
   quill.getModule('toolbar').container.hidden = true;
   document.querySelector('.ql-tooltip').hidden = true;
+
 }
- //location.reload()

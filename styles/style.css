@@ -55,8 +55,10 @@ html {
   height: 100vh;
 }
 ::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  display: none;
 }
 body {
   min-height: 100vh;
@@ -78,9 +80,6 @@ html {
   html {
     font-size: 75%;
   }
-}
-::-webkit-scrollbar-thumb {
-  display: none;
 }
 .site-wrapper {
   display: flex;
@@ -204,6 +203,7 @@ h1 {
   margin: 0 auto;
 }
 .quill-container {
+  max-width: 50vw;
   width: 50vw;
   background-color: var(--background);
   color: var(--foreground);

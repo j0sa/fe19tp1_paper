@@ -60,8 +60,6 @@ function editNote(e) {
         console.log(notesList[i].title, notesList[i].content)
         localStorage.setItem("note", JSON.stringify(notesList));
         console.log('saveNotes ran')
-        // Reloads page
-        window.location.href = window.location.href
         break; //skip further iterations at match
       };
     }
