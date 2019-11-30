@@ -63,6 +63,8 @@ function getLocalStorageQuotaInBytes() {
   // Collects numbers from getUnusedSpaceOfLocalStorageInBytes() and getUsedSpaceOfLocalStorageInBytes()
   let unused = getUnusedSpaceOfLocalStorageInBytes();
   let used = getUsedSpaceOfLocalStorageInBytes();
+  unused = unused.bold();
+  used = used.bold();
   let quota = 'Unused bytes: ' + unused + ' Used Bytes: ' + used;
   console.log(quota)
   return quota;
@@ -174,13 +176,15 @@ function getStatsOnNotes() {
   let leastCommonWord = wordFreq.slice(-2)[0][0];
   let wordCntSentence = 'You have written ' + wordCnt + ' words. ';
   let uniqueWordsSentence = uniqueWords + ' of them are unique.' + '\n';
-  let mostCommonWordSentence = ' Your most common word is:' + mostCommonWord + '.' ;
-  let leastCommonWordSentence = ' Your least common word is: '+ leastCommonWord + '.';
+  mostCommonWord = mostCommonWord.bold();
+  leastCommonWord = leastCommonWord.bold();
+  let mostCommonWordSentence = ' Your most common word is: ' + mostCommonWord + '.' + '\n';
+  let leastCommonWordSentence = ' Your least common word is: ' + leastCommonWord + '.';
   return wordCntSentence + uniqueWordsSentence + mostCommonWordSentence + leastCommonWordSentence;
 }
 
 function getWordFrequencyList() {
-  if (notesList.length < 100) {
+  if (notesString.length < 100) {
     let wordFreq = [
       [0, 0],
       [0, 0],
