@@ -333,7 +333,10 @@ let wordfreqlist = getWordFrequencyList();
   }
 } */
 
-Chart.defaults.global.defaultFontColor = '#000019';
+// Chart.defaults.global.defaultFontColor = 'var(--foreground)'; 
+Chart.defaults.global.defaultFont = "Open Sans"
+Chart.defaults.global.defaultFontSize = 14;
+Chart.defaults.global.elements.responsive = true;
 
 let localstoragechart = {
   type: 'pie',

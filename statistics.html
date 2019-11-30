@@ -17,15 +17,27 @@
       <ul>
         <li><a href="/index.html"><img src="./assets/img/quire-light.svg" id="nav-logo" alt="logo"></img></a></li>
         <!-- Home -->
-        <button id="show-fav"><i class='uil uil-favorite'></i></button> <!-- Favorites -->
-        <li><a href="/statistics.html"><i class='uil uil-analysis'></i></i></a></li> <!-- Stats -->
-        <li><a href="#"><i class='uil uil-cog'></i></i></a></li> <!-- Settings -->
       </ul>
     </nav>
+    <style>
+      #navbar ul {
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      @media (max-width: 860px) {
+        #navbar ul {
+          min-height: 7rem;
+        }
+      }
+    </style>
     <div id="page">
       <div class="container-stats">
         <div class="pie-chart-container">
-          <canvas style="position: relative; height: 50vh; width:30vw" id="localstoragechart"></canvas>
+          <canvas style="position: relative; height:50vh" id="localstoragechart"></canvas>
           <p id="localstoragequota"></p>
         </div>
         <div class="stats-notes">

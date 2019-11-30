@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,500,500i,700,700i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i&display=swap");
 *,
 *::before,
 *::after {
@@ -121,7 +123,7 @@ i {
   transform: scale(1.1);
 }
 #stats i:hover,
-#btn-settings:hover {
+#btn-settings i:hover {
   color: var(--accent);
   cursor: pointer;
 }
@@ -239,8 +241,7 @@ h1 {
   cursor: pointer;
   right: 3rem;
 }
-.btn:hover,
-.btn:focus {
+.btn:hover {
   background-color: var(--accent);
   transform: scale(1.1);
 }
@@ -468,6 +469,9 @@ th {
   }
 }
 /*----------Statistics------------*/
+canvas {
+  color: var(--foreground);
+}
 .container-stats {
   display: flex;
   flex-flow: wrap;
@@ -480,10 +484,10 @@ th {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50rem;
-  height: 50rem;
   color: var(--foreground);
+  width: 50rem;
   margin: 0 auto;
+  position: relative;
 }
 #localstoragequota {
   padding-top: 1rem;
@@ -762,7 +766,6 @@ th {
   .bar-chart-container {
     margin: auto;
     width: 60vw;
-    height: 50vh;
     justify-content: center;
     color: var(--foreground);
     white-space: pre-wrap;

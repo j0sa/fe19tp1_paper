@@ -1,6 +1,6 @@
 let notes = [];
 // specify the fonts you would 
-let fonts = ['Arial', 'Courier', 'Garamond', 'Tahoma', 'Times New Roman', 'Verdana'];
+let fonts = ['Open Sans' ,'Roboto Mono', 'Playfair Display' ];
 function getFontName(font) {
   return font.toLowerCase().replace(/\s/g, "-");
 }

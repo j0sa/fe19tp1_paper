@@ -1,8 +1,8 @@
 /* Theme nr.3 */
 
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i&display=swap');
-.ql-editor{
-    font-family: 'Playfair Display', serif;
-    -webkit-font-smoothing: antialiased;
-	  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i&display=swap");
+.ql-editor {
+  font-family: "Playfair Display", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
