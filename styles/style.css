@@ -123,11 +123,15 @@ i {
 #stats i:hover,
 #btn-settings:hover {
   color: var(--accent);
+  cursor: pointer;
 }
 /*--------- Star and Cog button------------*/
 #show-fav,
 #btn-settings {
   background: none;
+}
+#show-fav i:hover {
+  color: var(--star);
 }
 #show-fav:hover,
 #show-fav:focus {
@@ -238,8 +242,10 @@ h1 {
 .btn:hover,
 .btn:focus {
   background-color: var(--accent);
-  color: var(--main-text-color);
   transform: scale(1.1);
+}
+.btn i:hover {
+  color: var(--main-text-color);
 }
 .btn--create {
   position: absolute;
@@ -325,6 +331,7 @@ table {
 table:active,
 table:hover {
   background: var(--accent);
+  color: var(--primary);
 }
 tr {
   height: 3rem;
