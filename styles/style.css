@@ -314,10 +314,17 @@ h1 {
 .search-bar {
   padding: 0.5rem 0.5rem;
   font-size: 1.3rem;
-  border: 0;
-  border-radius: 2rem;
   background: var(--background);
   color: var(--foreground);
+}
+.search-bar input {
+  background: var(--background);
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 .container-search i {
   color: var(--foreground);
@@ -657,6 +664,7 @@ canvas {
     width: 100vw;
     position: relative;
     padding-top: 1rem;
+    box-shadow: none;
   }
   .search-bar {
     padding: 0.5rem 0.5rem;
