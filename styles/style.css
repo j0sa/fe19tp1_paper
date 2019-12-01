@@ -134,10 +134,6 @@ i {
 }
 #show-fav i:hover {
   color: var(--star);
-}
-#show-fav:hover,
-#show-fav:focus {
-  color: var(--star);
   cursor: pointer;
   transform: scale(1.1);
 }
@@ -497,7 +493,6 @@ canvas {
   display: flex;
   flex-flow: wrap;
   flex-direction: column;
-  width: 100vw;
   height: 100vh;
   justify-content: center;
 }
@@ -506,7 +501,7 @@ canvas {
   flex-direction: column;
   justify-content: center;
   color: var(--foreground);
-  width: 50rem;
+  width: 50vw;
   margin: 0 auto;
   position: relative;
 }
@@ -788,21 +783,18 @@ canvas {
     margin: 0 auto;
   }
   .pie-chart-container {
-    height: 40vh;
+    width: 50vh;
   }
   .bar-chart-container {
-    margin: auto;
-    width: 60vw;
+    display: flex;
+    align-content: center;
     justify-content: center;
-    color: var(--foreground);
-    white-space: pre-wrap;
-    text-align: center;
-    padding-bottom: 7rem;
+    width: 50vw;
+    margin: 0 auto;
+    height: auto;
   }
   #statsonnotes {
-    margin: 0 auto;
     width: 60vw;
-    text-align: center;
   }
 }
 @media only screen and (min-width: 860px) {

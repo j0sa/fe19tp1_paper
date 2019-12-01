@@ -258,7 +258,7 @@ function writeStats() {
   if (notesList === null || !notesList) {
     document.querySelector('#localstoragequota').innerHTML = getLocalStorageQuotaInFormattedSize();
     document.querySelector('#keysinlocalstorage').innerHTML = getDateOfFirstAndLastNote();
-    console.log(getLocalStorageQuotaInFormattedSize());
+    // console.log(getLocalStorageQuotaInFormattedSize());
   } else if (JSON.stringify(notesList).length < 500) {
     document.querySelector('#localstoragequota').innerHTML = getLocalStorageQuotaInFormattedSize();
     document.querySelector('#keysinlocalstorage').innerHTML = getNumberOfKeysInLocalStorage();
@@ -269,9 +269,9 @@ function writeStats() {
     document.querySelector('#keysinlocalstorage').innerHTML = getNumberOfKeysInLocalStorage();
     document.querySelector('#dateoffirstandlastnote').innerHTML = getDateOfFirstAndLastNote();
     document.querySelector('#statsonnotes').innerHTML = getStatsOnNotes();
-    console.log(getLocalStorageQuotaInFormattedSize());
-    console.log(getNumberOfKeysInLocalStorage());
-    console.log(getDateOfFirstAndLastNote());
+    // console.log(getLocalStorageQuotaInFormattedSize());
+    // console.log(getNumberOfKeysInLocalStorage());
+    // console.log(getDateOfFirstAndLastNote());
   }
 }
 
