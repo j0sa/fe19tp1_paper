@@ -12,7 +12,6 @@
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
-  /* transition: all 0.3s ease; */
 }
 :focus {
   outline: none;
@@ -694,6 +693,16 @@ canvas {
   .btn {
     margin-top: 4%;
   }
+  .btns {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    height: 9vh;
+    bottom: 1rem;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  /*----------Modal View------------*/
   .modal {
     position: fixed;
     z-index: 6;
@@ -705,15 +714,6 @@ canvas {
     visibility: hidden;
     transform: scale(1.1);
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-  }
-  .btns {
-    position: absolute;
-    right: 0;
-    height: 9vh;
-    bottom: 1rem;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-around;
   }
   .modal-content {
     position: absolute;

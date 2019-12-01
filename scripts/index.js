@@ -17,7 +17,6 @@ $(document).ready(function () {
 	});
 });
 $('.btn--edit').click(function () {
-
 	$(this).text('').removeClass('success').addClass('loading').delay(1000).queue(function () {
 		$(this).removeClass("loading").dequeue().addClass('success');
 	});

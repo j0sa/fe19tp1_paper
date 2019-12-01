@@ -2,6 +2,7 @@ let notesList = JSON.parse(localStorage.getItem("note"));
 if (notesList != null) { document.getElementById("scroll-notes").innerHTML = notesList.map(noteTemplate).join("") }
 else { console.log('No notes!'); }
 if (notesList === null) { document.querySelector(".table-container").style.visibility = "hidden" }
+
 document.querySelector("#scroll-notes").addEventListener('click', function (e) {
   let iD = e.target.closest('table').id;
   if (e.target.classList.contains("fav")) {
@@ -80,7 +81,7 @@ function deleteNote() {
       document.querySelector('#delete').style.display = "none";
       document.querySelector('#print').style.display = "none";
     } else {
-      // do nothing
+      // Do nothing
     }
 
   }
@@ -102,9 +103,9 @@ showFav.addEventListener('click', function () {
     } else {
 
     }
-  })
+  });
 });
-//clear editor 
+// Clear editor 
 function clearEditor() {
   quill.setContents([])
   document.querySelector('.btn--create').style.display = "block";
@@ -113,7 +114,7 @@ function clearEditor() {
   document.querySelector('#delete').style.display = "none";
   document.querySelector('#print').style.display = "none";
 }
-// Quill Modal View
+// Editor Reponsive Modal View
 let modal = document.querySelector(".modal");
 let trigger = document.querySelector(".trigger");
 let closeButton = document.querySelector('#close-button');
@@ -127,10 +128,8 @@ function windowOnClick(e) {
     toggleModal();
   }
 }
-
 trigger.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
 
 
-// Settings Modal View
