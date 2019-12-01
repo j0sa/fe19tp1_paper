@@ -22,6 +22,7 @@
   --main-bg-dark: #1a1a1a;
   --main-text-color: #000019;
   --secondary-text-color: #ffffff;
+  --third-text-color: rgb(87, 87, 87);
   --primary: #000019;
   --accent: #a6eef7;
   --accent-second: #ececec;
@@ -356,14 +357,13 @@ tr {
 }
 td {
   padding-left: 1rem;
-  color: rgb(87, 87, 87);
 }
 
 .title {
   padding-left: 1rem;
   text-align: left;
   white-space: nowrap;
-  color: var(--primary);
+  color: var(--foreground);
   font-size: 1.6rem;
 }
 .date {
@@ -371,17 +371,18 @@ td {
   font-weight: 300;
   text-align: right;
   padding-right: 1rem;
-  color: var(--primary);
+  color: var(--foreground);
 }
 .summary {
   font-size: 1.3rem;
   padding-bottom: 0.3rem;
+  color: var(--foreground);
 }
 .fav {
   font-size: 1.8rem;
   text-align: right;
   padding-right: 1rem;
-  color: var(--primary);
+  color: var(--foreground);
 }
 /*----------Loader for stats ------------*/
 #loading {
