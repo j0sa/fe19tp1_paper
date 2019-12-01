@@ -357,8 +357,8 @@ tr {
 td {
   padding-left: 1rem;
   color: rgb(87, 87, 87);
-  font-size: 1.3rem;
 }
+
 .title {
   padding-left: 1rem;
   text-align: left;
@@ -372,6 +372,10 @@ td {
   text-align: right;
   padding-right: 1rem;
   color: var(--primary);
+}
+.summary {
+  font-size: 1.3rem;
+  padding-bottom: 0.3rem;
 }
 .fav {
   font-size: 1.8rem;

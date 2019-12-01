@@ -26,9 +26,13 @@ const toolbar = [
   [{ 'font': fontNames }],
   [{ header: [1, 2, 3, 4, 5, , false] }],
   ["bold", "italic", "underline", "strike"],
+  [{ 'color': [] }, { 'background': [] }],  
   ["blockquote", "code-block"],
-  [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
-  [{ align: [] }],
+  [{ 'align': [] }],
+  [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+  [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+  [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
+  [{ 'direction': 'rtl' }],  
   ['link', 'image', 'video', 'formula'],
   ["clean"]
 ];
