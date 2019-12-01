@@ -656,6 +656,8 @@ canvas {
   }
   .description {
     width: 90vw;
+    height: auto;
+    padding-bottom: 2rem;
     font-size: 2rem;
   }
   /*----------Table------------*/
