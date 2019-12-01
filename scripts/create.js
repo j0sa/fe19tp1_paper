@@ -113,3 +113,8 @@ function printNote() {
   quill.getModule('toolbar').container.hidden = true;
   document.querySelector('.ql-tooltip').hidden = true;
 }
+/*  Disable print func */
+ function disablePrintNote () {
+  quill.getModule('toolbar').container.hidden = false;
+  document.querySelector('.ql-tooltip').hidden = false;
+}
