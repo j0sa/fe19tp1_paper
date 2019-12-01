@@ -18,7 +18,7 @@ function noteTemplate(myNote) {
     <table id="${myNote.id}" class="my-notes" cellspacing="0" cellpadding="0" onclick='loadNote(${myNote.id})'>
       <tbody class="note-cell"> 
         <tr><th class = "title">${myNote.title}</th><td colspan = "6" class = "date">${myNote.created}</td></tr>
-        <td colspan = "6">${myNote.content.ops[0].insert.slice(0, 30)}\n${myNote.content.ops[0].insert.slice(30, 60)}</td>
+        <td colspan = "6">${myNote.content.ops[0].insert.slice(0, 30)}\n${myNote.content.ops[0].insert.slice(0, 0)}</td>
         <td class ="fav">${favChar}</td>
         
       </tbody>

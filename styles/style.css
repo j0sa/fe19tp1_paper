@@ -356,25 +356,28 @@ tr {
 }
 td {
   padding-left: 1rem;
-}
-th {
-  font-size: 1.6rem;
+  color: rgb(87, 87, 87);
+  font-size: 1.3rem;
 }
 .title {
   padding-left: 1rem;
   text-align: left;
   white-space: nowrap;
+  color: var(--primary);
+  font-size: 1.6rem;
 }
 .date {
   font-size: 1.2rem;
   font-weight: 300;
   text-align: right;
   padding-right: 1rem;
+  color: var(--primary);
 }
 .fav {
   font-size: 1.8rem;
   text-align: right;
   padding-right: 1rem;
+  color: var(--primary);
 }
 /*----------Loader for stats ------------*/
 #loading {
