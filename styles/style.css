@@ -12,6 +12,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
+  /* transition: all 0.3s ease; */
 }
 :focus {
   outline: none;
@@ -143,7 +144,7 @@ i {
 /*---------- Welcome page------------*/
 .logo {
   position: absolute;
-  padding: 2.5rem 2.5rem;
+  padding: 2rem 2rem;
 }
 .logo img {
   width: 7rem;
@@ -154,26 +155,34 @@ h1 {
 .start-wrapper {
   display: flex;
   justify-content: center;
-  min-width: 100%;
+  width: 100vw;
 }
 .container-about {
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
   color: (var(--primary));
+  display: -webkit-box;
+  -webkit-box-pack: center; /* justify-content */
+  -webkit-box-align: center; /* align-items */
 }
-.container-about img {
-  width: 50rem;
+.about-img {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 35vw;
+  height: 40vh;
 }
 .description {
   display: flex;
   white-space: wrap;
   justify-content: space-around;
   flex-direction: column;
-  margin: 4rem;
-  width: 60rem;
+  width: 45vw;
+  height: 50vh;
   font-size: 2rem;
   font-weight: 600;
   line-height: 1.45;
@@ -203,7 +212,6 @@ h1 {
   margin: 0 auto;
 }
 .quill-container {
-  max-width: 50vw;
   width: 50vw;
   background-color: var(--background);
   color: var(--foreground);
@@ -273,6 +281,19 @@ h1 {
 }
 .btn--print i {
   font-size: 2rem;
+}
+
+.btn--edit.loading {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 25px;
+}
+
+.btn--edit.success {
+  background-image: url("http://www.clker.com/cliparts/x/n/7/m/p/g/check-mark-in-white-md.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 25px;
 }
 /*----------Container for notes------------*/
 .container-search {
@@ -577,7 +598,6 @@ canvas {
 @media only screen and (max-width: 860px) {
   .start-wrapper {
     margin-top: 10vh;
-    justify-content: space-around;
   }
   .logo {
     right: 0;
@@ -615,7 +635,14 @@ canvas {
     font-size: 4rem;
     padding-bottom: 1.4rem;
   }
-  .container-about img {
+  .container-about {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    color: (var(--primary));
+  }
+  .about-img {
     width: 90vw;
   }
   .description {
@@ -642,9 +669,9 @@ canvas {
   }
   /*----------Editor------------*/
   .quill-container {
-    width: 90vw;
+    width: 93vw;
     text-align: center;
-    margin: auto;
+    margin: 0 auto;
     position: relative;
     height: 90vh;
     padding-top: 2.2rem;
@@ -671,8 +698,8 @@ canvas {
   .btns {
     position: absolute;
     right: 0;
-    height: 10vh;
-    bottom: 2rem;
+    height: 9vh;
+    bottom: 1rem;
     flex-direction: row;
     width: 100%;
     justify-content: space-around;
@@ -761,7 +788,7 @@ canvas {
     margin: 0 auto;
   }
   .pie-chart-container {
-    height: 50vh;
+    height: 40vh;
   }
   .bar-chart-container {
     margin: auto;
@@ -774,7 +801,6 @@ canvas {
   }
   #statsonnotes {
     margin: 0 auto;
-    padding-top: 2rem;
     width: 60vw;
     text-align: center;
   }

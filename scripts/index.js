@@ -16,6 +16,13 @@ $(document).ready(function () {
 		expires: 2147483647
 	});
 });
+$('.btn--edit').click(function () {
+
+	$(this).text('').removeClass('success').addClass('loading').delay(1000).queue(function () {
+		$(this).removeClass("loading").dequeue().addClass('success');
+	});
+
+});
 
 let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 handleDarkmode(darkModeMediaQuery);

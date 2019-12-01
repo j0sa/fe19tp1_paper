@@ -15,10 +15,10 @@ function noteTemplate(myNote) {
   notes.push(myNote);
   let favChar = !myNote.favorite ? "☆" : "★";
   return `
-    <table id="${myNote.id}" class="my-notes" cellspacing="0" cellpadding="0"   onclick='loadNote(${myNote.id})'>
+    <table id="${myNote.id}" class="my-notes" cellspacing="0" cellpadding="0" onclick='loadNote(${myNote.id})'>
       <tbody class="note-cell"> 
         <tr><th class = "title">${myNote.title}</th><td colspan = "6" class = "date">${myNote.created}</td></tr>
-        <td colspan = "6">${myNote.content.ops[0].insert.slice(0, 30)}\n${myNote.content.ops[0].insert.slice(30, 60)}</td>
+        <td colspan = "6">${myNote.content.ops[0].insert.slice(0, 30)}\n${myNote.content.ops[1].insert.slice(0, 60)}</td>
         <td class ="fav">${favChar}</td>
         
       </tbody>
@@ -50,7 +50,6 @@ document.querySelector("#new").addEventListener('click', function () {
 
 function editNote(e) {
   quill.enable(e);
-  console.log("inside editnote")
   if (e == false) {
     // loop through all and update the particular object
     for (i = 0; i < notesList.length; i++) {
@@ -59,7 +58,8 @@ function editNote(e) {
         notesList[i].content = quill.getContents()
         console.log(notesList[i].title, notesList[i].content)
         localStorage.setItem("note", JSON.stringify(notesList));
-        console.log('saveNotes ran')
+        // Reloads page
+        // window.location.href = window.location.href;
         break; //skip further iterations at match
       };
     }
