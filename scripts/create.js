@@ -1,12 +1,16 @@
 let notes = [];
 // specify the fonts you would 
-let fonts = ['Open Sans' ,'Roboto Mono', 'Playfair Display' ];
+let fonts = ['Open Sans', 'Roboto Mono', 'Playfair Display'];
+
 function getFontName(font) {
   return font.toLowerCase().replace(/\s/g, "-");
 }
+
 let fontNames = fonts.map(font => getFontName(font));
+
 // add fonts to style
 let fontStyles = "";
+
 fonts.forEach(function (font) {
   var fontName = getFontName(font);
   fontStyles += ".ql-bubble .ql-picker.ql-font .ql-picker-label[data-value=" + fontName + "]::before, .ql-bubble .ql-picker.ql-font .ql-picker-item[data-value=" + fontName + "]::before {" +
@@ -21,23 +25,25 @@ fonts.forEach(function (font) {
 let node = document.createElement('style');
 node.innerHTML = fontStyles;
 document.body.appendChild(node);
+
 // Set up tool for Quill API
 const toolbar = [
   [{ 'font': fontNames }],
   [{ header: [1, 2, 3, 4, 5, , false] }],
   ["bold", "italic", "underline", "strike"],
-  [{ 'color': [] }, { 'background': [] }],  
+  [{ 'color': [] }, { 'background': [] }],
   ["blockquote", "code-block"],
   [{ 'align': [] }],
   [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-  [{ 'script': 'sub' }, { 'script': 'super' }],      
-  [{ 'indent': '-1' }, { 'indent': '+1' }],          
-  [{ 'direction': 'rtl' }],  
+  [{ 'script': 'sub' }, { 'script': 'super' }],
+  [{ 'indent': '-1' }, { 'indent': '+1' }],
+  [{ 'direction': 'rtl' }],
   ['link', 'image', 'video', 'formula'],
   ["clean"]
 ];
+
 // Add fonts to whitelist
-var Font = Quill.import('formats/font');
+let Font = Quill.import('formats/font');
 Font.whitelist = fontNames;
 Quill.register(Font, true);
 
@@ -49,7 +55,9 @@ let quill = new Quill("#editor", {
   theme: "bubble",
   placeholder: "Highlight to format the text."
 });
+
 quill.focus()
+
 //Get items into local storage
 let oldnotes = localStorage.getItem("note") ? JSON.parse(localStorage.getItem("note")) : [];
 //console.log(oldnotes);
@@ -77,6 +85,7 @@ const createNote = () => {
   // Reloads page
   window.location.href = window.location.href;
 };
+
 function success() {
   if (document.getElementById("editor").value === "") {
     document.querySelector('.btn--create').disabled = true;
@@ -84,25 +93,7 @@ function success() {
     document.querySelector('.btn--create').disabled = false;
   }
 }
-/*
-// Store accumulated changes
-let change = new Delta();
-quill.on('text-change', function (delta) {
-  change = change.compose(delta);
-});
-/*
-// Save periodically
-setInterval(function () {
-  if (change.length() > 0) {
-    console.log('Saving changes', change);
-    // Save the entire updated text to localStorage
-    const data = JSON.stringify(quill.getContents())
-    localStorage.setItem('data', data);
-    change = new Delta();
-  }
-}, 5 * 1000);
 
-*/
 document.querySelector('#new').style.display = "none";
 document.querySelector('#save').style.display = "none";
 document.querySelector('#delete').style.display = "none";
@@ -117,8 +108,9 @@ function printNote() {
   quill.getModule('toolbar').container.hidden = true;
   document.querySelector('.ql-tooltip').hidden = true;
 }
+
 /*  Disable print func */
- function disablePrintNote () {
+function disablePrintNote() {
   quill.getModule('toolbar').container.hidden = false;
   document.querySelector('.ql-tooltip').hidden = false;
 }

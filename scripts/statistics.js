@@ -71,8 +71,6 @@ function getLocalStorageQuotaInBytes() {
 }
 
 function getLocalStorageQuotaInFormattedSize() {
-  //let unused = formatBytes(getUnusedSpaceOfLocalStorageInBytes(), 0); <--IF WITH DECIMALS
-  //let used = formatBytes(getUsedSpaceOfLocalStorageInBytes(), 0); <--IF WITH DECIAMALS
   let unused = formatBytesNoDecimals(getUnusedSpaceOfLocalStorageInBytes());
   let used = formatBytesNoDecimals(getUsedSpaceOfLocalStorageInBytes());
   if (notesList === null || !notesList) {
@@ -223,22 +221,6 @@ function addRowsBefore(table, data) {
   return table;
 }
 
-/* $(function () {
-  $('#countWordsBtn').on('click', function (e) {
-    let str = notesString;
-    let wordFreq = getWordFrequency(str);
-    let wordCount = getWordCount(str);
-    let uniqueWords = wordFreq.length;
-    let summaryData = [
-      ['TOTAL', wordCount],
-      ['UNIQUE', uniqueWords]
-    ];
-    let table = toTable(wordFreq, ['Word', 'Frequency']);
-    addRowsBefore(table, summaryData);
-    $('#wordFreq').html(table);
-  });
-}); */
-
 function writeTable() {
   let str = notesString;
   let wordFreq = getWordFrequency(str);
@@ -253,12 +235,11 @@ function writeTable() {
   $('#wordFreq').html(table);
 }
 
-// Temporary DOM writer
+// DOM writer
 function writeStats() {
   if (notesList === null || !notesList) {
     document.querySelector('#localstoragequota').innerHTML = getLocalStorageQuotaInFormattedSize();
     document.querySelector('#keysinlocalstorage').innerHTML = getDateOfFirstAndLastNote();
-    // console.log(getLocalStorageQuotaInFormattedSize());
   } else if (JSON.stringify(notesList).length < 500) {
     document.querySelector('#localstoragequota').innerHTML = getLocalStorageQuotaInFormattedSize();
     document.querySelector('#keysinlocalstorage').innerHTML = getNumberOfKeysInLocalStorage();
@@ -269,9 +250,6 @@ function writeStats() {
     document.querySelector('#keysinlocalstorage').innerHTML = getNumberOfKeysInLocalStorage();
     document.querySelector('#dateoffirstandlastnote').innerHTML = getDateOfFirstAndLastNote();
     document.querySelector('#statsonnotes').innerHTML = getStatsOnNotes();
-    // console.log(getLocalStorageQuotaInFormattedSize());
-    // console.log(getNumberOfKeysInLocalStorage());
-    // console.log(getDateOfFirstAndLastNote());
   }
 }
 
@@ -313,25 +291,6 @@ onReady(function () {
 let usedStat = getUsedSpaceOfLocalStorageInBytes();
 let unusedStat = getUnusedSpaceOfLocalStorageInBytes();
 let wordfreqlist = getWordFrequencyList();
-
-/* let wordfreqlist = function() {
-  if(notesList.length === 0) {
-    return [
-      [0, 0],
-      [0, 0],
-      [0, 0],
-      [0, 0],
-      [0, 0],
-      [0, 0],
-      [0, 0],
-      [0, 0],
-      [0, 0],
-      [0, 0]
-    ]
-  }else{
-    return getWordFrequencyList();
-  }
-} */
 
 // Chart.defaults.global.defaultFontColor = 'var(--foreground)'; 
 Chart.defaults.global.defaultFont = "Open Sans"
@@ -419,7 +378,6 @@ let barchart = {
     }
   }
 }
-
 
 let ctxOne = document.getElementById('localstoragechart').getContext('2d');
 new Chart(ctxOne, localstoragechart);

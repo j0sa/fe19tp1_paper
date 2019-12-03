@@ -1,7 +1,7 @@
-(function(document) {
+(function (document) {
   "use strict";
 
-  let tableFilter = (function(Arr) {
+  let tableFilter = (function (Arr) {
     let _input;
 
     function _onInputEvent(e) {
@@ -9,8 +9,8 @@
       let tables = document.getElementsByClassName(
         _input.getAttribute("data-table")
       );
-      Arr.forEach.call(tables, function(table) {
-        Arr.forEach.call(table.tBodies, function(tbody) {
+      Arr.forEach.call(tables, function (table) {
+        Arr.forEach.call(table.tBodies, function (tbody) {
           Arr.forEach.call(tbody.rows, _filter);
         });
       });
@@ -23,19 +23,19 @@
     }
 
     return {
-      init: function() {
+      init: function () {
         let inputs = document.getElementsByClassName("search-bar");
-        Arr.forEach.call(inputs, function(input) {
+        Arr.forEach.call(inputs, function (input) {
           input.oninput = _onInputEvent;
         });
       }
     };
   })(Array.prototype);
 
-  document.addEventListener("readystatechange", function() {
+  document.addEventListener("readystatechange", function () {
     if (document.readyState === "complete") {
       tableFilter.init();
     }
   });
-  
+
 })(document);
